@@ -9,3 +9,14 @@ C:\Users\rhort\Desktop\Team 6 Senior Project\Team 6 Senior Project\obj\Debug\Tea
 C:\Users\rhort\Desktop\Team 6 Senior Project\Team 6 Senior Project\obj\Debug\Team 6 Senior Project.exe
 C:\Users\rhort\Desktop\Team 6 Senior Project\Team 6 Senior Project\obj\Debug\Team 6 Senior Project.pdb
 C:\Users\rhort\Desktop\Team 6 Senior Project\Team 6 Senior Project\obj\Debug\Team_6_Senior_Project.MainMenu.resources
+C:\Users\rhort\Desktop\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\Team 6 Senior Project.exe.config
+C:\Users\rhort\Desktop\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\Team 6 Senior Project.exe
+C:\Users\rhort\Desktop\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\Team 6 Senior Project.pdb
+C:\Users\rhort\Desktop\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\Team 6 Senior Project.csproj.SuggestedBindingRedirects.cache
+C:\Users\rhort\Desktop\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\Team_6_Senior_Project.MainMenu.resources
+C:\Users\rhort\Desktop\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\Team_6_Senior_Project.Properties.Resources.resources
+C:\Users\rhort\Desktop\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\Team_6_Senior_Project.TableMenu.resources
+C:\Users\rhort\Desktop\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\Team 6 Senior Project.csproj.GenerateResource.cache
+C:\Users\rhort\Desktop\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\Team 6 Senior Project.csproj.CoreCompileInputs.cache
+C:\Users\rhort\Desktop\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\Team 6 Senior Project.exe
+C:\Users\rhort\Desktop\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\Team 6 Senior Project.pdb

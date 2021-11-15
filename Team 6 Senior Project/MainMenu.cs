@@ -1,5 +1,4 @@
 ﻿using System;
-/*
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,13 +8,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-*/
 using System.Windows.Forms;
 
 namespace Team_6_Senior_Project
 {
     public partial class MainMenu : Form
     {
+        private WindowChanger changer = new WindowChanger();
         public MainMenu()
         {
             InitializeComponent();
@@ -43,33 +42,25 @@ namespace Team_6_Senior_Project
             }
             return null;
         }
+
         /*
-         * openExistingButton_Click is used to return a filePath that the user specifies that can be used 
+         * openExistingButton_Click is used to return a filePath that the user specifies that can be used for the program.
+         * It will create TableMenu but load new data in first.
          * 
          */
-
-        private void changeWindows(Form orig, Form dest)
-        {
-            orig.Visible = false;
-            dest.FormClosed += (s, args) => orig.Close();
-            dest.Show();
-        }
-        
         private void openExistingButton_Click(object sender, EventArgs e) {
             String filePath = getFileString();
             if (filePath != null)
-            {
-                MessageBox.Show(String.Format("{0} was found!", filePath));
-                changeWindows(this, new TableMenu(filePath));
-
-            }
-                
+                this.changer.changeWindows(this, new TableMenu(filePath));
         }
 
+        /*
+         * createNewTableButton_Click will open a new window but will no new information for the user to use.
+         */
         private void createNewTableButton_Click(object sender, EventArgs e)
         {
             TableMenu tableMenu = new TableMenu(null);
-            changeWindows(this, tableMenu);
+            this.changer.changeWindows(this, tableMenu);
         }
 
         private void setDefaultTableButton_Click(object sender, EventArgs e)

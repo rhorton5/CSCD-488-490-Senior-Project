@@ -37,7 +37,7 @@ namespace Team_6_Senior_Project
             // 
             // openExistingButton
             // 
-            this.openExistingButton.Location = new System.Drawing.Point(186, 66);
+            this.openExistingButton.Location = new System.Drawing.Point(186, 50);
             this.openExistingButton.Name = "openExistingButton";
             this.openExistingButton.Size = new System.Drawing.Size(385, 57);
             this.openExistingButton.TabIndex = 0;
@@ -47,9 +47,9 @@ namespace Team_6_Senior_Project
             // 
             // createNewTableButton
             // 
-            this.createNewTableButton.Location = new System.Drawing.Point(186, 171);
+            this.createNewTableButton.Location = new System.Drawing.Point(186, 127);
             this.createNewTableButton.Name = "createNewTableButton";
-            this.createNewTableButton.Size = new System.Drawing.Size(385, 52);
+            this.createNewTableButton.Size = new System.Drawing.Size(385, 57);
             this.createNewTableButton.TabIndex = 1;
             this.createNewTableButton.Text = "Create New";
             this.createNewTableButton.UseVisualStyleBackColor = true;
@@ -57,9 +57,9 @@ namespace Team_6_Senior_Project
             // 
             // setDefaultTableButton
             // 
-            this.setDefaultTableButton.Location = new System.Drawing.Point(186, 281);
+            this.setDefaultTableButton.Location = new System.Drawing.Point(186, 204);
             this.setDefaultTableButton.Name = "setDefaultTableButton";
-            this.setDefaultTableButton.Size = new System.Drawing.Size(385, 51);
+            this.setDefaultTableButton.Size = new System.Drawing.Size(385, 57);
             this.setDefaultTableButton.TabIndex = 2;
             this.setDefaultTableButton.Text = "Set Default";
             this.setDefaultTableButton.UseVisualStyleBackColor = true;
