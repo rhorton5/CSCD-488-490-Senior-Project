@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,56 +11,56 @@ using System.Windows.Forms;
 
 namespace Team_6_Senior_Project
 {
-    
     public partial class TableMenu : Form
     {
-        private WindowChanger wc = new WindowChanger();
-        public TableMenu(String fileName)
+        private string fileName;
+        public TableMenu(string fileName)
         {
-            InitializeComponent(fileName);
+            this.fileName = fileName;
+            InitializeComponent();
         }
 
-        private void AddMenu_Click(object sender, EventArgs e)
+        protected string[] SetDefaultColumns() => new string[] { "Name", "Entry Date", "ID#", "Weight", "Notes" };
+        protected DataTable GetDataTable(string fileName)
         {
-            MessageBox.Show(String.Format("{0}", "Add"));
+            DataTable dt = new DataTable();
+            StreamReader sr = new StreamReader(fileName);
+            while (!sr.EndOfStream)
+            {
+                if(dt.Columns.Count == 0)
+                {
+                    foreach(string colName in SetDefaultColumns())
+                    {
+                        dt.Columns.Add(colName);
+                        
+                    }
+                    sr.ReadLine(); //Skip one line after Column
+                }
+                else
+                {
+                    dt.Rows.Add(sr.ReadLine().Split(','));
+                }
+            }
+            return dt;
         }
 
-        private void RemoveMenu_Click(object sender, EventArgs e)
+        protected DataTable SetBlankDataTable()
         {
-            MessageBox.Show(String.Format("{0}", "Remove"));
-        }
+            DataTable dt = new DataTable();
+            foreach (string colName in SetDefaultColumns())
+            {
+                dt.Columns.Add(colName);
 
-        private void ExportMenu_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(String.Format("{0}", "Export"));
-        }
-
-        private void TemplatesMenu_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(String.Format("{0}", "Template"));
-        }
-
-        private void DataSummaryMenu_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(String.Format("{0}", "Data"));
-        }
-        
-        private void StartMenu_Click(object sender, EventArgs e)
-        {
-            this.wc.changeWindows(this, new MainMenu());
+            }
+            return dt;
         }
 
         private void TableMenu_Load(object sender, EventArgs e)
         {
-
+            this.specimenDataGrid.DataSource = (this.fileName != null) ?  GetDataTable(this.fileName) : SetBlankDataTable();
         }
 
-        private void templateName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void searchByLabel_Click(object sender, EventArgs e)
         {
 
         }
@@ -68,17 +69,7 @@ namespace Team_6_Senior_Project
         {
 
         }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-
-        }
     }
 
-
+    
 }

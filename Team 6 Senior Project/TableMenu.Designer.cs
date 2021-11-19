@@ -1,4 +1,5 @@
-﻿namespace Team_6_Senior_Project
+﻿
+namespace Team_6_Senior_Project
 {
     partial class TableMenu
     {
@@ -26,28 +27,26 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent(string fileName)
+        private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.templatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.templateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.currentTemplateLabel = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.specimenDataGrid = new System.Windows.Forms.DataGridView();
             this.searchByLabel = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.entryDateCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idNumCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weightCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notesCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.attributeComboBox = new System.Windows.Forms.ComboBox();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.tableMenuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.currentAttributeLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.specimenDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableMenuBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -55,13 +54,13 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem,
             this.removeToolStripMenuItem,
-            this.templatesToolStripMenuItem,
+            this.templateToolStripMenuItem,
             this.exportToolStripMenuItem,
             this.dataSummaryToolStripMenuItem,
             this.startMenuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(772, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -70,163 +69,129 @@
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.addToolStripMenuItem.Text = "Add";
-            this.addToolStripMenuItem.Click += new System.EventHandler(this.AddMenu_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.removeToolStripMenuItem.Text = "Remove";
-            this.removeToolStripMenuItem.Click += new System.EventHandler(this.RemoveMenu_Click);
             // 
-            // templatesToolStripMenuItem
+            // templateToolStripMenuItem
             // 
-            this.templatesToolStripMenuItem.Name = "templatesToolStripMenuItem";
-            this.templatesToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.templatesToolStripMenuItem.Text = "Templates";
-            this.templatesToolStripMenuItem.Click += new System.EventHandler(this.TemplatesMenu_Click);
+            this.templateToolStripMenuItem.Name = "templateToolStripMenuItem";
+            this.templateToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.templateToolStripMenuItem.Text = "Template";
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
             this.exportToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.exportToolStripMenuItem.Text = "Export";
-            this.exportToolStripMenuItem.Click += new System.EventHandler(this.ExportMenu_Click);
             // 
             // dataSummaryToolStripMenuItem
             // 
             this.dataSummaryToolStripMenuItem.Name = "dataSummaryToolStripMenuItem";
             this.dataSummaryToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
             this.dataSummaryToolStripMenuItem.Text = "Data Summary";
-            this.dataSummaryToolStripMenuItem.Click += new System.EventHandler(this.DataSummaryMenu_Click);
             // 
             // startMenuToolStripMenuItem
             // 
             this.startMenuToolStripMenuItem.Name = "startMenuToolStripMenuItem";
             this.startMenuToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.startMenuToolStripMenuItem.Text = "Start Menu";
-            this.startMenuToolStripMenuItem.Click += new System.EventHandler(this.StartMenu_Click);
             // 
-            // currentTemplateLabel
+            // contextMenuStrip1
             // 
-            this.currentTemplateLabel.AutoSize = true;
-            this.currentTemplateLabel.Location = new System.Drawing.Point(242, 58);
-            this.currentTemplateLabel.Name = "currentTemplateLabel";
-            this.currentTemplateLabel.Size = new System.Drawing.Size(119, 13);
-            this.currentTemplateLabel.TabIndex = 1;
-            this.currentTemplateLabel.Text = "Current Template Name";
-            this.currentTemplateLabel.Click += new System.EventHandler(this.label1_Click_2);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // specimenDataGrid
+            // 
+            this.specimenDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.specimenDataGrid.Location = new System.Drawing.Point(31, 59);
+            this.specimenDataGrid.Name = "specimenDataGrid";
+            this.specimenDataGrid.Size = new System.Drawing.Size(738, 329);
+            this.specimenDataGrid.TabIndex = 1;
             // 
             // searchByLabel
             // 
             this.searchByLabel.AutoSize = true;
-            this.searchByLabel.Location = new System.Drawing.Point(52, 536);
+            this.searchByLabel.Location = new System.Drawing.Point(38, 409);
             this.searchByLabel.Name = "searchByLabel";
             this.searchByLabel.Size = new System.Drawing.Size(62, 13);
             this.searchByLabel.TabIndex = 2;
             this.searchByLabel.Text = "Search By: ";
+            this.searchByLabel.Click += new System.EventHandler(this.searchByLabel_Click);
             // 
-            // dataGridView1
+            // searchTextBox
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameCol,
-            this.entryDateCol,
-            this.idNumCol,
-            this.weightCol,
-            this.notesCol});
-            this.dataGridView1.Location = new System.Drawing.Point(55, 85);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(544, 423);
-            this.dataGridView1.TabIndex = 3;
-            // 
-            // nameCol
-            // 
-            this.nameCol.HeaderText = "Name";
-            this.nameCol.Name = "nameCol";
-            // 
-            // entryDateCol
-            // 
-            this.entryDateCol.HeaderText = "Entry Date";
-            this.entryDateCol.Name = "entryDateCol";
-            // 
-            // idNumCol
-            // 
-            this.idNumCol.HeaderText = "ID#";
-            this.idNumCol.Name = "idNumCol";
-            // 
-            // weightCol
-            // 
-            this.weightCol.HeaderText = "Weight";
-            this.weightCol.Name = "weightCol";
-            // 
-            // notesCol
-            // 
-            this.notesCol.HeaderText = "Notes";
-            this.notesCol.Name = "notesCol";
+            this.searchTextBox.Location = new System.Drawing.Point(106, 407);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(582, 20);
+            this.searchTextBox.TabIndex = 3;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(524, 527);
+            this.searchButton.Location = new System.Drawing.Point(694, 404);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 4;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
             // 
-            // searchTextBox
+            // tableMenuBindingSource
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(236, 529);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(282, 20);
-            this.searchTextBox.TabIndex = 5;
+            this.tableMenuBindingSource.DataSource = typeof(Team_6_Senior_Project.TableMenu);
             // 
-            // attributeComboBox
+            // currentAttributeLabel
             // 
-            this.attributeComboBox.FormattingEnabled = true;
-            this.attributeComboBox.Location = new System.Drawing.Point(109, 527);
-            this.attributeComboBox.Name = "attributeComboBox";
-            this.attributeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.attributeComboBox.TabIndex = 6;
+            this.currentAttributeLabel.AutoSize = true;
+            this.currentAttributeLabel.Location = new System.Drawing.Point(146, 33);
+            this.currentAttributeLabel.Name = "currentAttributeLabel";
+            this.currentAttributeLabel.Size = new System.Drawing.Size(113, 13);
+            this.currentAttributeLabel.TabIndex = 5;
+            this.currentAttributeLabel.Text = "Current Attribute Table";
+            this.currentAttributeLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // TableMenu
             // 
-            this.ClientSize = new System.Drawing.Size(772, 573);
-            this.Controls.Add(this.attributeComboBox);
-            this.Controls.Add(this.searchTextBox);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.currentAttributeLabel);
             this.Controls.Add(this.searchButton);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.searchByLabel);
-            this.Controls.Add(this.currentTemplateLabel);
+            this.Controls.Add(this.specimenDataGrid);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TableMenu";
+            this.Text = "View All Table";
+            this.Load += new System.EventHandler(this.TableMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.specimenDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableMenuBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
+        #endregion
+
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem templatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem templateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dataSummaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startMenuToolStripMenuItem;
-        private System.Windows.Forms.Label currentTemplateLabel;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.DataGridView specimenDataGrid;
+        private System.Windows.Forms.BindingSource tableMenuBindingSource;
         private System.Windows.Forms.Label searchByLabel;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn entryDateCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idNumCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn weightCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn notesCol;
-        private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox searchTextBox;
-        private System.Windows.Forms.ComboBox attributeComboBox;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.Label currentAttributeLabel;
     }
 }
-#endregion
