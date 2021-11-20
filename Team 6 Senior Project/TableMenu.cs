@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Team_6_Senior_Project
 {
@@ -18,58 +20,64 @@ namespace Team_6_Senior_Project
         {
             this.fileName = fileName;
             InitializeComponent();
-        }
 
-        protected string[] SetDefaultColumns() => new string[] { "Name", "Entry Date", "ID#", "Weight", "Notes" };
-        protected DataTable GetDataTable(string fileName)
-        {
-            DataTable dt = new DataTable();
-            StreamReader sr = new StreamReader(fileName);
-            while (!sr.EndOfStream)
-            {
-                if(dt.Columns.Count == 0)
-                {
-                    foreach(string colName in SetDefaultColumns())
-                    {
-                        dt.Columns.Add(colName);
-                        
-                    }
-                    sr.ReadLine(); //Skip one line after Column
-                }
-                else
-                {
-                    dt.Rows.Add(sr.ReadLine().Split(','));
-                }
-            }
-            return dt;
-        }
-
-        protected DataTable SetBlankDataTable()
-        {
-            DataTable dt = new DataTable();
-            foreach (string colName in SetDefaultColumns())
-            {
-                dt.Columns.Add(colName);
-
-            }
-            return dt;
         }
 
         private void TableMenu_Load(object sender, EventArgs e)
         {
-            this.specimenDataGrid.DataSource = (this.fileName != null) ?  GetDataTable(this.fileName) : SetBlankDataTable();
+            SpecimensDataGridView.DataSource = GetSpecimens();
         }
 
-        private void searchByLabel_Click(object sender, EventArgs e)
+        private DataTable GetSpecimens()
         {
+            DataTable dtSpecimens = new DataTable();
 
+            string connString = ConfigurationManager.ConnectionStrings["Team_6_Senior_Project.Properties.Settings.CSCDTeam6ConnectionString"].ConnectionString;
+
+            using (SqlConnection con = new SqlConnection(connString))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Specimens", con))
+                {
+                    con.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    dtSpecimens.Load(reader);
+                }
+            }
+
+                return dtSpecimens;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private DataTable SearchSpecimens()
         {
+            DataTable dtSpecimens = new DataTable();
 
+            string connString = ConfigurationManager.ConnectionStrings["Team_6_Senior_Project.Properties.Settings.CSCDTeam6ConnectionString"].ConnectionString;
+
+            using (SqlConnection con = new SqlConnection(connString))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Specimens WHERE Type LIKE '%" + searchTextBox.Text + 
+                    "%' OR WEIGHT LIKE '%" + searchTextBox.Text +
+                    "%' OR Notes LIKE '%" + searchTextBox.Text +
+                    "%' OR CreatedDate LIKE '%" + searchTextBox.Text +
+                    "%' OR LastUpdated LIKE '%" + searchTextBox.Text +
+                    "%'", con))
+                {
+                    con.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    dtSpecimens.Load(reader);
+                }
+            }
+
+            return dtSpecimens;
         }
-    }
 
-    
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            SpecimensDataGridView.DataSource = SearchSpecimens();
+        }
+    }    
 }

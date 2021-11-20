@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,6 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSCDTeam6DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CSCDTeam6DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TableMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="CSCDTeam6DataSet.xsc">
+      <DependentUpon>CSCDTeam6DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CSCDTeam6DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CSCDTeam6DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CSCDTeam6DataSet.xss">
+      <DependentUpon>CSCDTeam6DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\TableMenu.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
