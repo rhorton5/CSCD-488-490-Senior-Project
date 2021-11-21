@@ -112,6 +112,36 @@ namespace Team_6_Senior_Project
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     dtSpecimens.Load(reader);
+
+                    con.Close();
+                }
+            }
+            return dtSpecimens;
+        }
+
+        private DataTable SearchSpecimensWithAttributes()
+        {
+            DataTable dtSpecimens = new DataTable();
+
+            string connString = ConfigurationManager.ConnectionStrings["Team_6_Senior_Project.Properties.Settings.CSCDTeam6ConnectionString"].ConnectionString;
+
+            using(SqlConnection con = new SqlConnection(connString))
+            {
+                using (SqlCommand cmd = new SqlCommand(
+                    String.Format(
+                        "SELECT * FROM Specimens WHERE {0} LIKE '%{1}%'",
+                        this.searchComboBox.Text,
+                        this.searchTextBox.Text),con
+                    )
+                )
+                {
+                    con.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    dtSpecimens.Load(reader);
+
+                    con.Close();
                 }
             }
             return dtSpecimens;
@@ -119,7 +149,7 @@ namespace Team_6_Senior_Project
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            SpecimensDataGridView.DataSource = SearchSpecimens();
+            SpecimensDataGridView.DataSource = (String.IsNullOrEmpty(this.searchComboBox.Text)) ? SearchSpecimens() : SearchSpecimensWithAttributes();
         }
 
         private void SpecimensDataGridView_RowLeave(object sender, DataGridViewCellEventArgs e)
