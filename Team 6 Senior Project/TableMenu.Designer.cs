@@ -48,6 +48,7 @@ namespace Team_6_Senior_Project
             this.specimensTableAdapter = new Team_6_Senior_Project.CSCDTeam6DataSetTableAdapters.SpecimensTableAdapter();
             this.SpecimensDataGridView = new System.Windows.Forms.DataGridView();
             this.specimensBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.searchComboBox = new System.Windows.Forms.ComboBox();
             this.specimensIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,45 +76,48 @@ namespace Team_6_Senior_Project
             this.startMenuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1113, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(835, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.addToolStripMenuItem.Text = "Add";
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.removeToolStripMenuItem.Text = "Remove";
             // 
             // templateToolStripMenuItem
             // 
             this.templateToolStripMenuItem.Name = "templateToolStripMenuItem";
-            this.templateToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.templateToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.templateToolStripMenuItem.Text = "Template";
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.exportToolStripMenuItem.Text = "Export";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
             // dataSummaryToolStripMenuItem
             // 
             this.dataSummaryToolStripMenuItem.Name = "dataSummaryToolStripMenuItem";
-            this.dataSummaryToolStripMenuItem.Size = new System.Drawing.Size(121, 24);
+            this.dataSummaryToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
             this.dataSummaryToolStripMenuItem.Text = "Data Summary";
             // 
             // startMenuToolStripMenuItem
             // 
             this.startMenuToolStripMenuItem.Name = "startMenuToolStripMenuItem";
-            this.startMenuToolStripMenuItem.Size = new System.Drawing.Size(95, 24);
+            this.startMenuToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.startMenuToolStripMenuItem.Text = "Start Menu";
+            this.startMenuToolStripMenuItem.Click += new System.EventHandler(this.startMenuToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
@@ -124,27 +128,24 @@ namespace Team_6_Senior_Project
             // searchByLabel
             // 
             this.searchByLabel.AutoSize = true;
-            this.searchByLabel.Location = new System.Drawing.Point(51, 503);
-            this.searchByLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.searchByLabel.Location = new System.Drawing.Point(38, 409);
             this.searchByLabel.Name = "searchByLabel";
-            this.searchByLabel.Size = new System.Drawing.Size(75, 16);
+            this.searchByLabel.Size = new System.Drawing.Size(62, 13);
             this.searchByLabel.TabIndex = 2;
             this.searchByLabel.Text = "Search By: ";
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(141, 501);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.searchTextBox.Location = new System.Drawing.Point(221, 407);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(775, 22);
+            this.searchTextBox.Size = new System.Drawing.Size(467, 20);
             this.searchTextBox.TabIndex = 3;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(925, 497);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(4);
+            this.searchButton.Location = new System.Drawing.Point(694, 404);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(100, 28);
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 4;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -188,17 +189,29 @@ namespace Team_6_Senior_Project
             this.createdDateDataGridViewTextBoxColumn,
             this.lastUpdatedDataGridViewTextBoxColumn});
             this.SpecimensDataGridView.DataSource = this.specimensBindingSource1;
-            this.SpecimensDataGridView.Location = new System.Drawing.Point(24, 47);
+            this.SpecimensDataGridView.Location = new System.Drawing.Point(18, 38);
+            this.SpecimensDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.SpecimensDataGridView.Name = "SpecimensDataGridView";
             this.SpecimensDataGridView.RowHeadersWidth = 51;
             this.SpecimensDataGridView.RowTemplate.Height = 24;
-            this.SpecimensDataGridView.Size = new System.Drawing.Size(1089, 351);
+            this.SpecimensDataGridView.Size = new System.Drawing.Size(817, 285);
             this.SpecimensDataGridView.TabIndex = 5;
+            this.SpecimensDataGridView.DataSourceChanged += new System.EventHandler(this.SpecimensDataGridView_DataSourceChanged);
+            this.SpecimensDataGridView.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.SpecimensDataGridView_RowLeave);
+            this.SpecimensDataGridView.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.SpecimensDataGridView_UserAddedRow);
             // 
             // specimensBindingSource1
             // 
             this.specimensBindingSource1.DataMember = "Specimens";
             this.specimensBindingSource1.DataSource = this.tableMenuBindingSource;
+            // 
+            // searchComboBox
+            // 
+            this.searchComboBox.FormattingEnabled = true;
+            this.searchComboBox.Location = new System.Drawing.Point(94, 406);
+            this.searchComboBox.Name = "searchComboBox";
+            this.searchComboBox.Size = new System.Drawing.Size(121, 21);
+            this.searchComboBox.TabIndex = 6;
             // 
             // specimensIDDataGridViewTextBoxColumn
             // 
@@ -235,6 +248,7 @@ namespace Team_6_Senior_Project
             this.createdDateDataGridViewTextBoxColumn.HeaderText = "CreatedDate";
             this.createdDateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
+            this.createdDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // lastUpdatedDataGridViewTextBoxColumn
             // 
@@ -242,19 +256,20 @@ namespace Team_6_Senior_Project
             this.lastUpdatedDataGridViewTextBoxColumn.HeaderText = "LastUpdated";
             this.lastUpdatedDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.lastUpdatedDataGridViewTextBoxColumn.Name = "lastUpdatedDataGridViewTextBoxColumn";
+            this.lastUpdatedDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // TableMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 554);
+            this.ClientSize = new System.Drawing.Size(835, 450);
+            this.Controls.Add(this.searchComboBox);
             this.Controls.Add(this.SpecimensDataGridView);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.searchByLabel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TableMenu";
             this.Text = "View All Table";
             this.Load += new System.EventHandler(this.TableMenu_Load);
@@ -290,12 +305,13 @@ namespace Team_6_Senior_Project
         private System.Windows.Forms.BindingSource specimensBindingSource;
         private CSCDTeam6DataSetTableAdapters.SpecimensTableAdapter specimensTableAdapter;
         private System.Windows.Forms.DataGridView SpecimensDataGridView;
+        private System.Windows.Forms.BindingSource specimensBindingSource1;
+        private System.Windows.Forms.ComboBox searchComboBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn specimensIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource specimensBindingSource1;
     }
 }
