@@ -31,13 +31,14 @@ namespace Team_6_Senior_Project
             this.SpecimensDataGridView.DataSource = (this.fileName == null) ? GetSpecimensFromDatabase() : GetSpecimensFromFile(this.fileName);
             this.lastUpdatedIndex = this.lastUpdatedDataGridViewTextBoxColumn.Index;
             this.createdAtIndex = this.createdDateDataGridViewTextBoxColumn.Index;
+            this.searchComboBox.Items.Add("All Attributes");
             for (int i = 0; i < this.SpecimensDataGridView.Columns.Count; i++)
             {
                 this.searchComboBox.Items.Add(this.SpecimensDataGridView.Columns[i].HeaderText);
             }
             foreach(DataGridViewRow row in this.SpecimensDataGridView.Rows)
             {
-                if(row.Cells[0].Value != null)//Not good implementation
+                if(row.Cells[0].Value != null)
                 {
                     if (row.Cells[this.createdAtIndex].Value == null)
                         row.Cells[this.createdAtIndex].Value = DateTime.Now;
@@ -50,25 +51,34 @@ namespace Team_6_Senior_Project
         
         private DataTable GetSpecimensFromFile(string fileName)
         {
-            DataTable dataTable = new DataTable();
-            StreamReader sr = new StreamReader(fileName);
-            while (!sr.EndOfStream)
+            try
             {
-                if(dataTable.Columns.Count > 0)
+                DataTable dataTable = new DataTable();
+                StreamReader sr = new StreamReader(fileName);
+                while (!sr.EndOfStream)
                 {
-                    dataTable.Rows.Add(sr.ReadLine().Split(','));
-
-                }
-                else
-                {
-                    foreach(string columns in sr.ReadLine().Split(','))
+                    if (dataTable.Columns.Count > 0)
                     {
-                        dataTable.Columns.Add(columns);
+                        dataTable.Rows.Add(sr.ReadLine().Split(','));
+
+                    }
+                    else
+                    {
+                        foreach (string columns in sr.ReadLine().Split(','))
+                        {
+                            dataTable.Columns.Add(columns);
+                        }
                     }
                 }
+                sr.Close();
+                return dataTable;
             }
-            sr.Close();
-            return dataTable;
+            catch (IOException ex)
+            {
+                MessageBox.Show("There was an error with importing your file.\nYou will start with a blank message.  Press Start Menu to return to the menu.","Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            return null;
+           
         }
         
         private DataTable GetSpecimensFromDatabase()
@@ -149,13 +159,35 @@ namespace Team_6_Senior_Project
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            SpecimensDataGridView.DataSource = (String.IsNullOrEmpty(this.searchComboBox.Text)) ? SearchSpecimens() : SearchSpecimensWithAttributes();
+            SpecimensDataGridView.DataSource = (String.IsNullOrEmpty(this.searchComboBox.Text) || this.searchComboBox.Text == "All Attributes") ? SearchSpecimens() : SearchSpecimensWithAttributes();
+        }
+
+        private int setSpecimenID()
+        {
+            int maxValue = -1;
+            for(int i = 0; i < this.SpecimensDataGridView.Rows.Count - 2; i++)//Exclude new row and empty row by subtracting by two.
+            {
+                int id = int.Parse(this.SpecimensDataGridView.Rows[i].Cells[0].Value.ToString());
+                if(id > maxValue)
+                    maxValue = id;
+
+            }
+            return maxValue + 1;
         }
 
         private void SpecimensDataGridView_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = this.SpecimensDataGridView.Rows[e.RowIndex];
+           
+            if (string.IsNullOrEmpty(row.Cells[0].Value.ToString()) && !string.IsNullOrEmpty(row.Cells[1].Value.ToString()))
+            {
+                row.Cells[this.createdAtIndex].Value = DateTime.Now;
+                row.Cells[0].Value = setSpecimenID();
+
+            }
+
             row.Cells[this.lastUpdatedIndex].Value = DateTime.Now;
+
         }
 
         private void SpecimensDataGridView_DataSourceChanged(Object sender, EventArgs e)
@@ -200,6 +232,10 @@ namespace Team_6_Senior_Project
         {
             WindowChanger wc = new WindowChanger();
             wc.changeWindows(this, new MainMenu());
+        }
+
+        private void SpecimensDataGridView_UserAddedRow(object sender, DataGridViewRowEventArgs e)
+        {
         }
     }    
 }

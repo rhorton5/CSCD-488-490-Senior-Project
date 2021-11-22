@@ -47,14 +47,14 @@ namespace Team_6_Senior_Project
             this.specimensBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.specimensTableAdapter = new Team_6_Senior_Project.CSCDTeam6DataSetTableAdapters.SpecimensTableAdapter();
             this.SpecimensDataGridView = new System.Windows.Forms.DataGridView();
+            this.specimensBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.searchComboBox = new System.Windows.Forms.ComboBox();
             this.specimensIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specimensBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.searchComboBox = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableMenuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cSCDTeam6DataSet)).BeginInit();
@@ -198,6 +198,20 @@ namespace Team_6_Senior_Project
             this.SpecimensDataGridView.TabIndex = 5;
             this.SpecimensDataGridView.DataSourceChanged += new System.EventHandler(this.SpecimensDataGridView_DataSourceChanged);
             this.SpecimensDataGridView.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.SpecimensDataGridView_RowLeave);
+            this.SpecimensDataGridView.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.SpecimensDataGridView_UserAddedRow);
+            // 
+            // specimensBindingSource1
+            // 
+            this.specimensBindingSource1.DataMember = "Specimens";
+            this.specimensBindingSource1.DataSource = this.tableMenuBindingSource;
+            // 
+            // searchComboBox
+            // 
+            this.searchComboBox.FormattingEnabled = true;
+            this.searchComboBox.Location = new System.Drawing.Point(94, 406);
+            this.searchComboBox.Name = "searchComboBox";
+            this.searchComboBox.Size = new System.Drawing.Size(121, 21);
+            this.searchComboBox.TabIndex = 6;
             // 
             // specimensIDDataGridViewTextBoxColumn
             // 
@@ -243,19 +257,6 @@ namespace Team_6_Senior_Project
             this.lastUpdatedDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.lastUpdatedDataGridViewTextBoxColumn.Name = "lastUpdatedDataGridViewTextBoxColumn";
             this.lastUpdatedDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // specimensBindingSource1
-            // 
-            this.specimensBindingSource1.DataMember = "Specimens";
-            this.specimensBindingSource1.DataSource = this.tableMenuBindingSource;
-            // 
-            // searchComboBox
-            // 
-            this.searchComboBox.FormattingEnabled = true;
-            this.searchComboBox.Location = new System.Drawing.Point(94, 406);
-            this.searchComboBox.Name = "searchComboBox";
-            this.searchComboBox.Size = new System.Drawing.Size(121, 21);
-            this.searchComboBox.TabIndex = 6;
             // 
             // TableMenu
             // 
