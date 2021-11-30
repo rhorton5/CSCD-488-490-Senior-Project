@@ -21,8 +21,9 @@ namespace Team_6_Senior_Project
         public void changeWindows(Form orig, Form dest)
         {
             orig.Visible = false;
-            dest.FormClosed += (s, args) => orig.Close();
+            dest.FormClosed += (s, args) => orig.Visible = true;
             dest.Show();
+            
         }
     }
 }

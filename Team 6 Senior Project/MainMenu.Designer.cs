@@ -75,6 +75,7 @@ namespace Team_6_Senior_Project
             this.Controls.Add(this.openExistingButton);
             this.Name = "MainMenu";
             this.Text = "CSCD 488/490 Project";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
