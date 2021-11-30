@@ -47,14 +47,14 @@ namespace Team_6_Senior_Project
             this.specimensBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.specimensTableAdapter = new Team_6_Senior_Project.CSCDTeam6DataSetTableAdapters.SpecimensTableAdapter();
             this.SpecimensDataGridView = new System.Windows.Forms.DataGridView();
-            this.specimensBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.searchComboBox = new System.Windows.Forms.ComboBox();
             this.specimensIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specimensBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.searchComboBox = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableMenuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cSCDTeam6DataSet)).BeginInit();
@@ -200,19 +200,6 @@ namespace Team_6_Senior_Project
             this.SpecimensDataGridView.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.SpecimensDataGridView_RowLeave);
             this.SpecimensDataGridView.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.SpecimensDataGridView_UserAddedRow);
             // 
-            // specimensBindingSource1
-            // 
-            this.specimensBindingSource1.DataMember = "Specimens";
-            this.specimensBindingSource1.DataSource = this.tableMenuBindingSource;
-            // 
-            // searchComboBox
-            // 
-            this.searchComboBox.FormattingEnabled = true;
-            this.searchComboBox.Location = new System.Drawing.Point(94, 406);
-            this.searchComboBox.Name = "searchComboBox";
-            this.searchComboBox.Size = new System.Drawing.Size(121, 21);
-            this.searchComboBox.TabIndex = 6;
-            // 
             // specimensIDDataGridViewTextBoxColumn
             // 
             this.specimensIDDataGridViewTextBoxColumn.DataPropertyName = "SpecimensID";
@@ -258,6 +245,19 @@ namespace Team_6_Senior_Project
             this.lastUpdatedDataGridViewTextBoxColumn.Name = "lastUpdatedDataGridViewTextBoxColumn";
             this.lastUpdatedDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // specimensBindingSource1
+            // 
+            this.specimensBindingSource1.DataMember = "Specimens";
+            this.specimensBindingSource1.DataSource = this.tableMenuBindingSource;
+            // 
+            // searchComboBox
+            // 
+            this.searchComboBox.FormattingEnabled = true;
+            this.searchComboBox.Location = new System.Drawing.Point(94, 406);
+            this.searchComboBox.Name = "searchComboBox";
+            this.searchComboBox.Size = new System.Drawing.Size(121, 21);
+            this.searchComboBox.TabIndex = 6;
+            // 
             // TableMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,6 +272,7 @@ namespace Team_6_Senior_Project
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TableMenu";
             this.Text = "View All Table";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TableMenu_FormClosing);
             this.Load += new System.EventHandler(this.TableMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

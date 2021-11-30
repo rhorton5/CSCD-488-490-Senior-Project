@@ -11,12 +11,28 @@ namespace Team_6_Senior_Project
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+        public static bool runViewAll = false;
+        public static string filenameViewAll = "None";
+        public static bool closeProgram = false;
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMenu());
+
+            while (!closeProgram)
+            {
+                Application.Run(new MainMenu());
+
+                if (runViewAll)
+                {
+                    Application.Run(new TableMenu(null));
+                    Console.WriteLine(filenameViewAll);
+                }
+            }
+            
+            
         }
     }
 }

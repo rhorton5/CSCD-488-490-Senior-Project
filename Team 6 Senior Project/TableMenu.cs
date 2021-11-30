@@ -18,6 +18,7 @@ namespace Team_6_Senior_Project
         private string fileName;
         private int lastUpdatedIndex;
         private int createdAtIndex;
+        private bool returnToMainMenu = false;
 
         public TableMenu(string fileName)
         {
@@ -230,12 +231,22 @@ namespace Team_6_Senior_Project
 
         private void startMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            WindowChanger wc = new WindowChanger();
-            wc.changeWindows(this, new MainMenu());
+            this.returnToMainMenu = true;
+            this.Close();
         }
 
         private void SpecimensDataGridView_UserAddedRow(object sender, DataGridViewRowEventArgs e)
         {
+            
+        }
+
+        private void TableMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(e.CloseReason == CloseReason.UserClosing && !this.returnToMainMenu)
+            {
+                Program.closeProgram = true;
+            }
+            Program.runViewAll=false;
         }
     }    
 }

@@ -15,6 +15,7 @@ namespace Team_6_Senior_Project
     public partial class MainMenu : Form
     {
         private WindowChanger changer = new WindowChanger();
+        private Boolean closeByNewForm = false;
         public MainMenu()
         {
             InitializeComponent();
@@ -50,8 +51,15 @@ namespace Team_6_Senior_Project
          */
         private void openExistingButton_Click(object sender, EventArgs e) {
             String filePath = getFileString();
-            if (filePath != null)
-                this.changer.changeWindows(this, new TableMenu(filePath));
+            //if (filePath != null)
+                //this.changer.changeWindows(this, new TableMenu(filePath));
+            if(filePath != null)
+            {
+                Program.runViewAll = true;
+                Program.filenameViewAll = filePath;
+                this.closeByNewForm = true;
+                this.Close();
+            }
         }
 
         /*
@@ -59,8 +67,13 @@ namespace Team_6_Senior_Project
          */
         private void createNewTableButton_Click(object sender, EventArgs e)
         {
-            TableMenu tableMenu = new TableMenu(null);
-            this.changer.changeWindows(this, tableMenu);
+            //TableMenu tableMenu = new TableMenu(null);
+            //this.changer.changeWindows(this, tableMenu);
+            Program.runViewAll = true;
+            Program.filenameViewAll = null;
+            this.closeByNewForm = true;
+            this.Close();
+
         }
 
         private void setDefaultTableButton_Click(object sender, EventArgs e)
@@ -68,5 +81,12 @@ namespace Team_6_Senior_Project
             MessageBox.Show("setDefautTableButton has been pressed!");
         }
 
+        private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!this.closeByNewForm)
+            {
+                Program.closeProgram = true;
+            }
+        }
     }
 }
