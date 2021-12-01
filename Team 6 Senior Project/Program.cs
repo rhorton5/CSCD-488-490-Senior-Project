@@ -27,7 +27,7 @@ namespace Team_6_Senior_Project
 
                 if (runViewAll)
                 {
-                    Application.Run(new TableMenu(null));
+                    Application.Run(new TableMenu(filenameViewAll));
                     Console.WriteLine(filenameViewAll);
                 }
             }
