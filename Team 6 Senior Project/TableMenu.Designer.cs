@@ -76,46 +76,46 @@ namespace Team_6_Senior_Project
             this.startMenuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(835, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1113, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
             this.addToolStripMenuItem.Text = "Add";
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.removeToolStripMenuItem.Text = "Remove";
             // 
             // templateToolStripMenuItem
             // 
             this.templateToolStripMenuItem.Name = "templateToolStripMenuItem";
-            this.templateToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.templateToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.templateToolStripMenuItem.Text = "Template";
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
             // dataSummaryToolStripMenuItem
             // 
             this.dataSummaryToolStripMenuItem.Name = "dataSummaryToolStripMenuItem";
-            this.dataSummaryToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
+            this.dataSummaryToolStripMenuItem.Size = new System.Drawing.Size(121, 24);
             this.dataSummaryToolStripMenuItem.Text = "Data Summary";
             // 
             // startMenuToolStripMenuItem
             // 
             this.startMenuToolStripMenuItem.Name = "startMenuToolStripMenuItem";
-            this.startMenuToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.startMenuToolStripMenuItem.Size = new System.Drawing.Size(95, 24);
             this.startMenuToolStripMenuItem.Text = "Start Menu";
             this.startMenuToolStripMenuItem.Click += new System.EventHandler(this.startMenuToolStripMenuItem_Click);
             // 
@@ -128,24 +128,27 @@ namespace Team_6_Senior_Project
             // searchByLabel
             // 
             this.searchByLabel.AutoSize = true;
-            this.searchByLabel.Location = new System.Drawing.Point(38, 409);
+            this.searchByLabel.Location = new System.Drawing.Point(51, 503);
+            this.searchByLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.searchByLabel.Name = "searchByLabel";
-            this.searchByLabel.Size = new System.Drawing.Size(62, 13);
+            this.searchByLabel.Size = new System.Drawing.Size(75, 16);
             this.searchByLabel.TabIndex = 2;
             this.searchByLabel.Text = "Search By: ";
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(221, 407);
+            this.searchTextBox.Location = new System.Drawing.Point(295, 501);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(467, 20);
+            this.searchTextBox.Size = new System.Drawing.Size(621, 22);
             this.searchTextBox.TabIndex = 3;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(694, 404);
+            this.searchButton.Location = new System.Drawing.Point(925, 497);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.Size = new System.Drawing.Size(100, 28);
             this.searchButton.TabIndex = 4;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -177,6 +180,7 @@ namespace Team_6_Senior_Project
             // 
             // SpecimensDataGridView
             // 
+            this.SpecimensDataGridView.AllowDrop = true;
             this.SpecimensDataGridView.AllowUserToOrderColumns = true;
             this.SpecimensDataGridView.AutoGenerateColumns = false;
             this.SpecimensDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -189,16 +193,21 @@ namespace Team_6_Senior_Project
             this.createdDateDataGridViewTextBoxColumn,
             this.lastUpdatedDataGridViewTextBoxColumn});
             this.SpecimensDataGridView.DataSource = this.specimensBindingSource1;
-            this.SpecimensDataGridView.Location = new System.Drawing.Point(18, 38);
-            this.SpecimensDataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.SpecimensDataGridView.Location = new System.Drawing.Point(24, 47);
+            this.SpecimensDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SpecimensDataGridView.Name = "SpecimensDataGridView";
             this.SpecimensDataGridView.RowHeadersWidth = 51;
             this.SpecimensDataGridView.RowTemplate.Height = 24;
-            this.SpecimensDataGridView.Size = new System.Drawing.Size(817, 285);
+            this.SpecimensDataGridView.Size = new System.Drawing.Size(1089, 351);
             this.SpecimensDataGridView.TabIndex = 5;
             this.SpecimensDataGridView.DataSourceChanged += new System.EventHandler(this.SpecimensDataGridView_DataSourceChanged);
+            this.SpecimensDataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.SpecimensDataGridView_CellEnter);
+            this.SpecimensDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.SpecimensDataGridView_DataError);
+            this.SpecimensDataGridView.RowDividerHeightChanged += new System.Windows.Forms.DataGridViewRowEventHandler(this.SpecimensDataGridView_RowDividerHeightChanged);
+            this.SpecimensDataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.SpecimensDataGridView_RowEnter);
             this.SpecimensDataGridView.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.SpecimensDataGridView_RowLeave);
             this.SpecimensDataGridView.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.SpecimensDataGridView_UserAddedRow);
+            this.SpecimensDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SpecimensDataGridView_KeyDown);
             // 
             // specimensIDDataGridViewTextBoxColumn
             // 
@@ -253,16 +262,17 @@ namespace Team_6_Senior_Project
             // searchComboBox
             // 
             this.searchComboBox.FormattingEnabled = true;
-            this.searchComboBox.Location = new System.Drawing.Point(94, 406);
+            this.searchComboBox.Location = new System.Drawing.Point(125, 500);
+            this.searchComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchComboBox.Name = "searchComboBox";
-            this.searchComboBox.Size = new System.Drawing.Size(121, 21);
+            this.searchComboBox.Size = new System.Drawing.Size(160, 24);
             this.searchComboBox.TabIndex = 6;
             // 
             // TableMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(835, 450);
+            this.ClientSize = new System.Drawing.Size(1113, 554);
             this.Controls.Add(this.searchComboBox);
             this.Controls.Add(this.SpecimensDataGridView);
             this.Controls.Add(this.searchButton);
@@ -270,6 +280,7 @@ namespace Team_6_Senior_Project
             this.Controls.Add(this.searchByLabel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "TableMenu";
             this.Text = "View All Table";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TableMenu_FormClosing);
