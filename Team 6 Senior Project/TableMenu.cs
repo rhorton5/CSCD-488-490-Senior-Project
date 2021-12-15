@@ -14,6 +14,7 @@ using System.Data.SqlClient;
 
 namespace Team_6_Senior_Project
 {
+
     public partial class TableMenu : Form
     {
         private string fileName;
@@ -36,6 +37,8 @@ namespace Team_6_Senior_Project
 
         private void TableMenu_Load(object sender, EventArgs e)
         {
+
+
             this.SpecimensDataGridView.DataSource = (this.fileName == null) ? GetSpecimensFromDatabase() : GetSpecimensFromFile(this.fileName);
             
             this.idIndex = this.specimensIDDataGridViewTextBoxColumn.Index;
@@ -44,8 +47,10 @@ namespace Team_6_Senior_Project
             this.notesIndex = this.notesDataGridViewTextBoxColumn.Index;
             this.lastUpdatedIndex = this.lastUpdatedDataGridViewTextBoxColumn.Index;
             this.createdAtIndex = this.createdDateDataGridViewTextBoxColumn.Index;
-            
-            
+
+
+
+
             this.searchComboBox.Items.Add("All Attributes");
             for (int i = 0; i < this.SpecimensDataGridView.Columns.Count; i++)
             {
@@ -88,7 +93,7 @@ namespace Team_6_Senior_Project
                 sr.Close();
                 return dataTable;
             }
-            catch (IOException ex)
+            catch (IOException)
             {
                 MessageBox.Show("There was an error with importing your file.\nYou will start with a blank message.  Press Start Menu to return to the menu.","Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
@@ -130,12 +135,15 @@ namespace Team_6_Senior_Project
                 //TODO: consider dropping dates from all search as including many when searching for any number
 
 
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Specimens WHERE Type LIKE '%" + searchTextBox.Text + 
+                using (SqlCommand cmd = new SqlCommand("SELECT * " +
+                    "FROM Specimens " +
+                    "WHERE Type LIKE '%" + searchTextBox.Text + 
                     "%' OR WEIGHT LIKE '%" + searchTextBox.Text +
                     "%' OR Notes LIKE '%" + searchTextBox.Text +
                     "%' OR CreatedDate LIKE '%" + searchTextBox.Text +
                     "%' OR LastUpdated LIKE '%" + searchTextBox.Text +
-                    "%'", con))
+                    "%'"
+                    , con))
                 {
                     con.Open();
 
@@ -198,29 +206,36 @@ namespace Team_6_Senior_Project
 
         private void SpecimensDataGridView_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = this.SpecimensDataGridView.Rows[e.RowIndex];
 
-            if(row.Cells[this.createdAtIndex].Value.Equals(null))
+            try
             {
-                row.Cells[this.createdAtIndex].Value = DateTime.Now;
-            }
+                DataGridViewRow row = this.SpecimensDataGridView.Rows[e.RowIndex];
 
-            if (row.Cells[this.lastUpdatedIndex].Value.Equals(null))
+                if(row.Cells[this.createdAtIndex].Value.Equals(null))
+                {
+                    row.Cells[this.createdAtIndex].Value = DateTime.Now;
+                }
+
+                if (row.Cells[this.lastUpdatedIndex].Value.Equals(null))
+                {
+                    row.Cells[this.lastUpdatedIndex].Value = DateTime.Now;
+                }
+
+                if (row.Cells[this.idIndex].Value == null ||
+                    row.Cells[this.typeIndex].Value == null ||
+                    row.Cells[this.weightindex].Value == null ||
+                    row.Cells[this.notesIndex].Value == null ||
+                    row.Cells[this.createdAtIndex].Value == null ||
+                    row.Cells[this.lastUpdatedIndex].Value == null)
+                {
+                    //TODO: come up with a better fix than forcing them to stay in the row
+                    // force out with escape key
+                    return;
+                }
+            }
+            catch (Exception)
             {
-                row.Cells[this.lastUpdatedIndex].Value = DateTime.Now;
             }
-
-            if (row.Cells[this.idIndex].Value == null ||
-                row.Cells[this.typeIndex].Value == null ||
-                row.Cells[this.weightindex].Value == null ||
-                row.Cells[this.notesIndex].Value == null ||
-                row.Cells[this.createdAtIndex].Value == null ||
-                row.Cells[this.lastUpdatedIndex].Value == null)
-            {
-                //TODO: come up with a better fix than forcing them to stay in the row
-                return;
-            }
-
         }
 
         private void SpecimensDataGridView_DataSourceChanged(Object sender, EventArgs e)
@@ -287,23 +302,7 @@ namespace Team_6_Senior_Project
             e.Cancel = true;
         }
 
-        private void SpecimensDataGridView_RowDividerHeightChanged(object sender, DataGridViewRowEventArgs e)
-        {
-
-        }
-
-        private void SpecimensDataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void SpecimensDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-
-
-        }
-
-        private void SpecimensDataGridView_KeyDown(object sender, KeyEventArgs e)
+        private void SpecimensDataGridView_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Disallows all characters that are not controls digits or period "."
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -315,6 +314,16 @@ namespace Team_6_Senior_Project
             {
                 e.Handled = true;
             }
+        }
+
+        private void searchComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }    
 }

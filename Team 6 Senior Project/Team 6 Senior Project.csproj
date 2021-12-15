@@ -52,6 +52,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CSCDTeam6DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SpecimensForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpecimensForm.Designer.cs">
+      <DependentUpon>SpecimensForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TableMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="SpecimensForm.resx">
+      <DependentUpon>SpecimensForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TableMenu.resx">
       <DependentUpon>TableMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,6 +90,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="CSCDTeam6DataSet.xsc">
       <DependentUpon>CSCDTeam6DataSet.xsd</DependentUpon>
@@ -106,6 +116,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

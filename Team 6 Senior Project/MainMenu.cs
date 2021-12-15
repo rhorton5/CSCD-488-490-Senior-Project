@@ -88,5 +88,13 @@ namespace Team_6_Senior_Project
                 Program.closeProgram = true;
             }
         }
+
+        private void btnSpecimens_Click(object sender, EventArgs e)
+        {
+            MainMenu.ActiveForm.Hide();
+
+            SpecimensForm fm = new SpecimensForm();
+            fm.Show();
+        }
     }
 }

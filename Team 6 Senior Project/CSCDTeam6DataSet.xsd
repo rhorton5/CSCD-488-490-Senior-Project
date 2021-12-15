@@ -144,61 +144,70 @@ SELECT Type, MinWeight, MaxWeight, Notes, CreatedDate, LastUpdated FROM Template
               <Mapping SourceColumn="CreatedDate" DataSetColumn="CreatedDate" />
               <Mapping SourceColumn="LastUpdated" DataSetColumn="LastUpdated" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="CSCDTeam6ConnectionString (Settings)" DbObjectName="CSCDTeam6.dbo.Templates" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Type, MinWeight, MaxWeight, Notes, CreatedDate, LastUpdated FROM dbo.Templates</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="CSCDTeam6DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="CSCDTeam6DataSet" msprop:Generator_DataSetName="CSCDTeam6DataSet">
+  <xs:element name="CSCDTeam6DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="CSCDTeam6DataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="CSCDTeam6DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Specimens" msprop:Generator_RowEvHandlerName="SpecimensRowChangeEventHandler" msprop:Generator_RowDeletedName="SpecimensRowDeleted" msprop:Generator_RowDeletingName="SpecimensRowDeleting" msprop:Generator_RowEvArgName="SpecimensRowChangeEvent" msprop:Generator_TablePropName="Specimens" msprop:Generator_RowChangedName="SpecimensRowChanged" msprop:Generator_RowChangingName="SpecimensRowChanging" msprop:Generator_TableClassName="SpecimensDataTable" msprop:Generator_RowClassName="SpecimensRow" msprop:Generator_TableVarName="tableSpecimens" msprop:Generator_UserTableName="Specimens">
+        <xs:element name="Specimens" msprop:Generator_RowEvHandlerName="SpecimensRowChangeEventHandler" msprop:Generator_RowDeletedName="SpecimensRowDeleted" msprop:Generator_RowDeletingName="SpecimensRowDeleting" msprop:Generator_RowEvArgName="SpecimensRowChangeEvent" msprop:Generator_TablePropName="Specimens" msprop:Generator_RowChangedName="SpecimensRowChanged" msprop:Generator_UserTableName="Specimens" msprop:Generator_RowChangingName="SpecimensRowChanging" msprop:Generator_RowClassName="SpecimensRow" msprop:Generator_TableClassName="SpecimensDataTable" msprop:Generator_TableVarName="tableSpecimens">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="SpecimensID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="SpecimensID" msprop:Generator_ColumnPropNameInTable="SpecimensIDColumn" msprop:Generator_ColumnVarNameInTable="columnSpecimensID" msprop:Generator_UserColumnName="SpecimensID" type="xs:int" />
-              <xs:element name="Type" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_UserColumnName="Type">
+              <xs:element name="SpecimensID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="SpecimensIDColumn" msprop:Generator_ColumnPropNameInRow="SpecimensID" msprop:Generator_UserColumnName="SpecimensID" msprop:Generator_ColumnVarNameInTable="columnSpecimensID" type="xs:int" />
+              <xs:element name="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_UserColumnName="Type" msprop:Generator_ColumnVarNameInTable="columnType">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="64" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Weight" msprop:Generator_ColumnPropNameInRow="Weight" msprop:Generator_ColumnPropNameInTable="WeightColumn" msprop:Generator_ColumnVarNameInTable="columnWeight" msprop:Generator_UserColumnName="Weight" type="xs:decimal" />
-              <xs:element name="Notes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_UserColumnName="Notes" minOccurs="0">
+              <xs:element name="Weight" msprop:Generator_ColumnPropNameInTable="WeightColumn" msprop:Generator_ColumnPropNameInRow="Weight" msprop:Generator_UserColumnName="Weight" msprop:Generator_ColumnVarNameInTable="columnWeight" type="xs:decimal" />
+              <xs:element name="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_UserColumnName="Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CreatedDate" msprop:Generator_ColumnPropNameInRow="CreatedDate" msprop:Generator_ColumnPropNameInTable="CreatedDateColumn" msprop:Generator_ColumnVarNameInTable="columnCreatedDate" msprop:Generator_UserColumnName="CreatedDate" type="xs:dateTime" />
-              <xs:element name="LastUpdated" msprop:Generator_ColumnPropNameInRow="LastUpdated" msprop:Generator_ColumnPropNameInTable="LastUpdatedColumn" msprop:Generator_ColumnVarNameInTable="columnLastUpdated" msprop:Generator_UserColumnName="LastUpdated" type="xs:dateTime" />
+              <xs:element name="CreatedDate" msprop:Generator_ColumnPropNameInTable="CreatedDateColumn" msprop:Generator_ColumnPropNameInRow="CreatedDate" msprop:Generator_UserColumnName="CreatedDate" msprop:Generator_ColumnVarNameInTable="columnCreatedDate" type="xs:dateTime" />
+              <xs:element name="LastUpdated" msprop:Generator_ColumnPropNameInTable="LastUpdatedColumn" msprop:Generator_ColumnPropNameInRow="LastUpdated" msprop:Generator_UserColumnName="LastUpdated" msprop:Generator_ColumnVarNameInTable="columnLastUpdated" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Templates" msprop:Generator_RowEvHandlerName="TemplatesRowChangeEventHandler" msprop:Generator_RowDeletedName="TemplatesRowDeleted" msprop:Generator_RowDeletingName="TemplatesRowDeleting" msprop:Generator_RowEvArgName="TemplatesRowChangeEvent" msprop:Generator_TablePropName="Templates" msprop:Generator_RowChangedName="TemplatesRowChanged" msprop:Generator_RowChangingName="TemplatesRowChanging" msprop:Generator_TableClassName="TemplatesDataTable" msprop:Generator_RowClassName="TemplatesRow" msprop:Generator_TableVarName="tableTemplates" msprop:Generator_UserTableName="Templates">
+        <xs:element name="Templates" msprop:Generator_RowEvHandlerName="TemplatesRowChangeEventHandler" msprop:Generator_RowDeletedName="TemplatesRowDeleted" msprop:Generator_RowDeletingName="TemplatesRowDeleting" msprop:Generator_RowEvArgName="TemplatesRowChangeEvent" msprop:Generator_TablePropName="Templates" msprop:Generator_RowChangedName="TemplatesRowChanged" msprop:Generator_UserTableName="Templates" msprop:Generator_RowChangingName="TemplatesRowChanging" msprop:Generator_RowClassName="TemplatesRow" msprop:Generator_TableClassName="TemplatesDataTable" msprop:Generator_TableVarName="tableTemplates">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Type" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_UserColumnName="Type">
+              <xs:element name="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_UserColumnName="Type" msprop:Generator_ColumnVarNameInTable="columnType">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="64" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MinWeight" msprop:Generator_ColumnPropNameInRow="MinWeight" msprop:Generator_ColumnPropNameInTable="MinWeightColumn" msprop:Generator_ColumnVarNameInTable="columnMinWeight" msprop:Generator_UserColumnName="MinWeight" type="xs:decimal" />
-              <xs:element name="MaxWeight" msprop:Generator_ColumnPropNameInRow="MaxWeight" msprop:Generator_ColumnPropNameInTable="MaxWeightColumn" msprop:Generator_ColumnVarNameInTable="columnMaxWeight" msprop:Generator_UserColumnName="MaxWeight" type="xs:decimal" />
-              <xs:element name="Notes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_UserColumnName="Notes" minOccurs="0">
+              <xs:element name="MinWeight" msprop:Generator_ColumnPropNameInTable="MinWeightColumn" msprop:Generator_ColumnPropNameInRow="MinWeight" msprop:Generator_UserColumnName="MinWeight" msprop:Generator_ColumnVarNameInTable="columnMinWeight" type="xs:decimal" />
+              <xs:element name="MaxWeight" msprop:Generator_ColumnPropNameInTable="MaxWeightColumn" msprop:Generator_ColumnPropNameInRow="MaxWeight" msprop:Generator_UserColumnName="MaxWeight" msprop:Generator_ColumnVarNameInTable="columnMaxWeight" type="xs:decimal" />
+              <xs:element name="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_UserColumnName="Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CreatedDate" msprop:Generator_ColumnPropNameInRow="CreatedDate" msprop:Generator_ColumnPropNameInTable="CreatedDateColumn" msprop:Generator_ColumnVarNameInTable="columnCreatedDate" msprop:Generator_UserColumnName="CreatedDate" type="xs:dateTime" />
-              <xs:element name="LastUpdated" msprop:Generator_ColumnPropNameInRow="LastUpdated" msprop:Generator_ColumnPropNameInTable="LastUpdatedColumn" msprop:Generator_ColumnVarNameInTable="columnLastUpdated" msprop:Generator_UserColumnName="LastUpdated" type="xs:dateTime" />
+              <xs:element name="CreatedDate" msprop:Generator_ColumnPropNameInTable="CreatedDateColumn" msprop:Generator_ColumnPropNameInRow="CreatedDate" msprop:Generator_UserColumnName="CreatedDate" msprop:Generator_ColumnVarNameInTable="columnCreatedDate" type="xs:dateTime" />
+              <xs:element name="LastUpdated" msprop:Generator_ColumnPropNameInTable="LastUpdatedColumn" msprop:Generator_ColumnPropNameInRow="LastUpdated" msprop:Generator_UserColumnName="LastUpdated" msprop:Generator_ColumnVarNameInTable="columnLastUpdated" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -215,7 +224,7 @@ SELECT Type, MinWeight, MaxWeight, Notes, CreatedDate, LastUpdated FROM Template
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__Specimens__Type__628FA481" msdata:parent="Templates" msdata:child="Specimens" msdata:parentkey="Type" msdata:childkey="Type" msprop:Generator_UserParentTable="Templates" msprop:Generator_UserChildTable="Specimens" msprop:Generator_RelationVarName="relationFK__Specimens__Type__628FA481" msprop:Generator_UserRelationName="FK__Specimens__Type__628FA481" msprop:Generator_ChildPropName="GetSpecimensRows" msprop:Generator_ParentPropName="TemplatesRow" />
+      <msdata:Relationship name="FK__Specimens__Type__628FA481" msdata:parent="Templates" msdata:child="Specimens" msdata:parentkey="Type" msdata:childkey="Type" msprop:Generator_UserParentTable="Templates" msprop:Generator_UserChildTable="Specimens" msprop:Generator_RelationVarName="relationFK__Specimens__Type__628FA481" msprop:Generator_ChildPropName="GetSpecimensRows" msprop:Generator_UserRelationName="FK__Specimens__Type__628FA481" msprop:Generator_ParentPropName="TemplatesRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
