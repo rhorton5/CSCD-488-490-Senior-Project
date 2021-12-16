@@ -35,6 +35,7 @@ namespace Team_6_Senior_Project
             this.setDefaultTableButton = new System.Windows.Forms.Button();
             this.btnSpecimens = new System.Windows.Forms.Button();
             this.btnTemplates = new System.Windows.Forms.Button();
+            this.btnSpecimensSummary = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openExistingButton
@@ -92,11 +93,23 @@ namespace Team_6_Senior_Project
             this.btnTemplates.UseVisualStyleBackColor = true;
             this.btnTemplates.Click += new System.EventHandler(this.btnTemplates_Click);
             // 
+            // btnSpecimensSummary
+            // 
+            this.btnSpecimensSummary.Location = new System.Drawing.Point(67, 556);
+            this.btnSpecimensSummary.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSpecimensSummary.Name = "btnSpecimensSummary";
+            this.btnSpecimensSummary.Size = new System.Drawing.Size(513, 70);
+            this.btnSpecimensSummary.TabIndex = 5;
+            this.btnSpecimensSummary.Text = "Specimens Summary";
+            this.btnSpecimensSummary.UseVisualStyleBackColor = true;
+            this.btnSpecimensSummary.Click += new System.EventHandler(this.btnSpecimensSummary_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 599);
+            this.ClientSize = new System.Drawing.Size(640, 697);
+            this.Controls.Add(this.btnSpecimensSummary);
             this.Controls.Add(this.btnTemplates);
             this.Controls.Add(this.btnSpecimens);
             this.Controls.Add(this.setDefaultTableButton);
@@ -118,6 +131,7 @@ namespace Team_6_Senior_Project
         private System.Windows.Forms.Button setDefaultTableButton;
         private System.Windows.Forms.Button btnSpecimens;
         private System.Windows.Forms.Button btnTemplates;
+        private System.Windows.Forms.Button btnSpecimensSummary;
     }
 }
 

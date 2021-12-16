@@ -106,5 +106,14 @@ namespace Team_6_Senior_Project
             TemplatesForm fm = new TemplatesForm();
             fm.Show();
         }
+
+        private void btnSpecimensSummary_Click(object sender, EventArgs e)
+        {
+            //TODO: have Ryley do this his way, it's better
+            MainMenu.ActiveForm.Hide();
+
+            SpecimensSummaryForm fm = new SpecimensSummaryForm();
+            fm.Show();
+        }
     }
 }

@@ -50,10 +50,12 @@ namespace Team_6_Senior_Project
         {
 
             String minWeight = "";
+            String type = cmbType.Text;
 
             try
             {
-                String query = "SELECT MinWeight FROM Templates WHERE Type = '" + cmbType.Text + "'";
+                String query = $@"SELECT MinWeight 
+                                  FROM Templates WHERE Type = '{type}'";
 
                 String connString = ConfigurationManager.ConnectionStrings["Team_6_Senior_Project.Properties.Settings.CSCDTeam6ConnectionString"].ConnectionString;
                 SqlConnection connection = new SqlConnection(connString);
@@ -80,32 +82,30 @@ namespace Team_6_Senior_Project
         private String maxWeight()
         {
 
-            String minWeight = "";
+            String maxWeight = "";
+            String type = cmbType.Text;
 
             try
             {
-                String query = "SELECT MaxWeight FROM Templates WHERE Type = '" + cmbType.Text + "'";
+                String sqlStatement = $@"SELECT MaxWeight 
+                                         FROM Templates WHERE Type = '{type}'";
 
                 String connString = ConfigurationManager.ConnectionStrings["Team_6_Senior_Project.Properties.Settings.CSCDTeam6ConnectionString"].ConnectionString;
                 SqlConnection connection = new SqlConnection(connString);
                 connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
+                SqlCommand command = new SqlCommand(sqlStatement, connection);
 
                 SqlDataReader dataReader = command.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    minWeight += dataReader[0].ToString();
+                    maxWeight += dataReader[0].ToString();
                 }
                 connection.Close();
-
-
             }
             catch (Exception)
             {
-
-
             }
-            return minWeight;
+            return maxWeight;
         }
 
         private ArrayList getTypes()
@@ -578,12 +578,21 @@ namespace Team_6_Senior_Project
         {
             // Check weight is valid double
             Double weight;
-            if (!Double.TryParse(weightTextBox.Text, out weight))
+            if (weightTextBox.Text == "")
+            {
+                return;
+            }
+            else if (!Double.TryParse(weightTextBox.Text, out weight))
             {
                 MessageBox.Show("Weight given not a valid number. Please try again.");
                 weightTextBox.Focus();
                 return;
             }
+        }
+
+        private void specimensDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -110,7 +111,6 @@ namespace Team_6_Senior_Project
                 lastUpdatedDateTimePicker.Text = DateTime.Now.ToString();
 
                 typeTextBox.Focus();
-                typeTextBox.Select();
             }
             catch (Exception)
             {
@@ -376,9 +376,13 @@ namespace Team_6_Senior_Project
         {
             // Check weight is valid double
             Double weight;
-            if (!Double.TryParse(minWeightTextBox.Text, out weight))
+            if (minWeightTextBox.Text == "")
             {
-                MessageBox.Show("Weight given not a valid number. Please try again.");
+                return;
+            }
+            else if(!Double.TryParse(minWeightTextBox.Text, out weight))
+            {
+                MessageBox.Show("Min Weight given not a valid number. Please try again.");
                 minWeightTextBox.Focus();
                 return;
             }
@@ -388,12 +392,67 @@ namespace Team_6_Senior_Project
         {
             // Check weight is valid double
             Double weight;
-            if (!Double.TryParse(minWeightTextBox.Text, out weight))
+            if (maxWeightTextBox.Text == "")
             {
-                MessageBox.Show("Weight given not a valid number. Please try again.");
+                return;
+            }
+            else if(!Double.TryParse(maxWeightTextBox.Text, out weight))
+            {
+                MessageBox.Show("Max Weight given not a valid number. Please try again.");
                 minWeightTextBox.Focus();
                 return;
             }
+        }
+
+        private void ExportTOCSV(string data)
+        {
+            SaveFileDialog save = new SaveFileDialog
+            {
+                Filter = "CSV Files | *.csv",
+                Title = "Save your table to a csv file"
+            };
+            save.ShowDialog();
+            if (save.FileName != null)
+            {
+                try
+                {
+                    StreamWriter sw = new StreamWriter(save.FileName);
+                    sw.Write(data);
+                    sw.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error has occured while trying to save your file.  Please try again");
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+
+        private void openToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string res = string.Join(",", Enumerable.Range(0, templatesDataGridView.Columns.Count).Select(i => this.templatesDataGridView.Columns[i].HeaderText).ToArray()) + "\n";
+                foreach (DataGridViewRow row in templatesDataGridView.Rows)
+                {
+                    res += string.Join(",", Enumerable.Range(0, row.Cells.Count).Select(i => row.Cells[i].Value).ToArray()) + "\n";
+                }
+                ExportTOCSV(res);
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void templatesDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        private void TemplatesForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //TODO: Figure out how to bring back MainMenu, Ryley!
+            Application.Exit();
         }
     }       
 }

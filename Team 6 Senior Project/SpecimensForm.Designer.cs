@@ -383,6 +383,8 @@
             // 
             // cmbDropDownList
             // 
+            this.cmbDropDownList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbDropDownList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbDropDownList.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cmbDropDownList.Items.AddRange(new object[] {
             "SpecimensID",
@@ -435,6 +437,7 @@
             this.specimensDataGridView.Size = new System.Drawing.Size(1152, 271);
             this.specimensDataGridView.TabIndex = 1;
             this.specimensDataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.specimensDataGridView_CellEnter);
+            this.specimensDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.specimensDataGridView_DataError);
             this.specimensDataGridView.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.specimensDataGridView_UserDeletingRow);
             // 
             // dataGridViewTextBoxColumn1
@@ -663,6 +666,7 @@
             this.Controls.Add(this.specimensBindingNavigator);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SpecimensForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SpecimensForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SpecimensForm_FormClosing);
             this.Load += new System.EventHandler(this.SpecimensForm_Load);
