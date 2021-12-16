@@ -34,6 +34,7 @@ namespace Team_6_Senior_Project
             this.createNewTableButton = new System.Windows.Forms.Button();
             this.setDefaultTableButton = new System.Windows.Forms.Button();
             this.btnSpecimens = new System.Windows.Forms.Button();
+            this.btnTemplates = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openExistingButton
@@ -80,11 +81,23 @@ namespace Team_6_Senior_Project
             this.btnSpecimens.UseVisualStyleBackColor = true;
             this.btnSpecimens.Click += new System.EventHandler(this.btnSpecimens_Click);
             // 
+            // btnTemplates
+            // 
+            this.btnTemplates.Location = new System.Drawing.Point(67, 464);
+            this.btnTemplates.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTemplates.Name = "btnTemplates";
+            this.btnTemplates.Size = new System.Drawing.Size(513, 70);
+            this.btnTemplates.TabIndex = 4;
+            this.btnTemplates.Text = "Templates";
+            this.btnTemplates.UseVisualStyleBackColor = true;
+            this.btnTemplates.Click += new System.EventHandler(this.btnTemplates_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 495);
+            this.ClientSize = new System.Drawing.Size(640, 599);
+            this.Controls.Add(this.btnTemplates);
             this.Controls.Add(this.btnSpecimens);
             this.Controls.Add(this.setDefaultTableButton);
             this.Controls.Add(this.createNewTableButton);
@@ -104,6 +117,7 @@ namespace Team_6_Senior_Project
         private System.Windows.Forms.Button createNewTableButton;
         private System.Windows.Forms.Button setDefaultTableButton;
         private System.Windows.Forms.Button btnSpecimens;
+        private System.Windows.Forms.Button btnTemplates;
     }
 }
 

@@ -383,6 +383,7 @@
             // 
             // cmbDropDownList
             // 
+            this.cmbDropDownList.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cmbDropDownList.Items.AddRange(new object[] {
             "SpecimensID",
             "Type",
@@ -399,6 +400,7 @@
             this.toolStripTextSearchBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextSearchBox.Name = "toolStripTextSearchBox";
             this.toolStripTextSearchBox.Size = new System.Drawing.Size(240, 28);
+            this.toolStripTextSearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextSearchBox_KeyPress);
             // 
             // toolStripButtonClear
             // 
@@ -412,6 +414,7 @@
             // 
             // specimensDataGridView
             // 
+            this.specimensDataGridView.AllowUserToAddRows = false;
             this.specimensDataGridView.AllowUserToOrderColumns = true;
             this.specimensDataGridView.AutoGenerateColumns = false;
             this.specimensDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -429,9 +432,10 @@
             this.specimensDataGridView.ReadOnly = true;
             this.specimensDataGridView.RowHeadersWidth = 51;
             this.specimensDataGridView.RowTemplate.Height = 24;
-            this.specimensDataGridView.Size = new System.Drawing.Size(1093, 260);
+            this.specimensDataGridView.Size = new System.Drawing.Size(1152, 271);
             this.specimensDataGridView.TabIndex = 1;
-            this.specimensDataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.specimensDataGridView_RowEnter);
+            this.specimensDataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.specimensDataGridView_CellEnter);
+            this.specimensDataGridView.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.specimensDataGridView_UserDeletingRow);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -505,7 +509,7 @@
             this.typeTextBox.Location = new System.Drawing.Point(72, 338);
             this.typeTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.typeTextBox.Name = "typeTextBox";
-            this.typeTextBox.Size = new System.Drawing.Size(20, 30);
+            this.typeTextBox.Size = new System.Drawing.Size(29, 30);
             this.typeTextBox.TabIndex = 5;
             this.typeTextBox.Visible = false;
             // 
@@ -518,6 +522,7 @@
             this.weightTextBox.Name = "weightTextBox";
             this.weightTextBox.Size = new System.Drawing.Size(476, 30);
             this.weightTextBox.TabIndex = 7;
+            this.weightTextBox.TextChanged += new System.EventHandler(this.weightTextBox_TextChanged);
             this.weightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.weightTextBox_KeyPress);
             // 
             // notesTextBox
@@ -538,12 +543,12 @@
             this.createdDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.createdDateDateTimePicker.Location = new System.Drawing.Point(205, 436);
             this.createdDateDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.createdDateDateTimePicker.MaxDate = new System.DateTime(2022, 12, 13, 15, 22, 0, 0);
-            this.createdDateDateTimePicker.MinDate = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
+            this.createdDateDateTimePicker.MaxDate = new System.DateTime(2024, 12, 15, 0, 0, 0, 0);
+            this.createdDateDateTimePicker.MinDate = new System.DateTime(2021, 11, 1, 0, 0, 0, 0);
             this.createdDateDateTimePicker.Name = "createdDateDateTimePicker";
             this.createdDateDateTimePicker.Size = new System.Drawing.Size(476, 30);
             this.createdDateDateTimePicker.TabIndex = 11;
-            this.createdDateDateTimePicker.Value = new System.DateTime(2021, 12, 14, 0, 0, 0, 0);
+            this.createdDateDateTimePicker.Value = new System.DateTime(2021, 12, 15, 0, 0, 0, 0);
             // 
             // lastUpdatedDateTimePicker
             // 
@@ -552,11 +557,12 @@
             this.lastUpdatedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.lastUpdatedDateTimePicker.Location = new System.Drawing.Point(205, 473);
             this.lastUpdatedDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lastUpdatedDateTimePicker.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
-            this.lastUpdatedDateTimePicker.MinDate = new System.DateTime(2021, 12, 1, 0, 0, 0, 0);
+            this.lastUpdatedDateTimePicker.MaxDate = new System.DateTime(2024, 12, 14, 0, 0, 0, 0);
+            this.lastUpdatedDateTimePicker.MinDate = new System.DateTime(2021, 12, 14, 0, 0, 0, 0);
             this.lastUpdatedDateTimePicker.Name = "lastUpdatedDateTimePicker";
             this.lastUpdatedDateTimePicker.Size = new System.Drawing.Size(476, 30);
             this.lastUpdatedDateTimePicker.TabIndex = 13;
+            this.lastUpdatedDateTimePicker.Value = new System.DateTime(2021, 12, 15, 0, 0, 0, 0);
             // 
             // btnAdd
             // 
@@ -608,7 +614,7 @@
             this.cmbType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(476, 33);
-            this.cmbType.TabIndex = 17;
+            this.cmbType.TabIndex = 5;
             this.cmbType.SelectedValueChanged += new System.EventHandler(this.cmbType_SelectedValueChanged);
             this.cmbType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbType_KeyPress);
             // 

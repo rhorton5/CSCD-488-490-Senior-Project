@@ -31,6 +31,10 @@ namespace Team_6_Senior_Project
         {
             try
             {
+                this.createdDateDateTimePicker.Enabled = false;
+                this.lastUpdatedDateTimePicker.Enabled = false;
+
+
                 this.specimensTableAdapter.Fill(this.cSCDTeam6DataSet.Specimens);
 
                 ArrayList typesList = getTypes();
@@ -161,7 +165,21 @@ namespace Team_6_Senior_Project
         {
             try
             {
-                specimensBindingSource.RemoveCurrent();
+                String Message = "Are you sure you want to delete ID: " + specimensIDTextBox.Text + "?";
+                String Title = "Delete?";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult dialogResult = MessageBox.Show(Message, Title
+                    , buttons, MessageBoxIcon.Question, 
+                    MessageBoxDefaultButton.Button2); // Default to "no" not yes
+                if (dialogResult == DialogResult.Yes)
+                {
+                   specimensBindingSource.RemoveCurrent();
+                }
+                else
+                {
+                    return;
+                }
+                
             }
             catch (Exception)
             {
@@ -171,7 +189,6 @@ namespace Team_6_Senior_Project
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //TODO: set created date to read only
             try
             {
                 //check if anything changed
@@ -189,7 +206,7 @@ namespace Team_6_Senior_Project
                     lastUpdatedDateTimePicker.Text.Equals("")
                     )
                 {
-                    MessageBox.Show("All feilds but Notes are required. Please try again.");
+                    MessageBox.Show("All fields but Notes are required. Please try again.");
                     weightTextBox.Focus();
                     return;
                 }
@@ -261,7 +278,7 @@ namespace Team_6_Senior_Project
                 Double weight;
                 if (!Double.TryParse(weightTextBox.Text, out weight))
                 {
-                    MessageBox.Show("Weight given outnot a valid number. Please try again.");
+                    MessageBox.Show("Weight given not a valid number. Please try again.");
                     weightTextBox.Focus();
                     return;
                 }
@@ -269,7 +286,7 @@ namespace Team_6_Senior_Project
                 // Compare weight to template range
                 if (Convert.ToDouble(weightTextBox.Text) < Convert.ToDouble(minWeight()) || Convert.ToDouble(weightTextBox.Text) > Convert.ToDouble(maxWeight()))
                 {
-                    MessageBox.Show("Weight given out of template range for " + cmbType.Text +  ". Min weight of: " + minWeight() + ", Max weight of: " + maxWeight() + ". Please try again.");
+                    MessageBox.Show("Weight given not in template range for " + cmbType.Text +  ". Min weight of: " + minWeight() + ", Max weight of: " + maxWeight() + ". Please try again.");
                     weightTextBox.Focus();
                     return;
                 }
@@ -295,7 +312,7 @@ namespace Team_6_Senior_Project
                 specimensBindingSource.RemoveFilter();
                 toolStripTextSearchBox.Clear();
 
-                for (int i = 0; i < this.specimensDataGridView.Rows.Count - 2; i++)//Exclude new row and empty row by subtracting by two.
+                for (int i = 0; i < this.specimensDataGridView.Rows.Count - 1; i++)
                 {
                     int id = int.Parse(this.specimensDataGridView.Rows[i].Cells[0].Value.ToString());
                     if (id > maxValue) { 
@@ -413,15 +430,17 @@ namespace Team_6_Senior_Project
         {
             try
             {
-                // TODO: Doesn't work for non-string feilds?
-                string searchIndvidual = cmbDropDownList.Text + " like '%" + toolStripTextSearchBox.Text + "%'";
+                String combo = sanatizeSQLString(cmbDropDownList.Text);
+                String search = sanatizeSQLString(toolStripTextSearchBox.Text);
+
+
+                // TODO: Doesn't work for non-string fields? Check is sql doesn't use quotes for numbers
+                string searchIndvidual = combo + " like '%" + search + "%'";
                 specimensBindingSource.Filter = searchIndvidual;
             }
             catch (Exception)
             {
-
             }
-
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
@@ -476,20 +495,19 @@ namespace Team_6_Senior_Project
             }
             catch (Exception)
             {
-
             }
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            //TODO: Figure out how to bring back MainMenu
-
+            //TODO: Figure out how to bring back MainMenu, Ryley!
+            Application.Exit();
         }
 
         private void SpecimensForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //TODO: Figure out how to bring back MainMenu
-
+            //TODO: Figure out how to bring back MainMenu, Ryley!
+            Application.Exit();
         }
 
         private void toolStripButtonClear_Click(object sender, EventArgs e)
@@ -513,7 +531,7 @@ namespace Team_6_Senior_Project
             return false;
         }
 
-        private void specimensDataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
+        private void specimensDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             OriginalSpecimenID = specimensIDTextBox.Text;
             OriginalType = typeTextBox.Text;
@@ -521,6 +539,51 @@ namespace Team_6_Senior_Project
             OriginalNotes = notesTextBox.Text;
             OriginalCreatedDate = createdDateDateTimePicker.Text;
             OriginalUpdatedDate = lastUpdatedDateTimePicker.Text;
+        }
+
+        private void specimensDataGridView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            try
+            {
+                String Message = "Are you sure you want to delete ID: " + specimensIDTextBox.Text + "?";
+                String Title = "Delete?";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult dialogResult = MessageBox.Show(Message, Title
+                    , buttons, MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button2); // Default to "no" not yes
+                if (dialogResult != DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void toolStripTextSearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // XSS and SQL-I protection
+            // Disallows >, <, ', ", ;, -
+
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != ' '))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void weightTextBox_TextChanged(object sender, EventArgs e)
+        {
+            // Check weight is valid double
+            Double weight;
+            if (!Double.TryParse(weightTextBox.Text, out weight))
+            {
+                MessageBox.Show("Weight given not a valid number. Please try again.");
+                weightTextBox.Focus();
+                return;
+            }
         }
     }
 }

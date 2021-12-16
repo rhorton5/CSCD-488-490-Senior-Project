@@ -64,6 +64,12 @@
     <Compile Include="TableMenu.Designer.cs">
       <DependentUpon>TableMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="TemplatesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TemplatesForm.Designer.cs">
+      <DependentUpon>TemplatesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WindowChanger.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -92,6 +98,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TemplatesForm.resx">
+      <DependentUpon>TemplatesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="CSCDTeam6DataSet.xsc">
       <DependentUpon>CSCDTeam6DataSet.xsd</DependentUpon>
     </None>

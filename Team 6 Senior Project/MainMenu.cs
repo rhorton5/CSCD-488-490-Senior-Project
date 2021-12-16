@@ -91,9 +91,19 @@ namespace Team_6_Senior_Project
 
         private void btnSpecimens_Click(object sender, EventArgs e)
         {
+            //TODO: have Ryley do this his way, it's better
             MainMenu.ActiveForm.Hide();
 
             SpecimensForm fm = new SpecimensForm();
+            fm.Show();
+        }
+
+        private void btnTemplates_Click(object sender, EventArgs e)
+        {
+            //TODO: have Ryley do this his way, it's better
+            MainMenu.ActiveForm.Hide();
+
+            TemplatesForm fm = new TemplatesForm();
             fm.Show();
         }
     }
