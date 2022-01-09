@@ -11,15 +11,23 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 
+
 namespace Team_6_Senior_Project
 {
+
     public partial class TableMenu : Form
     {
         private string fileName;
-        private int lastUpdatedIndex;
-        private int createdAtIndex;
         private bool returnToMainMenu = false;
 
+        private int idIndex;
+        private int typeIndex;
+        private int weightindex;
+        private int notesIndex;
+        private int lastUpdatedIndex;
+        private int createdAtIndex;
+
+        
         public TableMenu(string fileName)
         {
             this.fileName = fileName;
@@ -29,9 +37,20 @@ namespace Team_6_Senior_Project
 
         private void TableMenu_Load(object sender, EventArgs e)
         {
+
+
             this.SpecimensDataGridView.DataSource = (this.fileName == null) ? GetSpecimensFromDatabase() : GetSpecimensFromFile(this.fileName);
+            
+            this.idIndex = this.specimensIDDataGridViewTextBoxColumn.Index;
+            this.typeIndex = this.typeDataGridViewTextBoxColumn.Index;
+            this.weightindex = this.weightDataGridViewTextBoxColumn.Index;
+            this.notesIndex = this.notesDataGridViewTextBoxColumn.Index;
             this.lastUpdatedIndex = this.lastUpdatedDataGridViewTextBoxColumn.Index;
             this.createdAtIndex = this.createdDateDataGridViewTextBoxColumn.Index;
+
+
+
+
             this.searchComboBox.Items.Add("All Attributes");
             for (int i = 0; i < this.SpecimensDataGridView.Columns.Count; i++)
             {
@@ -74,7 +93,7 @@ namespace Team_6_Senior_Project
                 sr.Close();
                 return dataTable;
             }
-            catch (IOException ex)
+            catch (IOException)
             {
                 MessageBox.Show("There was an error with importing your file.\nYou will start with a blank message.  Press Start Menu to return to the menu.","Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
@@ -100,6 +119,7 @@ namespace Team_6_Senior_Project
                 }
             }
 
+
                 return dtSpecimens;
         }
 
@@ -111,12 +131,19 @@ namespace Team_6_Senior_Project
 
             using (SqlConnection con = new SqlConnection(connString))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Specimens WHERE Type LIKE '%" + searchTextBox.Text + 
+                //TODO: Add ID
+                //TODO: consider dropping dates from all search as including many when searching for any number
+
+
+                using (SqlCommand cmd = new SqlCommand("SELECT * " +
+                    "FROM Specimens " +
+                    "WHERE Type LIKE '%" + searchTextBox.Text + 
                     "%' OR WEIGHT LIKE '%" + searchTextBox.Text +
                     "%' OR Notes LIKE '%" + searchTextBox.Text +
                     "%' OR CreatedDate LIKE '%" + searchTextBox.Text +
                     "%' OR LastUpdated LIKE '%" + searchTextBox.Text +
-                    "%'", con))
+                    "%'"
+                    , con))
                 {
                     con.Open();
 
@@ -165,6 +192,7 @@ namespace Team_6_Senior_Project
 
         private int setSpecimenID()
         {
+            // TODO: see if count includes all or if affected by filter. Would error if trying to add an existing ID
             int maxValue = -1;
             for(int i = 0; i < this.SpecimensDataGridView.Rows.Count - 2; i++)//Exclude new row and empty row by subtracting by two.
             {
@@ -178,17 +206,36 @@ namespace Team_6_Senior_Project
 
         private void SpecimensDataGridView_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = this.SpecimensDataGridView.Rows[e.RowIndex];
-           
-            if (string.IsNullOrEmpty(row.Cells[0].Value.ToString()) && !string.IsNullOrEmpty(row.Cells[1].Value.ToString()))
+
+            try
             {
-                row.Cells[this.createdAtIndex].Value = DateTime.Now;
-                row.Cells[0].Value = setSpecimenID();
+                DataGridViewRow row = this.SpecimensDataGridView.Rows[e.RowIndex];
 
+                if(row.Cells[this.createdAtIndex].Value.Equals(null))
+                {
+                    row.Cells[this.createdAtIndex].Value = DateTime.Now;
+                }
+
+                if (row.Cells[this.lastUpdatedIndex].Value.Equals(null))
+                {
+                    row.Cells[this.lastUpdatedIndex].Value = DateTime.Now;
+                }
+
+                if (row.Cells[this.idIndex].Value == null ||
+                    row.Cells[this.typeIndex].Value == null ||
+                    row.Cells[this.weightindex].Value == null ||
+                    row.Cells[this.notesIndex].Value == null ||
+                    row.Cells[this.createdAtIndex].Value == null ||
+                    row.Cells[this.lastUpdatedIndex].Value == null)
+                {
+                    //TODO: come up with a better fix than forcing them to stay in the row
+                    // force out with escape key
+                    return;
+                }
             }
-
-            row.Cells[this.lastUpdatedIndex].Value = DateTime.Now;
-
+            catch (Exception)
+            {
+            }
         }
 
         private void SpecimensDataGridView_DataSourceChanged(Object sender, EventArgs e)
@@ -247,6 +294,36 @@ namespace Team_6_Senior_Project
                 Program.closeProgram = true;
             }
             Program.runViewAll=false;
+        }
+
+        private void SpecimensDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            // TODO: remove this funciton as it is supressing errors from the data grid table
+            e.Cancel = true;
+        }
+
+        private void SpecimensDataGridView_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Disallows all characters that are not controls digits or period "."
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // Limits to only one period "."
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void searchComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }    
 }

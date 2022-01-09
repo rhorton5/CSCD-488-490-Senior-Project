@@ -76,10 +76,6 @@ namespace Team_6_Senior_Project
 
         }
 
-        private void setDefaultTableButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("setDefautTableButton has been pressed!");
-        }
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -87,6 +83,33 @@ namespace Team_6_Senior_Project
             {
                 Program.closeProgram = true;
             }
+        }
+
+        private void btnSpecimens_Click(object sender, EventArgs e)
+        {
+            //TODO: have Ryley do this his way, it's better
+            MainMenu.ActiveForm.Hide();
+
+            SpecimensForm fm = new SpecimensForm();
+            fm.Show();
+        }
+
+        private void btnTemplates_Click(object sender, EventArgs e)
+        {
+            //TODO: have Ryley do this his way, it's better
+            MainMenu.ActiveForm.Hide();
+
+            TemplatesForm fm = new TemplatesForm();
+            fm.Show();
+        }
+
+        private void btnSpecimensSummary_Click(object sender, EventArgs e)
+        {
+            //TODO: have Ryley do this his way, it's better
+            MainMenu.ActiveForm.Hide();
+
+            SpecimensSummaryForm fm = new SpecimensSummaryForm();
+            fm.Show();
         }
     }
 }
