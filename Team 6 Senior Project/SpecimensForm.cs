@@ -497,16 +497,19 @@ namespace Team_6_Senior_Project
             }
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void homeButton_Click(object sender, EventArgs e)
         {
             //TODO: Figure out how to bring back MainMenu, Ryley!
-            Application.Exit();
+            Program.CurrentForm = new MainMenu();
+            this.Close();
         }
 
         private void SpecimensForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             //TODO: Figure out how to bring back MainMenu, Ryley!
-            Application.Exit();
+            if (Program.CurrentForm.Name == this.Name) //if the current Form has been changed, you can close out of the program
+                Program.CurrentForm = null;  //This is done by having the program be called null.
+
         }
 
         private void toolStripButtonClear_Click(object sender, EventArgs e)

@@ -98,9 +98,10 @@
             // 
             typeLabel.AutoSize = true;
             typeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            typeLabel.Location = new System.Drawing.Point(7, 363);
+            typeLabel.Location = new System.Drawing.Point(5, 295);
+            typeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             typeLabel.Name = "typeLabel";
-            typeLabel.Size = new System.Drawing.Size(63, 25);
+            typeLabel.Size = new System.Drawing.Size(47, 20);
             typeLabel.TabIndex = 2;
             typeLabel.Text = "Type:";
             // 
@@ -108,9 +109,10 @@
             // 
             minWeightLabel.AutoSize = true;
             minWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            minWeightLabel.Location = new System.Drawing.Point(7, 391);
+            minWeightLabel.Location = new System.Drawing.Point(5, 318);
+            minWeightLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             minWeightLabel.Name = "minWeightLabel";
-            minWeightLabel.Size = new System.Drawing.Size(117, 25);
+            minWeightLabel.Size = new System.Drawing.Size(92, 20);
             minWeightLabel.TabIndex = 4;
             minWeightLabel.Text = "Min Weight:";
             // 
@@ -118,9 +120,10 @@
             // 
             maxWeightLabel.AutoSize = true;
             maxWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            maxWeightLabel.Location = new System.Drawing.Point(7, 419);
+            maxWeightLabel.Location = new System.Drawing.Point(5, 340);
+            maxWeightLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             maxWeightLabel.Name = "maxWeightLabel";
-            maxWeightLabel.Size = new System.Drawing.Size(123, 25);
+            maxWeightLabel.Size = new System.Drawing.Size(96, 20);
             maxWeightLabel.TabIndex = 6;
             maxWeightLabel.Text = "Max Weight:";
             // 
@@ -128,9 +131,10 @@
             // 
             notesLabel.AutoSize = true;
             notesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            notesLabel.Location = new System.Drawing.Point(7, 447);
+            notesLabel.Location = new System.Drawing.Point(5, 363);
+            notesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             notesLabel.Name = "notesLabel";
-            notesLabel.Size = new System.Drawing.Size(69, 25);
+            notesLabel.Size = new System.Drawing.Size(55, 20);
             notesLabel.TabIndex = 8;
             notesLabel.Text = "Notes:";
             // 
@@ -138,9 +142,10 @@
             // 
             createdDateLabel.AutoSize = true;
             createdDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            createdDateLabel.Location = new System.Drawing.Point(7, 476);
+            createdDateLabel.Location = new System.Drawing.Point(5, 387);
+            createdDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             createdDateLabel.Name = "createdDateLabel";
-            createdDateLabel.Size = new System.Drawing.Size(134, 25);
+            createdDateLabel.Size = new System.Drawing.Size(109, 20);
             createdDateLabel.TabIndex = 10;
             createdDateLabel.Text = "Created Date:";
             // 
@@ -148,9 +153,10 @@
             // 
             lastUpdatedLabel.AutoSize = true;
             lastUpdatedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lastUpdatedLabel.Location = new System.Drawing.Point(7, 504);
+            lastUpdatedLabel.Location = new System.Drawing.Point(5, 410);
+            lastUpdatedLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lastUpdatedLabel.Name = "lastUpdatedLabel";
-            lastUpdatedLabel.Size = new System.Drawing.Size(134, 25);
+            lastUpdatedLabel.Size = new System.Drawing.Size(110, 20);
             lastUpdatedLabel.TabIndex = 12;
             lastUpdatedLabel.Text = "Last Updated:";
             // 
@@ -215,7 +221,7 @@
             this.templatesBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.templatesBindingNavigator.Name = "templatesBindingNavigator";
             this.templatesBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.templatesBindingNavigator.Size = new System.Drawing.Size(1165, 30);
+            this.templatesBindingNavigator.Size = new System.Drawing.Size(874, 27);
             this.templatesBindingNavigator.TabIndex = 0;
             this.templatesBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -225,14 +231,14 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 27);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(49, 27);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(41, 24);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -242,7 +248,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 27);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
@@ -252,8 +258,9 @@
             this.toolStripButton1.Image = global::Team_6_Senior_Project.Properties.Resources.house_icon;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 27);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton1.Text = "homeButton";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -261,7 +268,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 27);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -270,13 +277,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 27);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 30);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -284,14 +291,14 @@
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(38, 23);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 30);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -299,7 +306,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 27);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -308,20 +315,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 27);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 30);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // templatesBindingNavigatorSaveItem
             // 
             this.templatesBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.templatesBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("templatesBindingNavigatorSaveItem.Image")));
             this.templatesBindingNavigatorSaveItem.Name = "templatesBindingNavigatorSaveItem";
-            this.templatesBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 27);
+            this.templatesBindingNavigatorSaveItem.Size = new System.Drawing.Size(24, 24);
             this.templatesBindingNavigatorSaveItem.Text = "Save Data";
             this.templatesBindingNavigatorSaveItem.Click += new System.EventHandler(this.templatesBindingNavigatorSaveItem_Click);
             // 
@@ -331,7 +338,7 @@
             this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
             this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripButton.Name = "openToolStripButton";
-            this.openToolStripButton.Size = new System.Drawing.Size(29, 27);
+            this.openToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.openToolStripButton.Text = "&Open";
             this.openToolStripButton.Click += new System.EventHandler(this.openToolStripButton_Click);
             // 
@@ -341,13 +348,13 @@
             this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
             this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripButton.Name = "saveToolStripButton";
-            this.saveToolStripButton.Size = new System.Drawing.Size(29, 27);
+            this.saveToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.saveToolStripButton.Text = "&Save";
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 30);
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // copyToolStripButton
             // 
@@ -355,7 +362,7 @@
             this.copyToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripButton.Image")));
             this.copyToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copyToolStripButton.Name = "copyToolStripButton";
-            this.copyToolStripButton.Size = new System.Drawing.Size(29, 27);
+            this.copyToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.copyToolStripButton.Text = "&Copy";
             // 
             // pasteToolStripButton
@@ -364,13 +371,13 @@
             this.pasteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripButton.Image")));
             this.pasteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pasteToolStripButton.Name = "pasteToolStripButton";
-            this.pasteToolStripButton.Size = new System.Drawing.Size(29, 27);
+            this.pasteToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.pasteToolStripButton.Text = "&Paste";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 30);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // helpToolStripButton
             // 
@@ -378,7 +385,7 @@
             this.helpToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripButton.Image")));
             this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.helpToolStripButton.Name = "helpToolStripButton";
-            this.helpToolStripButton.Size = new System.Drawing.Size(29, 27);
+            this.helpToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.helpToolStripButton.Text = "He&lp";
             // 
             // toolStripButtonSearch
@@ -387,7 +394,7 @@
             this.toolStripButtonSearch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSearch.Image")));
             this.toolStripButtonSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSearch.Name = "toolStripButtonSearch";
-            this.toolStripButtonSearch.Size = new System.Drawing.Size(65, 27);
+            this.toolStripButtonSearch.Size = new System.Drawing.Size(53, 24);
             this.toolStripButtonSearch.Text = "Search";
             this.toolStripButtonSearch.Click += new System.EventHandler(this.toolStripButtonSearch_Click);
             // 
@@ -395,7 +402,6 @@
             // 
             this.cmbDropDownList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbDropDownList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbDropDownList.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cmbDropDownList.Items.AddRange(new object[] {
             "Type",
             "MinWeight",
@@ -404,14 +410,14 @@
             "CreatedDate",
             "LastUpdated"});
             this.cmbDropDownList.Name = "cmbDropDownList";
-            this.cmbDropDownList.Size = new System.Drawing.Size(121, 30);
+            this.cmbDropDownList.Size = new System.Drawing.Size(92, 27);
             this.cmbDropDownList.Text = "Type";
             // 
             // toolStripTextSearchBox
             // 
             this.toolStripTextSearchBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextSearchBox.Name = "toolStripTextSearchBox";
-            this.toolStripTextSearchBox.Size = new System.Drawing.Size(240, 30);
+            this.toolStripTextSearchBox.Size = new System.Drawing.Size(181, 27);
             this.toolStripTextSearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextSearchBox_KeyPress);
             // 
             // toolStripButtonClear
@@ -420,7 +426,7 @@
             this.toolStripButtonClear.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonClear.Image")));
             this.toolStripButtonClear.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonClear.Name = "toolStripButtonClear";
-            this.toolStripButtonClear.Size = new System.Drawing.Size(53, 27);
+            this.toolStripButtonClear.Size = new System.Drawing.Size(44, 24);
             this.toolStripButtonClear.Text = "Clear";
             this.toolStripButtonClear.Click += new System.EventHandler(this.toolStripButtonClear_Click);
             // 
@@ -438,12 +444,13 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.templatesDataGridView.DataSource = this.templatesBindingSource;
-            this.templatesDataGridView.Location = new System.Drawing.Point(0, 30);
+            this.templatesDataGridView.Location = new System.Drawing.Point(0, 24);
+            this.templatesDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.templatesDataGridView.Name = "templatesDataGridView";
             this.templatesDataGridView.ReadOnly = true;
             this.templatesDataGridView.RowHeadersWidth = 51;
             this.templatesDataGridView.RowTemplate.Height = 24;
-            this.templatesDataGridView.Size = new System.Drawing.Size(1136, 317);
+            this.templatesDataGridView.Size = new System.Drawing.Size(852, 258);
             this.templatesDataGridView.TabIndex = 1;
             this.templatesDataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.templatesDataGridView_CellEnter);
             this.templatesDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.templatesDataGridView_DataError);
@@ -507,9 +514,10 @@
             // 
             this.typeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.templatesBindingSource, "Type", true));
             this.typeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typeTextBox.Location = new System.Drawing.Point(164, 363);
+            this.typeTextBox.Location = new System.Drawing.Point(123, 295);
+            this.typeTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.typeTextBox.Name = "typeTextBox";
-            this.typeTextBox.Size = new System.Drawing.Size(359, 30);
+            this.typeTextBox.Size = new System.Drawing.Size(270, 26);
             this.typeTextBox.TabIndex = 3;
             this.typeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeTextBox_KeyPress);
             // 
@@ -517,9 +525,10 @@
             // 
             this.minWeightTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.templatesBindingSource, "MinWeight", true));
             this.minWeightTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWeightTextBox.Location = new System.Drawing.Point(164, 391);
+            this.minWeightTextBox.Location = new System.Drawing.Point(123, 318);
+            this.minWeightTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.minWeightTextBox.Name = "minWeightTextBox";
-            this.minWeightTextBox.Size = new System.Drawing.Size(359, 30);
+            this.minWeightTextBox.Size = new System.Drawing.Size(270, 26);
             this.minWeightTextBox.TabIndex = 5;
             this.minWeightTextBox.TextChanged += new System.EventHandler(this.minWeightTextBox_TextChanged);
             this.minWeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.minWeightTextBox_KeyPress);
@@ -528,9 +537,10 @@
             // 
             this.maxWeightTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.templatesBindingSource, "MaxWeight", true));
             this.maxWeightTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxWeightTextBox.Location = new System.Drawing.Point(164, 419);
+            this.maxWeightTextBox.Location = new System.Drawing.Point(123, 340);
+            this.maxWeightTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.maxWeightTextBox.Name = "maxWeightTextBox";
-            this.maxWeightTextBox.Size = new System.Drawing.Size(359, 30);
+            this.maxWeightTextBox.Size = new System.Drawing.Size(270, 26);
             this.maxWeightTextBox.TabIndex = 7;
             this.maxWeightTextBox.TextChanged += new System.EventHandler(this.maxWeightTextBox_TextChanged);
             this.maxWeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maxWeightTextBox_KeyPress);
@@ -539,9 +549,10 @@
             // 
             this.notesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.templatesBindingSource, "Notes", true));
             this.notesTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notesTextBox.Location = new System.Drawing.Point(164, 447);
+            this.notesTextBox.Location = new System.Drawing.Point(123, 363);
+            this.notesTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.notesTextBox.Name = "notesTextBox";
-            this.notesTextBox.Size = new System.Drawing.Size(359, 30);
+            this.notesTextBox.Size = new System.Drawing.Size(270, 26);
             this.notesTextBox.TabIndex = 9;
             this.notesTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.notesTextBox_KeyPress);
             // 
@@ -550,9 +561,10 @@
             this.createdDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.templatesBindingSource, "CreatedDate", true));
             this.createdDateDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createdDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.createdDateDateTimePicker.Location = new System.Drawing.Point(164, 475);
+            this.createdDateDateTimePicker.Location = new System.Drawing.Point(123, 386);
+            this.createdDateDateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.createdDateDateTimePicker.Name = "createdDateDateTimePicker";
-            this.createdDateDateTimePicker.Size = new System.Drawing.Size(359, 30);
+            this.createdDateDateTimePicker.Size = new System.Drawing.Size(270, 26);
             this.createdDateDateTimePicker.TabIndex = 11;
             // 
             // lastUpdatedDateTimePicker
@@ -560,18 +572,19 @@
             this.lastUpdatedDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.templatesBindingSource, "LastUpdated", true));
             this.lastUpdatedDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lastUpdatedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.lastUpdatedDateTimePicker.Location = new System.Drawing.Point(164, 503);
+            this.lastUpdatedDateTimePicker.Location = new System.Drawing.Point(123, 409);
+            this.lastUpdatedDateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lastUpdatedDateTimePicker.Name = "lastUpdatedDateTimePicker";
-            this.lastUpdatedDateTimePicker.Size = new System.Drawing.Size(359, 30);
+            this.lastUpdatedDateTimePicker.Size = new System.Drawing.Size(270, 26);
             this.lastUpdatedDateTimePicker.TabIndex = 13;
             // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(438, 584);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSave.Location = new System.Drawing.Point(328, 474);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(120, 33);
+            this.btnSave.Size = new System.Drawing.Size(90, 27);
             this.btnSave.TabIndex = 19;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -580,10 +593,10 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(217, 584);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelete.Location = new System.Drawing.Point(163, 474);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(120, 33);
+            this.btnDelete.Size = new System.Drawing.Size(90, 27);
             this.btnDelete.TabIndex = 18;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -592,10 +605,10 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(21, 584);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Location = new System.Drawing.Point(16, 474);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(120, 33);
+            this.btnAdd.Size = new System.Drawing.Size(90, 27);
             this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "Add New";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -603,9 +616,9 @@
             // 
             // TemplatesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1165, 662);
+            this.ClientSize = new System.Drawing.Size(874, 538);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
@@ -623,6 +636,7 @@
             this.Controls.Add(this.lastUpdatedDateTimePicker);
             this.Controls.Add(this.templatesDataGridView);
             this.Controls.Add(this.templatesBindingNavigator);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "TemplatesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TemplatesForm";

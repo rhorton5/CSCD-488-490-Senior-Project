@@ -452,7 +452,14 @@ namespace Team_6_Senior_Project
         private void TemplatesForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             //TODO: Figure out how to bring back MainMenu, Ryley!
-            Application.Exit();
+            if(Program.CurrentForm.Name == this.Name)
+                Program.CurrentForm = null;
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new MainMenu();
+            this.Close();
         }
     }       
 }
