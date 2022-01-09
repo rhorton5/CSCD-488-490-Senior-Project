@@ -82,3 +82,6 @@ C:\Users\rhorton5\Downloads\CSCD-488-490-Senior-Project-rhorton_processFix\Team 
 C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\Team_6_Senior_Project.SpecimensForm.resources
 C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\Team_6_Senior_Project.TemplatesForm.resources
 C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\Team_6_Senior_Project.SpecimensSummaryForm.resources
+C:\Users\rhort\Desktop\github_senior_project\Team 6 Senior Project\obj\Debug\Team_6_Senior_Project.SpecimensForm.resources
+C:\Users\rhort\Desktop\github_senior_project\Team 6 Senior Project\obj\Debug\Team_6_Senior_Project.SpecimensSummaryForm.resources
+C:\Users\rhort\Desktop\github_senior_project\Team 6 Senior Project\obj\Debug\Team_6_Senior_Project.TemplatesForm.resources

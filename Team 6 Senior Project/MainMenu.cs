@@ -79,37 +79,31 @@ namespace Team_6_Senior_Project
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!this.closeByNewForm)
+            if (Program.CurrentForm.Name == this.Name)
             {
-                Program.closeProgram = true;
+                Program.CurrentForm = null;
             }
         }
 
         private void btnSpecimens_Click(object sender, EventArgs e)
         {
             //TODO: have Ryley do this his way, it's better
-            MainMenu.ActiveForm.Hide();
-
-            SpecimensForm fm = new SpecimensForm();
-            fm.Show();
+            Program.CurrentForm = new SpecimensForm();
+            this.Close();
         }
 
         private void btnTemplates_Click(object sender, EventArgs e)
         {
             //TODO: have Ryley do this his way, it's better
-            MainMenu.ActiveForm.Hide();
-
-            TemplatesForm fm = new TemplatesForm();
-            fm.Show();
+            Program.CurrentForm = new TemplatesForm();
+            this.Close();
         }
 
         private void btnSpecimensSummary_Click(object sender, EventArgs e)
         {
             //TODO: have Ryley do this his way, it's better
-            MainMenu.ActiveForm.Hide();
-
-            SpecimensSummaryForm fm = new SpecimensSummaryForm();
-            fm.Show();
+            Program.CurrentForm = new SpecimensSummaryForm();
+            this.Close();
         }
     }
 }

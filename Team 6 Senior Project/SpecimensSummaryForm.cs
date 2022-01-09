@@ -121,7 +121,7 @@ namespace Team_6_Senior_Project
         private void SpecimensSummaryForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             //TODO: Figure out how to bring back MainMenu, Ryley!
-            Application.Exit();
+            Program.CurrentForm = new MainMenu();
         }
     }
 }
