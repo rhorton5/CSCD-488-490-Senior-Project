@@ -76,10 +76,6 @@ namespace Team_6_Senior_Project
 
         }
 
-        private void setDefaultTableButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("setDefautTableButton has been pressed!");
-        }
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {

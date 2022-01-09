@@ -340,7 +340,6 @@ namespace Team_6_Senior_Project
 
         private void cmbType_SelectedValueChanged(object sender, EventArgs e)
         {
-            // TODO: Update combobox cmbType to by dynamic and pull from templates
             typeTextBox.Text = cmbType.Text;
         }
 

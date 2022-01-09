@@ -32,7 +32,6 @@ namespace Team_6_Senior_Project
         {
             this.openExistingButton = new System.Windows.Forms.Button();
             this.createNewTableButton = new System.Windows.Forms.Button();
-            this.setDefaultTableButton = new System.Windows.Forms.Button();
             this.btnSpecimens = new System.Windows.Forms.Button();
             this.btnTemplates = new System.Windows.Forms.Button();
             this.btnSpecimensSummary = new System.Windows.Forms.Button();
@@ -51,7 +50,7 @@ namespace Team_6_Senior_Project
             // 
             // createNewTableButton
             // 
-            this.createNewTableButton.Location = new System.Drawing.Point(67, 129);
+            this.createNewTableButton.Location = new System.Drawing.Point(67, 538);
             this.createNewTableButton.Margin = new System.Windows.Forms.Padding(4);
             this.createNewTableButton.Name = "createNewTableButton";
             this.createNewTableButton.Size = new System.Drawing.Size(513, 70);
@@ -60,20 +59,9 @@ namespace Team_6_Senior_Project
             this.createNewTableButton.UseVisualStyleBackColor = true;
             this.createNewTableButton.Click += new System.EventHandler(this.createNewTableButton_Click);
             // 
-            // setDefaultTableButton
-            // 
-            this.setDefaultTableButton.Location = new System.Drawing.Point(67, 224);
-            this.setDefaultTableButton.Margin = new System.Windows.Forms.Padding(4);
-            this.setDefaultTableButton.Name = "setDefaultTableButton";
-            this.setDefaultTableButton.Size = new System.Drawing.Size(513, 70);
-            this.setDefaultTableButton.TabIndex = 2;
-            this.setDefaultTableButton.Text = "Set Default";
-            this.setDefaultTableButton.UseVisualStyleBackColor = true;
-            this.setDefaultTableButton.Click += new System.EventHandler(this.setDefaultTableButton_Click);
-            // 
             // btnSpecimens
             // 
-            this.btnSpecimens.Location = new System.Drawing.Point(67, 374);
+            this.btnSpecimens.Location = new System.Drawing.Point(67, 114);
             this.btnSpecimens.Margin = new System.Windows.Forms.Padding(4);
             this.btnSpecimens.Name = "btnSpecimens";
             this.btnSpecimens.Size = new System.Drawing.Size(513, 70);
@@ -84,7 +72,7 @@ namespace Team_6_Senior_Project
             // 
             // btnTemplates
             // 
-            this.btnTemplates.Location = new System.Drawing.Point(67, 464);
+            this.btnTemplates.Location = new System.Drawing.Point(67, 204);
             this.btnTemplates.Margin = new System.Windows.Forms.Padding(4);
             this.btnTemplates.Name = "btnTemplates";
             this.btnTemplates.Size = new System.Drawing.Size(513, 70);
@@ -95,7 +83,7 @@ namespace Team_6_Senior_Project
             // 
             // btnSpecimensSummary
             // 
-            this.btnSpecimensSummary.Location = new System.Drawing.Point(67, 556);
+            this.btnSpecimensSummary.Location = new System.Drawing.Point(67, 296);
             this.btnSpecimensSummary.Margin = new System.Windows.Forms.Padding(4);
             this.btnSpecimensSummary.Name = "btnSpecimensSummary";
             this.btnSpecimensSummary.Size = new System.Drawing.Size(513, 70);
@@ -108,11 +96,10 @@ namespace Team_6_Senior_Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 697);
+            this.ClientSize = new System.Drawing.Size(640, 638);
             this.Controls.Add(this.btnSpecimensSummary);
             this.Controls.Add(this.btnTemplates);
             this.Controls.Add(this.btnSpecimens);
-            this.Controls.Add(this.setDefaultTableButton);
             this.Controls.Add(this.createNewTableButton);
             this.Controls.Add(this.openExistingButton);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -128,7 +115,6 @@ namespace Team_6_Senior_Project
 
         private System.Windows.Forms.Button openExistingButton;
         private System.Windows.Forms.Button createNewTableButton;
-        private System.Windows.Forms.Button setDefaultTableButton;
         private System.Windows.Forms.Button btnSpecimens;
         private System.Windows.Forms.Button btnTemplates;
         private System.Windows.Forms.Button btnSpecimensSummary;

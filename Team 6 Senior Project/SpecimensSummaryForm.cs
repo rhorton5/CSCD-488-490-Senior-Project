@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace Team_6_Senior_Project
 {
+    //TODO: Set default start and end dates to specimen created min and max
     public partial class SpecimensSummaryForm : Form
     {
         public SpecimensSummaryForm()

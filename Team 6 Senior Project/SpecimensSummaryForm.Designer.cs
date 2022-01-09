@@ -56,9 +56,9 @@
             endDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             endDateLabel.Location = new System.Drawing.Point(26, 523);
             endDateLabel.Name = "endDateLabel";
-            endDateLabel.Size = new System.Drawing.Size(132, 25);
+            endDateLabel.Size = new System.Drawing.Size(99, 25);
             endDateLabel.TabIndex = 19;
-            endDateLabel.Text = "End Updated:";
+            endDateLabel.Text = "End Date:";
             // 
             // dataGridViewSpecimensSummary
             // 
