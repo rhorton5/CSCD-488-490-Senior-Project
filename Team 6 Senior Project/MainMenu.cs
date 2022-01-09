@@ -14,8 +14,6 @@ namespace Team_6_Senior_Project
 {
     public partial class MainMenu : Form
     {
-        private WindowChanger changer = new WindowChanger();
-        private Boolean closeByNewForm = false;
         public MainMenu()
         {
             InitializeComponent();
@@ -50,15 +48,18 @@ namespace Team_6_Senior_Project
          * 
          */
         private void openExistingButton_Click(object sender, EventArgs e) {
-            String filePath = getFileString();
-            //if (filePath != null)
-                //this.changer.changeWindows(this, new TableMenu(filePath));
+            //String filePath = getFileString();
+            String filePath = "A String";
+            MessageBox.Show("Work in progress... sending back to Specimen Format.");
             if(filePath != null)
             {
-                Program.runViewAll = true;
-                Program.filenameViewAll = filePath;
-                this.closeByNewForm = true;
+                //Program.filenameViewAll = filePath;
+                Program.CurrentForm = new SpecimensForm();
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show("An invalid file path was chosen, please try again...");
             }
         }
 
@@ -69,9 +70,9 @@ namespace Team_6_Senior_Project
         {
             //TableMenu tableMenu = new TableMenu(null);
             //this.changer.changeWindows(this, tableMenu);
-            Program.runViewAll = true;
-            Program.filenameViewAll = null;
-            this.closeByNewForm = true;
+            //Program.runViewAll = true;
+            //Program.filenameViewAll = null;
+            //this.closeByNewForm = true;
             this.Close();
 
         }
