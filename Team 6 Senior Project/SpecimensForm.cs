@@ -596,5 +596,17 @@ namespace Team_6_Senior_Project
         {
             e.Cancel = true;
         }
+
+        private void templatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new TemplatesForm();
+            this.Close();
+        }
+
+        private void summaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new SpecimensSummaryForm();
+            this.Close();
+        }
     }
 }

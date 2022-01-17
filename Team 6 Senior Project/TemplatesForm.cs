@@ -461,6 +461,18 @@ namespace Team_6_Senior_Project
             Program.CurrentForm = new MainMenu();
             this.Close();
         }
+
+        private void specimensToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new SpecimensForm();
+            this.Close();
+        }
+
+        private void summaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new SpecimensSummaryForm();
+            this.Close();
+        }
     }       
 }
     

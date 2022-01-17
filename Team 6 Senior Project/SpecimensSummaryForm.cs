@@ -121,7 +121,26 @@ namespace Team_6_Senior_Project
         private void SpecimensSummaryForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             //TODO: Figure out how to bring back MainMenu, Ryley!
+            if (Program.CurrentForm.Name == this.Name)
+                Program.CurrentForm = null;
+        }
+
+        private void specimenDatabseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new SpecimensForm();
+            this.Close();
+        }
+        private void mainMenuDatabseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             Program.CurrentForm = new MainMenu();
+            this.Close();
+        }
+
+        private void templatesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new TemplatesForm();
+            this.Close();
+
         }
     }
 }
