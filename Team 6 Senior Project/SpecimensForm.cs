@@ -513,6 +513,13 @@ namespace Team_6_Senior_Project
         private void SpecimensForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             //TODO: Figure out how to bring back MainMenu, Ryley!
+            if (isUpdated() == false)
+            {
+                if (MessageBox.Show("You have some specimens that have not been saved yet to the database.  Would you like to save?", "Confirm Save?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    btnSave_Click(sender, e);
+                }
+            }
             if (Program.CurrentForm.Name == this.Name) //if the current Form has been changed, you can close out of the program
                 Program.CurrentForm = null;  //This is done by having the program be called null.
 

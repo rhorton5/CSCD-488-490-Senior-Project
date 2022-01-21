@@ -68,6 +68,7 @@
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.specimensToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.summaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goToMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.templatesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,7 +85,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.goToMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             typeLabel = new System.Windows.Forms.Label();
             minWeightLabel = new System.Windows.Forms.Label();
             maxWeightLabel = new System.Windows.Forms.Label();
@@ -447,6 +447,7 @@
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
             this.toolStripSplitButton1.Size = new System.Drawing.Size(36, 24);
             this.toolStripSplitButton1.Text = "Go To New Window";
+            this.toolStripSplitButton1.ButtonClick += new System.EventHandler(this.toolStripSplitButton1_ButtonClick);
             // 
             // specimensToolStripMenuItem
             // 
@@ -461,6 +462,13 @@
             this.summaryToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
             this.summaryToolStripMenuItem.Text = "Go To Summary";
             this.summaryToolStripMenuItem.Click += new System.EventHandler(this.summaryToolStripMenuItem_Click);
+            // 
+            // goToMainMenuToolStripMenuItem
+            // 
+            this.goToMainMenuToolStripMenuItem.Name = "goToMainMenuToolStripMenuItem";
+            this.goToMainMenuToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.goToMainMenuToolStripMenuItem.Text = "Go To Main Menu";
+            this.goToMainMenuToolStripMenuItem.Click += new System.EventHandler(this.goToMainMenuToolStripMenuItem_Click);
             // 
             // templatesDataGridView
             // 
@@ -645,13 +653,6 @@
             this.btnAdd.Text = "Add New";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // goToMainMenuToolStripMenuItem
-            // 
-            this.goToMainMenuToolStripMenuItem.Name = "goToMainMenuToolStripMenuItem";
-            this.goToMainMenuToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
-            this.goToMainMenuToolStripMenuItem.Text = "Go To Main Menu";
-            this.goToMainMenuToolStripMenuItem.Click += new System.EventHandler(this.goToMainMenuToolStripMenuItem_Click);
             // 
             // TemplatesForm
             // 
