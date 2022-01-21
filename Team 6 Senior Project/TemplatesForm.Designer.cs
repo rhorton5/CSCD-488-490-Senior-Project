@@ -65,6 +65,9 @@
             this.cmbDropDownList = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripTextSearchBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonClear = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.specimensToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.summaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.templatesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,9 +84,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.specimensToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.summaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goToMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             typeLabel = new System.Windows.Forms.Label();
             minWeightLabel = new System.Windows.Forms.Label();
             maxWeightLabel = new System.Windows.Forms.Label();
@@ -434,6 +435,33 @@
             this.toolStripButtonClear.Text = "Clear";
             this.toolStripButtonClear.Click += new System.EventHandler(this.toolStripButtonClear_Click);
             // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.specimensToolStripMenuItem,
+            this.summaryToolStripMenuItem,
+            this.goToMainMenuToolStripMenuItem});
+            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(36, 24);
+            this.toolStripSplitButton1.Text = "Go To New Window";
+            // 
+            // specimensToolStripMenuItem
+            // 
+            this.specimensToolStripMenuItem.Name = "specimensToolStripMenuItem";
+            this.specimensToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.specimensToolStripMenuItem.Text = "Go To Specimens";
+            this.specimensToolStripMenuItem.Click += new System.EventHandler(this.specimensToolStripMenuItem_Click);
+            // 
+            // summaryToolStripMenuItem
+            // 
+            this.summaryToolStripMenuItem.Name = "summaryToolStripMenuItem";
+            this.summaryToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.summaryToolStripMenuItem.Text = "Go To Summary";
+            this.summaryToolStripMenuItem.Click += new System.EventHandler(this.summaryToolStripMenuItem_Click);
+            // 
             // templatesDataGridView
             // 
             this.templatesDataGridView.AllowUserToAddRows = false;
@@ -618,31 +646,12 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // toolStripSplitButton1
+            // goToMainMenuToolStripMenuItem
             // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.specimensToolStripMenuItem,
-            this.summaryToolStripMenuItem});
-            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(36, 24);
-            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
-            // 
-            // specimensToolStripMenuItem
-            // 
-            this.specimensToolStripMenuItem.Name = "specimensToolStripMenuItem";
-            this.specimensToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.specimensToolStripMenuItem.Text = "Specimens";
-            this.specimensToolStripMenuItem.Click += new System.EventHandler(this.specimensToolStripMenuItem_Click);
-            // 
-            // summaryToolStripMenuItem
-            // 
-            this.summaryToolStripMenuItem.Name = "summaryToolStripMenuItem";
-            this.summaryToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.summaryToolStripMenuItem.Text = "Summary";
-            this.summaryToolStripMenuItem.Click += new System.EventHandler(this.summaryToolStripMenuItem_Click);
+            this.goToMainMenuToolStripMenuItem.Name = "goToMainMenuToolStripMenuItem";
+            this.goToMainMenuToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.goToMainMenuToolStripMenuItem.Text = "Go To Main Menu";
+            this.goToMainMenuToolStripMenuItem.Click += new System.EventHandler(this.goToMainMenuToolStripMenuItem_Click);
             // 
             // TemplatesForm
             // 
@@ -733,5 +742,6 @@
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
         private System.Windows.Forms.ToolStripMenuItem specimensToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem summaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem goToMainMenuToolStripMenuItem;
     }
 }

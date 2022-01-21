@@ -624,5 +624,11 @@ namespace Team_6_Senior_Project
         {
 
         }
+
+        private void goToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new MainMenu();
+            this.Close();
+        }
     }
 }
