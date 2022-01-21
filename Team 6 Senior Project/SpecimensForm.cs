@@ -22,10 +22,17 @@ namespace Team_6_Senior_Project
         String OriginalNotes;
         String OriginalCreatedDate;
         String OriginalUpdatedDate;
+        String FileLocationName = null;
 
         public SpecimensForm()
         {
             InitializeComponent();
+        }
+
+        public SpecimensForm(String filename)
+        {
+            InitializeComponent();
+            this.FileLocationName = filename;  
         }
         private void SpecimensForm_Load(object sender, EventArgs e)
         {
@@ -33,15 +40,13 @@ namespace Team_6_Senior_Project
             {
                 this.createdDateDateTimePicker.Enabled = false;
                 this.lastUpdatedDateTimePicker.Enabled = false;
-
-
                 this.specimensTableAdapter.Fill(this.cSCDTeam6DataSet.Specimens);
-
                 ArrayList typesList = getTypes();
                 this.cmbType.Items.AddRange(typesList.ToArray());
             }
-            catch (Exception)
+            catch (Exception exception)
             {
+                Console.WriteLine(exception.Message);
             }
         }
 
@@ -297,6 +302,7 @@ namespace Team_6_Senior_Project
                 this.Validate();
                 this.specimensBindingSource.EndEdit();
                 this.tableAdapterManager.UpdateAll(this.cSCDTeam6DataSet);
+                MessageBox.Show("Your Database has been saved!");
             }
             catch (Exception)
             {
@@ -607,6 +613,16 @@ namespace Team_6_Senior_Project
         {
             Program.CurrentForm = new SpecimensSummaryForm();
             this.Close();
+        }
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void specimensBindingNavigator_RefreshItems(object sender, EventArgs e)
+        {
+
         }
     }
 }
