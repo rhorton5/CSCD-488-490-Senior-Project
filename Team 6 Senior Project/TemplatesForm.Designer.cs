@@ -65,6 +65,10 @@
             this.cmbDropDownList = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripTextSearchBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonClear = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.specimensToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.summaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goToMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.templatesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -213,7 +217,8 @@
             this.toolStripButtonSearch,
             this.cmbDropDownList,
             this.toolStripTextSearchBox,
-            this.toolStripButtonClear});
+            this.toolStripButtonClear,
+            this.toolStripSplitButton1});
             this.templatesBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.templatesBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.templatesBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -430,6 +435,41 @@
             this.toolStripButtonClear.Text = "Clear";
             this.toolStripButtonClear.Click += new System.EventHandler(this.toolStripButtonClear_Click);
             // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.specimensToolStripMenuItem,
+            this.summaryToolStripMenuItem,
+            this.goToMainMenuToolStripMenuItem});
+            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(36, 24);
+            this.toolStripSplitButton1.Text = "Go To New Window";
+            this.toolStripSplitButton1.ButtonClick += new System.EventHandler(this.toolStripSplitButton1_ButtonClick);
+            // 
+            // specimensToolStripMenuItem
+            // 
+            this.specimensToolStripMenuItem.Name = "specimensToolStripMenuItem";
+            this.specimensToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.specimensToolStripMenuItem.Text = "Go To Specimens";
+            this.specimensToolStripMenuItem.Click += new System.EventHandler(this.specimensToolStripMenuItem_Click);
+            // 
+            // summaryToolStripMenuItem
+            // 
+            this.summaryToolStripMenuItem.Name = "summaryToolStripMenuItem";
+            this.summaryToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.summaryToolStripMenuItem.Text = "Go To Summary";
+            this.summaryToolStripMenuItem.Click += new System.EventHandler(this.summaryToolStripMenuItem_Click);
+            // 
+            // goToMainMenuToolStripMenuItem
+            // 
+            this.goToMainMenuToolStripMenuItem.Name = "goToMainMenuToolStripMenuItem";
+            this.goToMainMenuToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.goToMainMenuToolStripMenuItem.Text = "Go To Main Menu";
+            this.goToMainMenuToolStripMenuItem.Click += new System.EventHandler(this.goToMainMenuToolStripMenuItem_Click);
+            // 
             // templatesDataGridView
             // 
             this.templatesDataGridView.AllowUserToAddRows = false;
@@ -445,7 +485,7 @@
             this.dataGridViewTextBoxColumn6});
             this.templatesDataGridView.DataSource = this.templatesBindingSource;
             this.templatesDataGridView.Location = new System.Drawing.Point(0, 24);
-            this.templatesDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.templatesDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.templatesDataGridView.Name = "templatesDataGridView";
             this.templatesDataGridView.ReadOnly = true;
             this.templatesDataGridView.RowHeadersWidth = 51;
@@ -515,7 +555,7 @@
             this.typeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.templatesBindingSource, "Type", true));
             this.typeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.typeTextBox.Location = new System.Drawing.Point(123, 295);
-            this.typeTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.typeTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.typeTextBox.Name = "typeTextBox";
             this.typeTextBox.Size = new System.Drawing.Size(270, 26);
             this.typeTextBox.TabIndex = 3;
@@ -526,7 +566,7 @@
             this.minWeightTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.templatesBindingSource, "MinWeight", true));
             this.minWeightTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minWeightTextBox.Location = new System.Drawing.Point(123, 318);
-            this.minWeightTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minWeightTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.minWeightTextBox.Name = "minWeightTextBox";
             this.minWeightTextBox.Size = new System.Drawing.Size(270, 26);
             this.minWeightTextBox.TabIndex = 5;
@@ -538,7 +578,7 @@
             this.maxWeightTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.templatesBindingSource, "MaxWeight", true));
             this.maxWeightTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxWeightTextBox.Location = new System.Drawing.Point(123, 340);
-            this.maxWeightTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maxWeightTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.maxWeightTextBox.Name = "maxWeightTextBox";
             this.maxWeightTextBox.Size = new System.Drawing.Size(270, 26);
             this.maxWeightTextBox.TabIndex = 7;
@@ -550,7 +590,7 @@
             this.notesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.templatesBindingSource, "Notes", true));
             this.notesTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.notesTextBox.Location = new System.Drawing.Point(123, 363);
-            this.notesTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.notesTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.notesTextBox.Name = "notesTextBox";
             this.notesTextBox.Size = new System.Drawing.Size(270, 26);
             this.notesTextBox.TabIndex = 9;
@@ -562,7 +602,7 @@
             this.createdDateDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createdDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.createdDateDateTimePicker.Location = new System.Drawing.Point(123, 386);
-            this.createdDateDateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.createdDateDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.createdDateDateTimePicker.Name = "createdDateDateTimePicker";
             this.createdDateDateTimePicker.Size = new System.Drawing.Size(270, 26);
             this.createdDateDateTimePicker.TabIndex = 11;
@@ -573,7 +613,7 @@
             this.lastUpdatedDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lastUpdatedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.lastUpdatedDateTimePicker.Location = new System.Drawing.Point(123, 409);
-            this.lastUpdatedDateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lastUpdatedDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.lastUpdatedDateTimePicker.Name = "lastUpdatedDateTimePicker";
             this.lastUpdatedDateTimePicker.Size = new System.Drawing.Size(270, 26);
             this.lastUpdatedDateTimePicker.TabIndex = 13;
@@ -582,7 +622,7 @@
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(328, 474);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 27);
             this.btnSave.TabIndex = 19;
@@ -594,7 +634,7 @@
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(163, 474);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(90, 27);
             this.btnDelete.TabIndex = 18;
@@ -606,7 +646,7 @@
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(16, 474);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(90, 27);
             this.btnAdd.TabIndex = 17;
@@ -636,7 +676,7 @@
             this.Controls.Add(this.lastUpdatedDateTimePicker);
             this.Controls.Add(this.templatesDataGridView);
             this.Controls.Add(this.templatesBindingNavigator);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TemplatesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TemplatesForm";
@@ -700,5 +740,9 @@
         private System.Windows.Forms.ToolStripComboBox cmbDropDownList;
         private System.Windows.Forms.ToolStripButton toolStripButtonSearch;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripMenuItem specimensToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem summaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem goToMainMenuToolStripMenuItem;
     }
 }

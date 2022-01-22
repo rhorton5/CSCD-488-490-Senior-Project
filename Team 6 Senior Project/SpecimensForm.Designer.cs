@@ -52,7 +52,6 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.specimensBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.openToolStripExport = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -63,6 +62,10 @@
             this.cmbDropDownList = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripTextSearchBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonClear = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.templatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.summaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.specimensDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,6 +87,7 @@
             this.tableAdapterManager = new Team_6_Senior_Project.CSCDTeam6DataSetTableAdapters.TableAdapterManager();
             this.templatesTableAdapter = new Team_6_Senior_Project.CSCDTeam6DataSetTableAdapters.TemplatesTableAdapter();
             this.templatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.goToMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             specimensIDLabel = new System.Windows.Forms.Label();
             typeLabel = new System.Windows.Forms.Label();
             weightLabel = new System.Windows.Forms.Label();
@@ -185,7 +189,6 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.specimensBindingNavigatorSaveItem,
             this.openToolStripExport,
             this.saveToolStripButton,
             this.toolStripSeparator,
@@ -195,7 +198,9 @@
             this.toolStripButtonSearch,
             this.cmbDropDownList,
             this.toolStripTextSearchBox,
-            this.toolStripButtonClear});
+            this.toolStripButtonClear,
+            this.toolStripSeparator3,
+            this.toolStripDropDownButton1});
             this.specimensBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.specimensBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.specimensBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -206,6 +211,7 @@
             this.specimensBindingNavigator.Size = new System.Drawing.Size(925, 27);
             this.specimensBindingNavigator.TabIndex = 0;
             this.specimensBindingNavigator.Text = "bindingNavigator1";
+            this.specimensBindingNavigator.RefreshItems += new System.EventHandler(this.specimensBindingNavigator_RefreshItems);
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -320,15 +326,6 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
-            // specimensBindingNavigatorSaveItem
-            // 
-            this.specimensBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.specimensBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("specimensBindingNavigatorSaveItem.Image")));
-            this.specimensBindingNavigatorSaveItem.Name = "specimensBindingNavigatorSaveItem";
-            this.specimensBindingNavigatorSaveItem.Size = new System.Drawing.Size(24, 24);
-            this.specimensBindingNavigatorSaveItem.Text = "Save Data";
-            this.specimensBindingNavigatorSaveItem.Click += new System.EventHandler(this.specimensBindingNavigatorSaveItem_Click);
-            // 
             // openToolStripExport
             // 
             this.openToolStripExport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -419,6 +416,39 @@
             this.toolStripButtonClear.Text = "Clear";
             this.toolStripButtonClear.Click += new System.EventHandler(this.toolStripButtonClear_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.templatesToolStripMenuItem,
+            this.summaryToolStripMenuItem,
+            this.goToMainMenuToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = global::Team_6_Senior_Project.Properties.Resources.Arrow;
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(33, 24);
+            this.toolStripDropDownButton1.Text = "Change Windows";
+            this.toolStripDropDownButton1.Click += new System.EventHandler(this.toolStripDropDownButton1_Click);
+            // 
+            // templatesToolStripMenuItem
+            // 
+            this.templatesToolStripMenuItem.Name = "templatesToolStripMenuItem";
+            this.templatesToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.templatesToolStripMenuItem.Text = "Go To Templates";
+            this.templatesToolStripMenuItem.Click += new System.EventHandler(this.templatesToolStripMenuItem_Click);
+            // 
+            // summaryToolStripMenuItem
+            // 
+            this.summaryToolStripMenuItem.Name = "summaryToolStripMenuItem";
+            this.summaryToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.summaryToolStripMenuItem.Text = "Go To Specimen Summary";
+            this.summaryToolStripMenuItem.Click += new System.EventHandler(this.summaryToolStripMenuItem_Click);
+            // 
             // specimensDataGridView
             // 
             this.specimensDataGridView.AllowUserToAddRows = false;
@@ -433,7 +463,7 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.specimensDataGridView.DataSource = this.specimensBindingSource;
-            this.specimensDataGridView.Location = new System.Drawing.Point(0, 25);
+            this.specimensDataGridView.Location = new System.Drawing.Point(0, 29);
             this.specimensDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.specimensDataGridView.Name = "specimensDataGridView";
             this.specimensDataGridView.ReadOnly = true;
@@ -646,6 +676,13 @@
             this.templatesBindingSource.DataMember = "Templates";
             this.templatesBindingSource.DataSource = this.cSCDTeam6DataSet;
             // 
+            // goToMainMenuToolStripMenuItem
+            // 
+            this.goToMainMenuToolStripMenuItem.Name = "goToMainMenuToolStripMenuItem";
+            this.goToMainMenuToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.goToMainMenuToolStripMenuItem.Text = "Go To Main Menu";
+            this.goToMainMenuToolStripMenuItem.Click += new System.EventHandler(this.goToMainMenuToolStripMenuItem_Click);
+            // 
             // SpecimensForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -705,7 +742,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton specimensBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView specimensDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -737,5 +773,10 @@
         private CSCDTeam6DataSetTableAdapters.TemplatesTableAdapter templatesTableAdapter;
         private System.Windows.Forms.BindingSource templatesBindingSource;
         private System.Windows.Forms.ToolStripButton toolStripButtonClear;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem templatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem summaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem goToMainMenuToolStripMenuItem;
     }
 }

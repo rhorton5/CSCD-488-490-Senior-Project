@@ -22,10 +22,17 @@ namespace Team_6_Senior_Project
         String OriginalNotes;
         String OriginalCreatedDate;
         String OriginalUpdatedDate;
+        String FileLocationName = null;
 
         public SpecimensForm()
         {
             InitializeComponent();
+        }
+
+        public SpecimensForm(String filename)
+        {
+            InitializeComponent();
+            this.FileLocationName = filename;  
         }
         private void SpecimensForm_Load(object sender, EventArgs e)
         {
@@ -33,15 +40,13 @@ namespace Team_6_Senior_Project
             {
                 this.createdDateDateTimePicker.Enabled = false;
                 this.lastUpdatedDateTimePicker.Enabled = false;
-
-
                 this.specimensTableAdapter.Fill(this.cSCDTeam6DataSet.Specimens);
-
                 ArrayList typesList = getTypes();
                 this.cmbType.Items.AddRange(typesList.ToArray());
             }
-            catch (Exception)
+            catch (Exception exception)
             {
+                Console.WriteLine(exception.Message);
             }
         }
 
@@ -297,6 +302,7 @@ namespace Team_6_Senior_Project
                 this.Validate();
                 this.specimensBindingSource.EndEdit();
                 this.tableAdapterManager.UpdateAll(this.cSCDTeam6DataSet);
+                MessageBox.Show("Your Database has been saved!");
             }
             catch (Exception)
             {
@@ -507,6 +513,13 @@ namespace Team_6_Senior_Project
         private void SpecimensForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             //TODO: Figure out how to bring back MainMenu, Ryley!
+            if (isUpdated() == false)
+            {
+                if (MessageBox.Show("You have some specimens that have not been saved yet to the database.  Would you like to save?", "Confirm Save?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    btnSave_Click(sender, e);
+                }
+            }
             if (Program.CurrentForm.Name == this.Name) //if the current Form has been changed, you can close out of the program
                 Program.CurrentForm = null;  //This is done by having the program be called null.
 
@@ -595,6 +608,34 @@ namespace Team_6_Senior_Project
         private void specimensDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel = true;
+        }
+
+        private void templatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new TemplatesForm();
+            this.Close();
+        }
+
+        private void summaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new SpecimensSummaryForm();
+            this.Close();
+        }
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void specimensBindingNavigator_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
+
+        private void goToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new MainMenu();
+            this.Close();
         }
     }
 }

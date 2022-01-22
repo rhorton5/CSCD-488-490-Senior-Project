@@ -452,7 +452,14 @@ namespace Team_6_Senior_Project
         private void TemplatesForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             //TODO: Figure out how to bring back MainMenu, Ryley!
-            if(Program.CurrentForm.Name == this.Name)
+            if (isUpdated() == false)
+            {
+                if (MessageBox.Show("You have some specimens that have not been saved yet to the database.  Would you like to save?", "Confirm Save?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    btnSave_Click(sender, e);
+                }
+            }
+            if (Program.CurrentForm.Name == this.Name)
                 Program.CurrentForm = null;
         }
 
@@ -460,6 +467,29 @@ namespace Team_6_Senior_Project
         {
             Program.CurrentForm = new MainMenu();
             this.Close();
+        }
+
+        private void specimensToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new SpecimensForm();
+            this.Close();
+        }
+
+        private void summaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new SpecimensSummaryForm();
+            this.Close();
+        }
+
+        private void goToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new MainMenu();
+            this.Close();
+        }
+
+        private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
+        {
+
         }
     }       
 }
