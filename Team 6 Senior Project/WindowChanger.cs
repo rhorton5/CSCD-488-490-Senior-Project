@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Team_6_Senior_Project
-{
+﻿namespace Team_6_Senior_Project;
     internal class WindowChanger
     {
         /*
@@ -18,7 +10,7 @@ namespace Team_6_Senior_Project
          * This makes it when the new window is closed, the program will closed as well.
          * This is only used 
          */
-        public void changeWindows(Form orig, Form dest)
+        public void ChangeWindows(Form orig, Form dest)
         {
             orig.Visible = false;
             dest.FormClosed += (s, args) => orig.Visible = true;
@@ -26,4 +18,3 @@ namespace Team_6_Senior_Project
             
         }
     }
-}

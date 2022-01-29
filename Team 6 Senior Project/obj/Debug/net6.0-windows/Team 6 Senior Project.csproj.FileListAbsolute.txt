@@ -1,0 +1,102 @@
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.csproj.AssemblyReference.cache
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.MainMenu.resources
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.Properties.Resources.resources
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.SpecimensForm.resources
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.SpecimensSummaryForm.resources
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.TableMenu.resources
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.TemplatesForm.resources
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.csproj.GenerateResource.cache
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.csproj.CoreCompileInputs.cache
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\Team 6 Senior Project.exe
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\Team 6 Senior Project.dll.config
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\Team 6 Senior Project.deps.json
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\Team 6 Senior Project.runtimeconfig.json
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\Team 6 Senior Project.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\Team 6 Senior Project.pdb
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\Microsoft.Extensions.ObjectPool.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.ComponentModel.Composition.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.ComponentModel.Composition.Registration.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.Data.Odbc.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.Data.OleDb.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.DirectoryServices.AccountManagement.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.DirectoryServices.Protocols.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.IO.Ports.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.Management.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.Private.ServiceModel.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.Reflection.Context.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.Runtime.Caching.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.ServiceModel.Duplex.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.ServiceModel.Http.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.ServiceModel.NetTcp.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.ServiceModel.Primitives.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.ServiceModel.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.ServiceModel.Security.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.ServiceModel.Syndication.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.ServiceProcess.ServiceController.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.Speech.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\System.Web.Services.Description.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\cs\System.Private.ServiceModel.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\de\System.Private.ServiceModel.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\es\System.Private.ServiceModel.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\fr\System.Private.ServiceModel.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\it\System.Private.ServiceModel.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\ja\System.Private.ServiceModel.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\ko\System.Private.ServiceModel.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\pl\System.Private.ServiceModel.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\pt-BR\System.Private.ServiceModel.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\ru\System.Private.ServiceModel.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\tr\System.Private.ServiceModel.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\zh-Hans\System.Private.ServiceModel.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\zh-Hant\System.Private.ServiceModel.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\cs\System.Web.Services.Description.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\de\System.Web.Services.Description.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\es\System.Web.Services.Description.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\fr\System.Web.Services.Description.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\it\System.Web.Services.Description.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\ja\System.Web.Services.Description.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\ko\System.Web.Services.Description.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\pl\System.Web.Services.Description.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\pt-BR\System.Web.Services.Description.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\ru\System.Web.Services.Description.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\tr\System.Web.Services.Description.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\zh-Hans\System.Web.Services.Description.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\zh-Hant\System.Web.Services.Description.resources.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\linux-arm\native\libSystem.IO.Ports.Native.so
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\linux-arm64\native\libSystem.IO.Ports.Native.so
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\linux-x64\native\libSystem.IO.Ports.Native.so
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\osx-arm64\native\libSystem.IO.Ports.Native.dylib
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\osx-x64\native\libSystem.IO.Ports.Native.dylib
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\freebsd\lib\net6.0\System.Data.Odbc.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\illumos\lib\net6.0\System.Data.Odbc.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\ios\lib\net6.0\System.Data.Odbc.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\linux\lib\net6.0\System.Data.Odbc.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\osx\lib\net6.0\System.Data.Odbc.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\solaris\lib\net6.0\System.Data.Odbc.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\tvos\lib\net6.0\System.Data.Odbc.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Data.Odbc.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Data.OleDb.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.Messages.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.DirectoryServices.AccountManagement.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\linux\lib\net6.0\System.DirectoryServices.Protocols.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\osx\lib\net6.0\System.DirectoryServices.Protocols.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.DirectoryServices.Protocols.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\unix\lib\net6.0\System.IO.Ports.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.IO.Ports.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Management.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.ServiceProcess.ServiceController.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Speech.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.csproj.CopyComplete
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\refint\Team 6 Senior Project.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.pdb
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.genruntimeconfig.cache
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\ref\Team 6 Senior Project.dll

@@ -48,22 +48,20 @@
             // startDateLabel
             // 
             startDateLabel.AutoSize = true;
-            startDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            startDateLabel.Location = new System.Drawing.Point(23, 411);
-            startDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            startDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            startDateLabel.Location = new System.Drawing.Point(31, 632);
             startDateLabel.Name = "startDateLabel";
-            startDateLabel.Size = new System.Drawing.Size(87, 20);
+            startDateLabel.Size = new System.Drawing.Size(105, 25);
             startDateLabel.TabIndex = 17;
             startDateLabel.Text = "Start Date:";
             // 
             // endDateLabel
             // 
             endDateLabel.AutoSize = true;
-            endDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            endDateLabel.Location = new System.Drawing.Point(23, 447);
-            endDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            endDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            endDateLabel.Location = new System.Drawing.Point(31, 688);
             endDateLabel.Name = "endDateLabel";
-            endDateLabel.Size = new System.Drawing.Size(81, 20);
+            endDateLabel.Size = new System.Drawing.Size(99, 25);
             endDateLabel.TabIndex = 19;
             endDateLabel.Text = "End Date:";
             // 
@@ -72,105 +70,102 @@
             this.dataGridViewSpecimensSummary.AllowUserToAddRows = false;
             this.dataGridViewSpecimensSummary.AllowUserToDeleteRows = false;
             this.dataGridViewSpecimensSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSpecimensSummary.Location = new System.Drawing.Point(11, 30);
-            this.dataGridViewSpecimensSummary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewSpecimensSummary.Location = new System.Drawing.Point(15, 46);
             this.dataGridViewSpecimensSummary.Name = "dataGridViewSpecimensSummary";
             this.dataGridViewSpecimensSummary.ReadOnly = true;
             this.dataGridViewSpecimensSummary.RowHeadersWidth = 51;
             this.dataGridViewSpecimensSummary.RowTemplate.Height = 24;
-            this.dataGridViewSpecimensSummary.Size = new System.Drawing.Size(994, 316);
+            this.dataGridViewSpecimensSummary.Size = new System.Drawing.Size(1021, 486);
             this.dataGridViewSpecimensSummary.TabIndex = 0;
-            this.dataGridViewSpecimensSummary.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewSpecimensSummary_DataError);
+            this.dataGridViewSpecimensSummary.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridViewSpecimensSummary_DataError);
             // 
             // btnSearchDate
             // 
-            this.btnSearchDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchDate.Location = new System.Drawing.Point(20, 489);
-            this.btnSearchDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearchDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSearchDate.Location = new System.Drawing.Point(27, 752);
             this.btnSearchDate.Name = "btnSearchDate";
-            this.btnSearchDate.Size = new System.Drawing.Size(150, 28);
+            this.btnSearchDate.Size = new System.Drawing.Size(200, 43);
             this.btnSearchDate.TabIndex = 22;
             this.btnSearchDate.Text = "Seach With Date Range";
             this.btnSearchDate.UseVisualStyleBackColor = true;
-            this.btnSearchDate.Click += new System.EventHandler(this.btnSearchDate_Click);
+            this.btnSearchDate.Click += new System.EventHandler(this.BtnSearchDate_Click);
             // 
             // btnSearch
             // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(19, 362);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSearch.Location = new System.Drawing.Point(25, 557);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(152, 28);
+            this.btnSearch.Size = new System.Drawing.Size(203, 43);
             this.btnSearch.TabIndex = 21;
             this.btnSearch.Text = "Search/Refresh";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // startDateDateTimePicker
             // 
-            this.startDateDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startDateDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.startDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.startDateDateTimePicker.Location = new System.Drawing.Point(175, 411);
-            this.startDateDateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.startDateDateTimePicker.Location = new System.Drawing.Point(233, 632);
             this.startDateDateTimePicker.MaxDate = new System.DateTime(2024, 12, 15, 0, 0, 0, 0);
             this.startDateDateTimePicker.MinDate = new System.DateTime(2021, 11, 1, 0, 0, 0, 0);
             this.startDateDateTimePicker.Name = "startDateDateTimePicker";
-            this.startDateDateTimePicker.Size = new System.Drawing.Size(287, 26);
+            this.startDateDateTimePicker.Size = new System.Drawing.Size(381, 30);
             this.startDateDateTimePicker.TabIndex = 18;
             this.startDateDateTimePicker.Value = new System.DateTime(2021, 12, 15, 0, 0, 0, 0);
             // 
             // EndDateTimePicker
             // 
-            this.EndDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EndDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.EndDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.EndDateTimePicker.Location = new System.Drawing.Point(175, 447);
-            this.EndDateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EndDateTimePicker.Location = new System.Drawing.Point(233, 688);
             this.EndDateTimePicker.MaxDate = new System.DateTime(2024, 12, 14, 0, 0, 0, 0);
             this.EndDateTimePicker.MinDate = new System.DateTime(2021, 12, 14, 0, 0, 0, 0);
             this.EndDateTimePicker.Name = "EndDateTimePicker";
-            this.EndDateTimePicker.Size = new System.Drawing.Size(287, 26);
+            this.EndDateTimePicker.Size = new System.Drawing.Size(381, 30);
             this.EndDateTimePicker.TabIndex = 20;
             this.EndDateTimePicker.Value = new System.DateTime(2021, 12, 15, 0, 0, 0, 0);
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainMenuDatabseToolStripMenuItem,
             this.specimensToolStripMenuItem,
             this.templatesToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1029, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(1110, 30);
             this.menuStrip1.TabIndex = 23;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // mainMenuDatabseToolStripMenuItem
             // 
             this.mainMenuDatabseToolStripMenuItem.Name = "mainMenuDatabseToolStripMenuItem";
-            this.mainMenuDatabseToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.mainMenuDatabseToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.mainMenuDatabseToolStripMenuItem.Text = "Main Menu";
-            this.mainMenuDatabseToolStripMenuItem.Click += new System.EventHandler(this.mainMenuDatabseToolStripMenuItem_Click);
+            this.mainMenuDatabseToolStripMenuItem.Click += new System.EventHandler(this.MainMenuDatabseToolStripMenuItem_Click);
             // 
             // specimensToolStripMenuItem
             // 
             this.specimensToolStripMenuItem.Name = "specimensToolStripMenuItem";
-            this.specimensToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.specimensToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
             this.specimensToolStripMenuItem.Text = "Specimens";
-            this.specimensToolStripMenuItem.Click += new System.EventHandler(this.specimenDatabseToolStripMenuItem_Click);
+            this.specimensToolStripMenuItem.Click += new System.EventHandler(this.SpecimenDatabseToolStripMenuItem_Click);
             // 
             // templatesToolStripMenuItem1
             // 
             this.templatesToolStripMenuItem1.Name = "templatesToolStripMenuItem1";
-            this.templatesToolStripMenuItem1.Size = new System.Drawing.Size(72, 20);
+            this.templatesToolStripMenuItem1.Size = new System.Drawing.Size(91, 24);
             this.templatesToolStripMenuItem1.Text = "Templates";
-            this.templatesToolStripMenuItem1.Click += new System.EventHandler(this.templatesToolStripMenuItem1_Click);
+            this.templatesToolStripMenuItem1.Click += new System.EventHandler(this.TemplatesToolStripMenuItem1_Click);
             // 
             // SpecimensSummaryForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1029, 622);
+            this.ClientSize = new System.Drawing.Size(1110, 825);
             this.Controls.Add(this.btnSearchDate);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(startDateLabel);
@@ -180,7 +175,6 @@
             this.Controls.Add(this.dataGridViewSpecimensSummary);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "SpecimensSummaryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SpecimensSummaryForm";

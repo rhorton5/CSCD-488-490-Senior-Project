@@ -20,6 +20,7 @@ namespace Team_6_Senior_Project
         static void Main()
         {
             Application.EnableVisualStyles();
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.SetCompatibleTextRenderingDefault(false);
             CurrentForm = new MainMenu(); //Has to be initalized after SetCompatiableTextRenderingDefault.  It will create an error otherwise.
             while (CurrentForm != null)
