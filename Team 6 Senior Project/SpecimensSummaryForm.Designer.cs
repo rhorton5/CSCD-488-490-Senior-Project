@@ -1,33 +1,32 @@
-﻿namespace Team_6_Senior_Project
+﻿namespace Team_6_Senior_Project;
+partial class SpecimensSummaryForm
 {
-    partial class SpecimensSummaryForm
+    /// <summary>
+    /// Required designer variable.
+    /// </summary>
+    private System.ComponentModel.IContainer components = null;
+
+    /// <summary>
+    /// Clean up any resources being used.
+    /// </summary>
+    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    protected override void Dispose(bool disposing)
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+        if (disposing && (components != null))
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
+            components.Dispose();
         }
+        base.Dispose(disposing);
+    }
 
-        #region Windows Form Designer generated code
+    #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
+    /// <summary>
+    /// Required method for Designer support - do not modify
+    /// the contents of this method with the code editor.
+    /// </summary>
+    private void InitializeComponent()
+    {
             System.Windows.Forms.Label startDateLabel;
             System.Windows.Forms.Label endDateLabel;
             this.dataGridViewSpecimensSummary = new System.Windows.Forms.DataGridView();
@@ -85,7 +84,7 @@
             this.btnSearchDate.Location = new System.Drawing.Point(27, 752);
             this.btnSearchDate.Name = "btnSearchDate";
             this.btnSearchDate.Size = new System.Drawing.Size(200, 43);
-            this.btnSearchDate.TabIndex = 22;
+            this.btnSearchDate.TabIndex = 4;
             this.btnSearchDate.Text = "Seach With Date Range";
             this.btnSearchDate.UseVisualStyleBackColor = true;
             this.btnSearchDate.Click += new System.EventHandler(this.BtnSearchDate_Click);
@@ -96,7 +95,7 @@
             this.btnSearch.Location = new System.Drawing.Point(25, 557);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(203, 43);
-            this.btnSearch.TabIndex = 21;
+            this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search/Refresh";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
@@ -110,7 +109,7 @@
             this.startDateDateTimePicker.MinDate = new System.DateTime(2021, 11, 1, 0, 0, 0, 0);
             this.startDateDateTimePicker.Name = "startDateDateTimePicker";
             this.startDateDateTimePicker.Size = new System.Drawing.Size(381, 30);
-            this.startDateDateTimePicker.TabIndex = 18;
+            this.startDateDateTimePicker.TabIndex = 2;
             this.startDateDateTimePicker.Value = new System.DateTime(2021, 12, 15, 0, 0, 0, 0);
             // 
             // EndDateTimePicker
@@ -122,7 +121,7 @@
             this.EndDateTimePicker.MinDate = new System.DateTime(2021, 12, 14, 0, 0, 0, 0);
             this.EndDateTimePicker.Name = "EndDateTimePicker";
             this.EndDateTimePicker.Size = new System.Drawing.Size(381, 30);
-            this.EndDateTimePicker.TabIndex = 20;
+            this.EndDateTimePicker.TabIndex = 3;
             this.EndDateTimePicker.Value = new System.DateTime(2021, 12, 15, 0, 0, 0, 0);
             // 
             // menuStrip1
@@ -186,18 +185,17 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
-        }
-
-        #endregion
-
-        private System.Windows.Forms.DataGridView dataGridViewSpecimensSummary;
-        private System.Windows.Forms.Button btnSearchDate;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.DateTimePicker startDateDateTimePicker;
-        private System.Windows.Forms.DateTimePicker EndDateTimePicker;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem mainMenuDatabseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem specimensToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem templatesToolStripMenuItem1;
     }
+
+    #endregion
+
+    private System.Windows.Forms.DataGridView dataGridViewSpecimensSummary;
+    private System.Windows.Forms.Button btnSearchDate;
+    private System.Windows.Forms.Button btnSearch;
+    private System.Windows.Forms.DateTimePicker startDateDateTimePicker;
+    private System.Windows.Forms.DateTimePicker EndDateTimePicker;
+    private System.Windows.Forms.MenuStrip menuStrip1;
+    private System.Windows.Forms.ToolStripMenuItem mainMenuDatabseToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem specimensToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem templatesToolStripMenuItem1;
 }

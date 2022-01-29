@@ -54,7 +54,7 @@ partial class MainMenu
             this.btnSpecimens.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSpecimens.Name = "btnSpecimens";
             this.btnSpecimens.Size = new System.Drawing.Size(513, 88);
-            this.btnSpecimens.TabIndex = 3;
+            this.btnSpecimens.TabIndex = 1;
             this.btnSpecimens.Text = "Specimens";
             this.btnSpecimens.UseVisualStyleBackColor = true;
             this.btnSpecimens.Click += new System.EventHandler(this.BtnSpecimens_Click);
@@ -65,7 +65,7 @@ partial class MainMenu
             this.btnTemplates.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnTemplates.Name = "btnTemplates";
             this.btnTemplates.Size = new System.Drawing.Size(513, 88);
-            this.btnTemplates.TabIndex = 4;
+            this.btnTemplates.TabIndex = 2;
             this.btnTemplates.Text = "Templates";
             this.btnTemplates.UseVisualStyleBackColor = true;
             this.btnTemplates.Click += new System.EventHandler(this.BtnTemplates_Click);
@@ -76,7 +76,7 @@ partial class MainMenu
             this.btnSpecimensSummary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSpecimensSummary.Name = "btnSpecimensSummary";
             this.btnSpecimensSummary.Size = new System.Drawing.Size(513, 88);
-            this.btnSpecimensSummary.TabIndex = 5;
+            this.btnSpecimensSummary.TabIndex = 3;
             this.btnSpecimensSummary.Text = "Specimens Summary";
             this.btnSpecimensSummary.UseVisualStyleBackColor = true;
             this.btnSpecimensSummary.Click += new System.EventHandler(this.BtnSpecimensSummary_Click);

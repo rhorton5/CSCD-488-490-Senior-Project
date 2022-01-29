@@ -11,9 +11,6 @@
     <Compile Update="SpecimensSummaryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="TableMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="TemplatesForm.cs">
       <SubType>Form</SubType>
     </Compile>

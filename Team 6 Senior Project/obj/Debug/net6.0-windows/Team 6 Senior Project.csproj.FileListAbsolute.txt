@@ -1,13 +1,3 @@
-C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.csproj.AssemblyReference.cache
-C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.MainMenu.resources
-C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.Properties.Resources.resources
-C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.SpecimensForm.resources
-C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.SpecimensSummaryForm.resources
-C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.TableMenu.resources
-C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.TemplatesForm.resources
-C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.csproj.GenerateResource.cache
-C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.csproj.CoreCompileInputs.cache
 C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\Team 6 Senior Project.exe
 C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\Team 6 Senior Project.dll.config
 C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\Team 6 Senior Project.deps.json
@@ -94,6 +84,15 @@ C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-
 C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.ServiceProcess.ServiceController.dll
 C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Speech.dll
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.csproj.AssemblyReference.cache
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.MainMenu.resources
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.Properties.Resources.resources
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.SpecimensForm.resources
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.SpecimensSummaryForm.resources
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team_6_Senior_Project.TemplatesForm.resources
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.csproj.GenerateResource.cache
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.csproj.CoreCompileInputs.cache
 C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.csproj.CopyComplete
 C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\Team 6 Senior Project.dll
 C:\Users\me464\OneDrive\Documents\School\EWU\CSCD488\SeniorProject\Git\CSCD-488-490-Senior-Project\Team 6 Senior Project\obj\Debug\net6.0-windows\refint\Team 6 Senior Project.dll
