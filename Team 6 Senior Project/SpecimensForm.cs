@@ -447,50 +447,16 @@ public partial class SpecimensForm : Form
         BtnDelete_Click(sender, e);
     }
 
-    private static void ExportTOCSV(string data)
-    {
-        SaveFileDialog save = new()
-        {
-            Filter = "CSV Files | *.csv",
-            Title = "Save your table to a csv file"
-        };
-        save.ShowDialog();
-        if (save.FileName != null)
-        {
-            try
-            {
-                StreamWriter sw = new(save.FileName);
-                sw.Write(data);
-                sw.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error has occured while trying to save your file.  Please try again");
-                Console.WriteLine(ex.Message);
-            }
-        }
-    }
+   
 
     private void OpenToolStripExport_Click(object sender, EventArgs e)
     {
-        try
-        {
-            string res = string.Join(",", Enumerable.Range(0, specimensDataGridView.Columns.Count).Select(i => this.specimensDataGridView.Columns[i].HeaderText).ToArray()) + "\n";
-            foreach (DataGridViewRow row in specimensDataGridView.Rows)
-            {
-                res += string.Join(",", Enumerable.Range(0, row.Cells.Count).Select(i => row.Cells[i].Value).ToArray()) + "\n";
-            }
-            ExportTOCSV(res);
-        }
-        catch (Exception)
-        {
-        }
+        CSVExporter.Export(this.specimensDataGridView);
     }
 
     private void HomeButton_Click(object sender, EventArgs e)
     {
-        Program.CurrentForm = new MainMenu();
-        this.Close();
+        GoToMainMenuToolStripMenuItem_Click(sender, e); //Initialized farther down in the code.
     }
 
     private void SpecimensForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -502,8 +468,7 @@ public partial class SpecimensForm : Form
                 BtnSave_Click(sender, e);
             }
         }
-        if (Program.CurrentForm.Name == this.Name) //if the current Form has been changed, you can close out of the program
-            Program.CurrentForm = null;  //This is done by having the program be called null.
+        WindowSwapper.ValidateWindow(this.Name);
 
     }
 
@@ -590,19 +555,16 @@ public partial class SpecimensForm : Form
 
     private void TemplatesToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        Program.CurrentForm = new TemplatesForm();
-        this.Close();
+        WindowSwapper.GoToTemplatesForm(this);
     }
 
     private void SummaryToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        Program.CurrentForm = new SpecimensSummaryForm();
-        this.Close();
+        WindowSwapper.GoToSpecimensSummaryForm(this);
     }
 
     private void GoToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        Program.CurrentForm = new MainMenu();
-        this.Close();
+        WindowSwapper.GoToMainMenu(this);
     }
 }

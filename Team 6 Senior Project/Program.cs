@@ -5,9 +5,6 @@ internal static class Program
     /// The main entry point for the application.
     /// </summary>
     /// 
-    public static bool runViewAll = false;
-    public static string filenameViewAll = "None";
-    public static bool closeProgram = false;
     public static Form CurrentForm;
     [STAThread]
     static void Main()

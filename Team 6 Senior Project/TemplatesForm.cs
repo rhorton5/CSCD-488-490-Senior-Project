@@ -387,44 +387,9 @@ public partial class TemplatesForm : Form
         }
     }
 
-    private static void ExportTOCSV(string data)
-    {
-        SaveFileDialog save = new()
-        {
-            Filter = "CSV Files | *.csv",
-            Title = "Save your table to a csv file"
-        };
-        save.ShowDialog();
-        if (save.FileName != null)
-        {
-            try
-            {
-                StreamWriter sw = new(save.FileName);
-                sw.Write(data);
-                sw.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error has occured while trying to save your file.  Please try again");
-                Console.WriteLine(ex.Message);
-            }
-        }
-    }
-
     private void OpenToolStripButton_Click(object sender, EventArgs e)
     {
-        try
-        {
-            string res = string.Join(",", Enumerable.Range(0, templatesDataGridView.Columns.Count).Select(i => this.templatesDataGridView.Columns[i].HeaderText).ToArray()) + "\n";
-            foreach (DataGridViewRow row in templatesDataGridView.Rows)
-            {
-                res += string.Join(",", Enumerable.Range(0, row.Cells.Count).Select(i => row.Cells[i].Value).ToArray()) + "\n";
-            }
-            ExportTOCSV(res);
-        }
-        catch (Exception)
-        {
-        }
+        CSVExporter.Export(this.templatesDataGridView);
     }
 
     private void TemplatesDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -442,31 +407,26 @@ public partial class TemplatesForm : Form
                 BtnSave_Click(sender, e);
             }
         }
-        if (Program.CurrentForm.Name == this.Name)
-            Program.CurrentForm = null;
+        WindowSwapper.ValidateWindow(this.Name);
     }
 
     private void ToolStripButton1_Click(object sender, EventArgs e)
     {
-        Program.CurrentForm = new MainMenu();
-        this.Close();
+        GoToMainMenuToolStripMenuItem_Click(sender, e);
     }
 
     private void SpecimensToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        Program.CurrentForm = new SpecimensForm();
-        this.Close();
+        WindowSwapper.GoToSpecimensForm(this);
     }
 
     private void SummaryToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        Program.CurrentForm = new SpecimensSummaryForm();
-        this.Close();
+        WindowSwapper.GoToSpecimensSummaryForm(this);
     }
 
     private void GoToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        Program.CurrentForm = new MainMenu();
-        this.Close();
+        WindowSwapper.GoToMainMenu(this);
     }
 }

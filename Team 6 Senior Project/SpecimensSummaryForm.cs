@@ -107,24 +107,25 @@ public partial class SpecimensSummaryForm : Form
 
     private void SpecimensSummaryForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-        if (Program.CurrentForm.Name == this.Name)
-            Program.CurrentForm = null;
+        WindowSwapper.ValidateWindow(this.Name);
     }
 
     private void SpecimenDatabseToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        Program.CurrentForm = new SpecimensForm();
-        this.Close();
+        WindowSwapper.GoToSpecimensForm(this);
     }
     private void MainMenuDatabseToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        Program.CurrentForm = new MainMenu();
-        this.Close();
+        WindowSwapper.GoToMainMenu(this);
     }
 
     private void TemplatesToolStripMenuItem1_Click(object sender, EventArgs e)
     {
-        Program.CurrentForm = new TemplatesForm();
-        this.Close();
+        WindowSwapper.GoToTemplatesForm(this);
+    }
+
+    private void exportStripButton_Click(object sender, EventArgs e)
+    {
+        CSVExporter.Export(this.dataGridViewSpecimensSummary);
     }
 }

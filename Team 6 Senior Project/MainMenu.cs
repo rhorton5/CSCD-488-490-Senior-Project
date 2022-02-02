@@ -28,8 +28,7 @@ public partial class MainMenu : Form
         if (filePath != null)
         {
             //Program.filenameViewAll = filePath;
-            Program.CurrentForm = new SpecimensForm();
-            this.Close();
+            BtnSpecimens_Click(sender, e);
         }
         else
         {
@@ -39,27 +38,21 @@ public partial class MainMenu : Form
 
     private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
     {
-        if (Program.CurrentForm.Name == this.Name)
-        {
-            Program.CurrentForm = null;
-        }
+        WindowSwapper.ValidateWindow(this.Name);
     }
 
     private void BtnSpecimens_Click(object sender, EventArgs e)
     {
-        Program.CurrentForm = new SpecimensForm();
-        this.Close();
+        WindowSwapper.GoToSpecimensForm(this);
     }
 
     private void BtnTemplates_Click(object sender, EventArgs e)
     {
-        Program.CurrentForm = new TemplatesForm();
-        this.Close();
+        WindowSwapper.GoToTemplatesForm(this);
     }
 
     private void BtnSpecimensSummary_Click(object sender, EventArgs e)
     {
-        Program.CurrentForm = new SpecimensSummaryForm();
-        this.Close();
+        WindowSwapper.GoToSpecimensSummaryForm(this);
     }
 }
