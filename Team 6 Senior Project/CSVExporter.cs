@@ -15,8 +15,7 @@ namespace Team_6_Senior_Project
                 Filter = "CSV Files | *.csv",
                 Title = "Save your table to a csv file"
             };
-            save.ShowDialog();
-            if (save.FileName != null)
+            if (save.ShowDialog() == DialogResult.OK && save.FileName != null)
             {
                 try
                 {
@@ -30,6 +29,7 @@ namespace Team_6_Senior_Project
                     Console.WriteLine(ex.Message);
                 }
             }
+            save.Dispose();
         }
 
         public static void Export(DataGridView dataGridView)
