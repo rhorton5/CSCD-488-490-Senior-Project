@@ -22,17 +22,10 @@ public partial class MainMenu : Form
 
     private void OpenExistingButton_Click(object sender, EventArgs e)
     {
-        //String filePath = getFileString();
-        String filePath = "A String";
-        MessageBox.Show("Work in progress... sending back to Specimen Format.");
+        String filePath = GetFileString();
         if (filePath != null)
         {
-            //Program.filenameViewAll = filePath;
-            BtnSpecimens_Click(sender, e);
-        }
-        else
-        {
-            MessageBox.Show("An invalid file path was chosen, please try again...");
+            WindowSwapper.GoToSpecimensForm(this, filePath);
         }
     }
 

@@ -30,9 +30,27 @@ public partial class SpecimensForm : Form
         {
             this.createdDateDateTimePicker.Enabled = false;
             this.lastUpdatedDateTimePicker.Enabled = false;
-            this.specimensTableAdapter.Fill(this.cSCDTeam6DataSet.Specimens);
-            ArrayList typesList = GetTypes();
-            this.cmbType.Items.AddRange(typesList.ToArray());
+            if(this.FileLocationName != null)
+            {
+                String [] data = File.ReadAllLines(this.FileLocationName);
+                DataTable dt = new DataTable();
+                foreach(String s in data[0].Split(','))
+                {
+                    dt.Columns.Add(new DataColumn(s));
+                }
+                for(int i = 1; i < data.Length; i++)//i = 1 because the first line is already read.
+                {
+                    dt.Rows.Add(data[i].Split(','));
+                }
+                this.specimensDataGridView.DataSource = dt;
+            }
+            else
+            {
+                this.specimensTableAdapter.Fill(this.cSCDTeam6DataSet.Specimens);
+                ArrayList typesList = GetTypes();
+                this.cmbType.Items.AddRange(typesList.ToArray());
+            }
+            
         }
         catch (Exception exception)
         {

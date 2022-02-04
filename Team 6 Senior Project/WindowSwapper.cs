@@ -26,6 +26,11 @@ internal class WindowSwapper
     {
         ChangeWindow(currentForm, new SpecimensSummaryForm());
     }
+
+    public static void GoToSpecimensForm(Form currentForm, string FileName)
+    {
+        ChangeWindow(currentForm, new SpecimensForm(FileName));
+    }
     
     private static void ChangeWindow(Form currentWindow, Form newWindow)
     {

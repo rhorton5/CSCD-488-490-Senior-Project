@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rhort\\Desktop\\github_senior_project\\Team 6 Senior Project\\Team 6 Senior Project.csproj": {}
+    "C:\\Users\\rhorton5\\Downloads\\GitKraken Repo\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rhort\\Desktop\\github_senior_project\\Team 6 Senior Project\\Team 6 Senior Project.csproj": {
+    "C:\\Users\\rhorton5\\Downloads\\GitKraken Repo\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rhort\\Desktop\\github_senior_project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
+        "projectUniqueName": "C:\\Users\\rhorton5\\Downloads\\GitKraken Repo\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
         "projectName": "Team 6 Senior Project",
-        "projectPath": "C:\\Users\\rhort\\Desktop\\github_senior_project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
-        "packagesPath": "C:\\Users\\rhort\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rhort\\Desktop\\github_senior_project\\Team 6 Senior Project\\obj\\",
+        "projectPath": "C:\\Users\\rhorton5\\Downloads\\GitKraken Repo\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
+        "packagesPath": "C:\\Users\\rhorton5\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rhorton5\\Downloads\\GitKraken Repo\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\rhort\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rhorton5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
