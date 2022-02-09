@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rhort\\Desktop\\github_senior_project\\Team 6 Senior Project\\Team 6 Senior Project.csproj": {}
+    "C:\\Users\\me464\\OneDrive\\Documents\\School\\EWU\\CSCD488\\SeniorProject\\Git\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rhort\\Desktop\\github_senior_project\\Team 6 Senior Project\\Team 6 Senior Project.csproj": {
+    "C:\\Users\\me464\\OneDrive\\Documents\\School\\EWU\\CSCD488\\SeniorProject\\Git\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rhort\\Desktop\\github_senior_project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
+        "projectUniqueName": "C:\\Users\\me464\\OneDrive\\Documents\\School\\EWU\\CSCD488\\SeniorProject\\Git\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
         "projectName": "Team 6 Senior Project",
-        "projectPath": "C:\\Users\\rhort\\Desktop\\github_senior_project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
-        "packagesPath": "C:\\Users\\rhort\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rhort\\Desktop\\github_senior_project\\Team 6 Senior Project\\obj\\",
+        "projectPath": "C:\\Users\\me464\\OneDrive\\Documents\\School\\EWU\\CSCD488\\SeniorProject\\Git\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
+        "packagesPath": "C:\\Users\\me464\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\me464\\OneDrive\\Documents\\School\\EWU\\CSCD488\\SeniorProject\\Git\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\rhort\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\me464\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -47,7 +51,7 @@
             "Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[0.3.261602, )"
+              "version": "[0.3.310801, )"
             },
             "Microsoft.Windows.Compatibility": {
               "target": "Package",
@@ -80,7 +84,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200-preview.22055.15\\RuntimeIdentifierGraph.json"
         }
       }
     }

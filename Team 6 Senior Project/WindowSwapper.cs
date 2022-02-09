@@ -1,15 +1,15 @@
 ﻿namespace Team_6_Senior_Project;
 internal class WindowSwapper
 {
-    public static void ValidateWindow(String windowName)
+    public static void ValidateWindow(string windowName)
     {
-        if (windowName.Equals(Program.CurrentForm.Name))
+        if (windowName.Equals(Program.CurrentForm.Name, StringComparison.Ordinal))
             Program.CurrentForm = null;
     }
 
     public static void GoToMainMenu(Form currentForm)
     {
-        ChangeWindow(currentForm,new MainMenu());
+        ChangeWindow(currentForm, new MainMenu());
     }
 
     public static void GoToSpecimensForm(Form currentForm)
@@ -26,7 +26,7 @@ internal class WindowSwapper
     {
         ChangeWindow(currentForm, new SpecimensSummaryForm());
     }
-    
+
     private static void ChangeWindow(Form currentWindow, Form newWindow)
     {
         Program.CurrentForm = newWindow;

@@ -6,8 +6,8 @@ public partial class MainMenu : Form
     {
         InitializeComponent();
     }
-
-    private String GetFileString()
+    /*
+    private static string GetFileString()
     {
         OpenFileDialog openFileDialog = new();
         openFileDialog.Filter = "csv files (*.csv)|*.csv";
@@ -19,12 +19,13 @@ public partial class MainMenu : Form
         }
         return null;
     }
-
+    */
     private void OpenExistingButton_Click(object sender, EventArgs e)
     {
-        //String filePath = getFileString();
-        String filePath = "A String";
         MessageBox.Show("Work in progress... sending back to Specimen Format.");
+        /*
+        //string filePath = getFileString();
+        string filePath = "A String";
         if (filePath != null)
         {
             //Program.filenameViewAll = filePath;
@@ -34,11 +35,12 @@ public partial class MainMenu : Form
         {
             MessageBox.Show("An invalid file path was chosen, please try again...");
         }
+        */
     }
 
     private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
     {
-        WindowSwapper.ValidateWindow(this.Name);
+        WindowSwapper.ValidateWindow(Name);
     }
 
     private void BtnSpecimens_Click(object sender, EventArgs e)
