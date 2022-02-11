@@ -1,136 +1,43 @@
-﻿using System.Data;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.Collections;
+﻿using System.Collections;
+using static Team_6_Senior_Project.SQLStatements;
+using static Team_6_Senior_Project.DataValidation;
+using static Team_6_Senior_Project.WindowSwapper;
 
 namespace Team_6_Senior_Project;
 public partial class SpecimensForm : Form
 {
-    String OriginalSpecimenID;
-    String OriginalType;
-    String OriginalWeight;
-    String OriginalNotes;
-    String OriginalCreatedDate;
-    String OriginalUpdatedDate;
-    String FileLocationName = null;
+    string OriginalSpecimenID;
+    string OriginalType;
+    string OriginalWeight;
+    string OriginalNotes;
+    string OriginalCreatedDate;
+    string OriginalUpdatedDate;
+    string FileLocationName;
 
     public SpecimensForm()
     {
         InitializeComponent();
     }
 
-    public SpecimensForm(String filename)
+    public SpecimensForm(string filename)
     {
         InitializeComponent();
-        this.FileLocationName = filename;
+        FileLocationName = filename;
     }
     private void SpecimensForm_Load(object sender, EventArgs e)
     {
         try
         {
-            this.createdDateDateTimePicker.Enabled = false;
-            this.lastUpdatedDateTimePicker.Enabled = false;
-            this.specimensTableAdapter.Fill(this.cSCDTeam6DataSet.Specimens);
-            ArrayList typesList = GetTypes();
-            this.cmbType.Items.AddRange(typesList.ToArray());
+            createdDateDateTimePicker.Enabled = false;
+            lastUpdatedDateTimePicker.Enabled = false;
+            specimensTableAdapter.Fill(cSCDTeam6DataSet.Specimens);
+            ArrayList typesList = GetTemplatesTypes();
+            cmbType.Items.AddRange(typesList.ToArray());
         }
         catch (Exception exception)
         {
             Console.WriteLine(exception.Message);
         }
-    }
-
-
-    private String MinWeight()
-    {
-
-        String minWeight = "";
-        String type = cmbType.Text;
-
-        try
-        {
-            String query = $@"SELECT MinWeight 
-                              FROM Templates WHERE Type = '{type}'";
-
-            String connString = ConfigurationManager.ConnectionStrings["Team_6_Senior_Project.Properties.Settings.CSCDTeam6ConnectionString"].ConnectionString;
-            SqlConnection connection = new(connString);
-            connection.Open();
-            SqlCommand command = new(query, connection);
-
-            SqlDataReader dataReader = command.ExecuteReader();
-            while (dataReader.Read())
-            {
-                minWeight += dataReader[0].ToString();
-            }
-            connection.Close();
-
-
-        }
-        catch (Exception)
-        {
-
-
-        }
-        return minWeight;
-    }
-
-    private String MaxWeight()
-    {
-
-        String maxWeight = "";
-        String type = cmbType.Text;
-
-        try
-        {
-            String sqlStatement = $@"SELECT MaxWeight 
-                                         FROM Templates WHERE Type = '{type}'";
-
-            String connString = ConfigurationManager.ConnectionStrings["Team_6_Senior_Project.Properties.Settings.CSCDTeam6ConnectionString"].ConnectionString;
-            SqlConnection connection = new(connString);
-            connection.Open();
-            SqlCommand command = new(sqlStatement, connection);
-
-            SqlDataReader dataReader = command.ExecuteReader();
-            while (dataReader.Read())
-            {
-                maxWeight += dataReader[0].ToString();
-            }
-            connection.Close();
-        }
-        catch (Exception)
-        {
-        }
-        return maxWeight;
-    }
-
-    private static ArrayList GetTypes()
-    {
-        ArrayList valuesList = new();
-
-        try
-        {
-            String query = "SELECT DISTINCT Type FROM Templates";
-
-            String connString = ConfigurationManager.ConnectionStrings["Team_6_Senior_Project.Properties.Settings.CSCDTeam6ConnectionString"].ConnectionString;
-            SqlConnection connection = new(connString);
-            connection.Open();
-            SqlCommand command = new(query, connection);
-
-            SqlDataReader dataReader = command.ExecuteReader();
-            while (dataReader.Read())
-            {
-                valuesList.Add(dataReader[0].ToString());
-            }
-            connection.Close();
-
-
-        }
-        catch (Exception)
-        {
-
-
-        }
-        return valuesList;
     }
 
     private void SpecimensBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -159,11 +66,11 @@ public partial class SpecimensForm : Form
     {
         try
         {
-            String Message = "Are you sure you want to delete ID: " + specimensIDTextBox.Text + "?";
-            String Title = "Delete?";
+            string Message = "Are you sure you want to delete ID: " + specimensIDTextBox.Text + "?";
+            string Title = "Delete?";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult dialogResult = MessageBox.Show(Message, Title
-                , buttons, MessageBoxIcon.Question,
+            DialogResult dialogResult = MessageBox.Show(Message, Title,
+                buttons, MessageBoxIcon.Question,
                 MessageBoxDefaultButton.Button2); // Default to "no" not yes
             if (dialogResult == DialogResult.Yes)
             {
@@ -173,7 +80,6 @@ public partial class SpecimensForm : Form
             {
                 return;
             }
-
         }
         catch (Exception)
         {
@@ -195,38 +101,13 @@ public partial class SpecimensForm : Form
 
             // Check for blanks: ID, type, weight, created, update
             // notes is allowed to be null
-            if (specimensIDTextBox.Text.Equals("") || cmbType.Text.Equals("") ||
-                weightTextBox.Text.Equals("") || createdDateDateTimePicker.Text.Equals("") ||
-                lastUpdatedDateTimePicker.Text.Equals("")
+            if (string.IsNullOrEmpty(specimensIDTextBox.Text) || string.IsNullOrEmpty(cmbType.Text) ||
+                string.IsNullOrEmpty(weightTextBox.Text) || string.IsNullOrEmpty(createdDateDateTimePicker.Text) ||
+                string.IsNullOrEmpty(lastUpdatedDateTimePicker.Text)
                 )
             {
                 MessageBox.Show("All fields but Notes are required. Please try again.");
                 weightTextBox.Focus();
-                return;
-            }
-
-            // check that notes length is <=255
-            if (notesTextBox.Text.Length > 255)
-            {
-                MessageBox.Show("Notes max length of 255 characters. Please try again.");
-                notesTextBox.Focus();
-                return;
-            }
-
-            // check that type length is <=64
-            if (cmbType.Text.Length > 64)
-            {
-                MessageBox.Show("Type max length of 64 characters. Please try again.");
-                cmbType.Focus();
-                return;
-            }
-
-            // check that type length is vaild per template
-            ArrayList typesList = GetTypes();
-            if (!typesList.Contains(cmbType.Text))
-            {
-                MessageBox.Show("Type not found in Templates. Please try again.");
-                cmbType.Focus();
                 return;
             }
 
@@ -236,6 +117,28 @@ public partial class SpecimensForm : Form
             typeTextBox.Text = cmbType.Text;
             weightTextBox.Text = SanatizeSQLString(weightTextBox.Text);
             notesTextBox.Text = SanatizeSQLString(notesTextBox.Text);
+
+
+            if (!ValidNotesRange(notesTextBox.Text))
+            {
+                MessageBox.Show("Notes max length of 255 characters. Please try again.");
+                notesTextBox.Focus();
+                return;
+            }
+
+            if (!ValidTypeRange(cmbType.Text))
+            {
+                MessageBox.Show("Type max length of 64 characters. Please try again.");
+                cmbType.Focus();
+                return;
+            }
+
+            if (!TypeIsInTemplate(cmbType.Text))
+            {
+                MessageBox.Show("Type not found in Templates. Please try again.");
+                cmbType.Focus();
+                return;
+            }
 
             // Check for valid dates
             if (!DateTime.TryParse(createdDateDateTimePicker.Text, out DateTime createdDate))
@@ -251,15 +154,13 @@ public partial class SpecimensForm : Form
                 return;
             }
 
-            // Check for valid date range. After 11/1/2021, less than or equal to now
-            DateTime startDate = new(2021, 11, 1, 0, 0, 0);
-            if (createdDate <= startDate || createdDate >= DateTime.Now)
+            if (!ValidDateRange(createdDate))
             {
                 MessageBox.Show("Invalid date given for Created Date. Please try again.");
                 createdDateDateTimePicker.Focus();
                 return;
             }
-            if (lastUpdatedDate <= startDate || lastUpdatedDate >= DateTime.Now)
+            if (!ValidDateRange(lastUpdatedDate))
             {
                 MessageBox.Show("Invalid date given for Created Date. Please try again.");
                 lastUpdatedDateTimePicker.Focus();
@@ -267,7 +168,7 @@ public partial class SpecimensForm : Form
             }
 
             // Check weight is valid double
-            if (!Double.TryParse(weightTextBox.Text, out double weight))
+            if (!double.TryParse(weightTextBox.Text, out double weight))
             {
                 MessageBox.Show("Weight given not a valid number. Please try again.");
                 weightTextBox.Focus();
@@ -275,9 +176,9 @@ public partial class SpecimensForm : Form
             }
 
             // Compare weight to template range
-            if (Convert.ToDouble(weightTextBox.Text) < Convert.ToDouble(MinWeight()) || Convert.ToDouble(weightTextBox.Text) > Convert.ToDouble(MaxWeight()))
+            if (!WeightIsInTemplateMinMax(cmbType.Text, weightTextBox.Text))
             {
-                MessageBox.Show("Weight given not in template range for " + cmbType.Text + ". Min weight of: " + MinWeight() + ", Max weight of: " + MaxWeight() + ". Please try again.");
+                MessageBox.Show("Weight given not in template range for " + cmbType.Text + ". Min weight of: " + MinWeight(cmbType.Text) + ", Max weight of: " + MaxWeight(cmbType.Text) + ". Please try again.");
                 weightTextBox.Focus();
                 return;
             }
@@ -285,9 +186,9 @@ public partial class SpecimensForm : Form
             // Force lastUpdatedDate to now
             lastUpdatedDateTimePicker.Text = DateTime.Now.ToString();
 
-            this.Validate();
-            this.specimensBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.cSCDTeam6DataSet);
+            Validate();
+            specimensBindingSource.EndEdit();
+            tableAdapterManager.UpdateAll(cSCDTeam6DataSet);
             MessageBox.Show("Your Database has been saved!");
         }
         catch (Exception)
@@ -304,9 +205,9 @@ public partial class SpecimensForm : Form
             specimensBindingSource.RemoveFilter();
             toolStripTextSearchBox.Clear();
 
-            for (int i = 0; i < this.specimensDataGridView.Rows.Count - 1; i++)
+            for (int i = 0; i < specimensDataGridView.Rows.Count - 1; i++)
             {
-                int id = int.Parse(this.specimensDataGridView.Rows[i].Cells[0].Value.ToString());
+                int id = int.Parse(specimensDataGridView.Rows[i].Cells[0].Value.ToString());
                 if (id > maxValue)
                 {
                     maxValue = id;
@@ -323,7 +224,7 @@ public partial class SpecimensForm : Form
     {
         try
         {
-            this.templatesTableAdapter.FillBy(this.cSCDTeam6DataSet.Templates);
+            templatesTableAdapter.FillBy(cSCDTeam6DataSet.Templates);
         }
         catch (Exception)
         {
@@ -338,90 +239,25 @@ public partial class SpecimensForm : Form
 
     private void WeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
-        // Disallows all characters that are not controls digits or period "."
-        if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-        {
-            e.Handled = true;
-        }
-        // Limits to only one period "."
-        if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-        {
-            e.Handled = true;
-        }
+        KeyPressNumeric(sender, e);
     }
 
     private void NotesTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
-        // XSS and SQL-I protection
-        // Disallows >, <, ', ", ;, -
-        if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != ' '))
-        {
-            e.Handled = true;
-        }
+        KeyPressNotes(sender, e);
     }
 
     private void CmbType_KeyPress(object sender, KeyPressEventArgs e)
     {
-        // XSS and SQL-I protection
-        // Disallows >, <, ', ", ;, -
-        if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
-        {
-            e.Handled = true;
-        }
-    }
-
-
-    private static String SanatizeSQLString(String input)
-    {
-        // TODO: enhance security by also using SQL parmeters
-        // https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.parameters?view=dotnet-plat-ext-6.0
-        // XSS and SQL-I protection
-        // Disallows >, <, ', ", ;, -
-
-        while (input.Contains('>'))
-        {
-            input = input.Replace(">", "");
-        }
-        while (input.Contains('<'))
-        {
-            input = input.Replace("<", "");
-        }
-        while (input.Contains('\''))
-        {
-            input = input.Replace("'", "");
-        }
-        while (input.Contains('"'))
-        {
-            input = input.Replace("\"", "");
-        }
-        while (input.Contains(';'))
-        {
-            input = input.Replace(";", "");
-        }
-        while (input.Contains('-'))
-        {
-            input = input.Replace("-", "");
-        }
-        while (input.Contains('/'))
-        {
-            input = input.Replace("/", "");
-        }
-        while (input.Contains('*'))
-        {
-            input = input.Replace("*", "");
-        }
-
-        input = input.Trim();
-
-        return input;
+        KeyPressSingleWord(sender, e);
     }
 
     private void ToolStripButtonSearch_Click(object sender, EventArgs e)
     {
         try
         {
-            String combo = SanatizeSQLString(cmbDropDownList.Text);
-            String search = SanatizeSQLString(toolStripTextSearchBox.Text);
+            string combo = SanatizeSQLString(cmbDropDownList.Text);
+            string search = SanatizeSQLString(toolStripTextSearchBox.Text);
 
             // TODO: Doesn't work for non-string fields? Check is sql doesn't use quotes for numbers
             string searchIndvidual = combo + " like '%" + search + "%'";
@@ -447,11 +283,9 @@ public partial class SpecimensForm : Form
         BtnDelete_Click(sender, e);
     }
 
-   
-
     private void OpenToolStripExport_Click(object sender, EventArgs e)
     {
-        CSVExporter.Export(this.specimensDataGridView);
+        CSVExporter.Export(specimensDataGridView);
     }
 
     private void HomeButton_Click(object sender, EventArgs e)
@@ -468,8 +302,8 @@ public partial class SpecimensForm : Form
                 BtnSave_Click(sender, e);
             }
         }
-        WindowSwapper.ValidateWindow(this.Name);
 
+        ValidateWindow(Name);
     }
 
     private void ToolStripButtonClear_Click(object sender, EventArgs e)
@@ -478,7 +312,7 @@ public partial class SpecimensForm : Form
         toolStripTextSearchBox.Clear();
     }
 
-    private Boolean IsUpdated()
+    private bool IsUpdated()
     {
         if (OriginalSpecimenID != specimensIDTextBox.Text ||
         OriginalType != typeTextBox.Text ||
@@ -506,8 +340,8 @@ public partial class SpecimensForm : Form
     {
         try
         {
-            String Message = "Are you sure you want to delete ID: " + specimensIDTextBox.Text + "?";
-            String Title = "Delete?";
+            string Message = "Are you sure you want to delete ID: " + specimensIDTextBox.Text + "?";
+            string Title = "Delete?";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult dialogResult = MessageBox.Show(Message, Title
                 , buttons, MessageBoxIcon.Question,
@@ -526,21 +360,16 @@ public partial class SpecimensForm : Form
 
     private void ToolStripTextSearchBox_KeyPress(object sender, KeyPressEventArgs e)
     {
-        // XSS and SQL-I protection
-        // Disallows >, <, ', ", ;, -
-        if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != ' '))
-        {
-            e.Handled = true;
-        }
+        KeyPressNotes(sender, e);
     }
 
     private void WeightTextBox_TextChanged(object sender, EventArgs e)
     {
-        if (weightTextBox.Text == "")
+        if (string.IsNullOrEmpty(weightTextBox.Text))
         {
             return;
         }
-        else if (!Double.TryParse(weightTextBox.Text, out double weight))
+        else if (!double.TryParse(weightTextBox.Text, out double _))
         {
             MessageBox.Show("Weight given not a valid number. Please try again.");
             weightTextBox.Focus();
@@ -555,16 +384,16 @@ public partial class SpecimensForm : Form
 
     private void TemplatesToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        WindowSwapper.GoToTemplatesForm(this);
+        GoToTemplatesForm(this);
     }
 
     private void SummaryToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        WindowSwapper.GoToSpecimensSummaryForm(this);
+        GoToSpecimensSummaryForm(this);
     }
 
     private void GoToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        WindowSwapper.GoToMainMenu(this);
+        GoToMainMenu(this);
     }
 }

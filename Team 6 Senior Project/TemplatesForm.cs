@@ -1,17 +1,18 @@
-﻿using System.Data;
+﻿namespace Team_6_Senior_Project;
 
-namespace Team_6_Senior_Project;
+using static Team_6_Senior_Project.DataValidation;
+using static Team_6_Senior_Project.WindowSwapper;
 
 public partial class TemplatesForm : Form
 {
 
     // TODO: make it so it doesn't saved data when leaving row
-    String OriginalType;
-    String OriginalMaxWeight;
-    String OriginalMinWeight;
-    String OriginalNotes;
-    String OriginalCreatedDate;
-    String OriginalUpdatedDate;
+    string OriginalType;
+    string OriginalMaxWeight;
+    string OriginalMinWeight;
+    string OriginalNotes;
+    string OriginalCreatedDate;
+    string OriginalUpdatedDate;
 
     public TemplatesForm()
     {
@@ -26,10 +27,10 @@ public partial class TemplatesForm : Form
 
     private void TemplatesForm_Load(object sender, EventArgs e)
     {
-        this.templatesTableAdapter.Fill(this.cSCDTeam6DataSet.Templates);
+        templatesTableAdapter.Fill(this.cSCDTeam6DataSet.Templates);
 
-        this.createdDateDateTimePicker.Enabled = false;
-        this.lastUpdatedDateTimePicker.Enabled = false;
+        createdDateDateTimePicker.Enabled = false;
+        lastUpdatedDateTimePicker.Enabled = false;
     }
 
     private void TemplatesDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -46,8 +47,8 @@ public partial class TemplatesForm : Form
     {
         try
         {
-            String Message = "Are you sure you want to delete Type: " + typeTextBox.Text + "?";
-            String Title = "Delete?";
+            string Message = "Are you sure you want to delete Type: " + typeTextBox.Text + "?";
+            string Title = "Delete?";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult dialogResult = MessageBox.Show(Message, Title
                 , buttons, MessageBoxIcon.Question,
@@ -68,8 +69,8 @@ public partial class TemplatesForm : Form
     {
         try
         {
-            String Message = "Are you sure you want to delete Type: " + typeTextBox.Text + "?";
-            String Title = "Delete?";
+            string Message = "Are you sure you want to delete Type: " + typeTextBox.Text + "?";
+            string Title = "Delete?";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult dialogResult = MessageBox.Show(Message, Title
                 , buttons, MessageBoxIcon.Question,
@@ -128,51 +129,6 @@ public partial class TemplatesForm : Form
         return false;
     }
 
-    private static String SanatizeSQLString(String input)
-    {
-        // TODO: enhance security by also using SQL parmeters
-        // https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.parameters?view=dotnet-plat-ext-6.0
-        // XSS and SQL-I protection
-        // Disallows >, <, ', ", ;, -
-
-        while (input.Contains('>'))
-        {
-            input = input.Replace(">", "");
-        }
-        while (input.Contains('<'))
-        {
-            input = input.Replace("<", "");
-        }
-        while (input.Contains('\''))
-        {
-            input = input.Replace("'", "");
-        }
-        while (input.Contains('"'))
-        {
-            input = input.Replace("\"", "");
-        }
-        while (input.Contains(';'))
-        {
-            input = input.Replace(";", "");
-        }
-        while (input.Contains('-'))
-        {
-            input = input.Replace("-", "");
-        }
-        while (input.Contains('/'))
-        {
-            input = input.Replace("/", "");
-        }
-        while (input.Contains('*'))
-        {
-            input = input.Replace("*", "");
-        }
-
-        input = input.Trim();
-
-        return input;
-    }
-
     private void BtnSave_Click(object sender, EventArgs e)
     {
         try
@@ -185,29 +141,13 @@ public partial class TemplatesForm : Form
 
             // Check for blanks: ID, type, weight, created, update
             // notes is allowed to be null
-            if (typeTextBox.Text.Equals("") || minWeightTextBox.Text.Equals("") ||
-                maxWeightTextBox.Text.Equals("") ||
-                createdDateDateTimePicker.Text.Equals("") ||
-                lastUpdatedDateTimePicker.Text.Equals("")
+            if (string.IsNullOrEmpty(typeTextBox.Text) || string.IsNullOrEmpty(minWeightTextBox.Text) ||
+                string.IsNullOrEmpty(maxWeightTextBox.Text) ||
+                string.IsNullOrEmpty(createdDateDateTimePicker.Text) ||
+                string.IsNullOrEmpty(lastUpdatedDateTimePicker.Text)
                 )
             {
                 MessageBox.Show("All fields but Notes are required. Please try again.");
-                typeTextBox.Focus();
-                return;
-            }
-
-            // check that notes length is <=255
-            if (notesTextBox.Text.Length > 255)
-            {
-                MessageBox.Show("Notes max length of 255 characters. Please try again.");
-                notesTextBox.Focus();
-                return;
-            }
-
-            // check that type length is <=64
-            if (typeTextBox.Text.Length > 64)
-            {
-                MessageBox.Show("Type max length of 64 characters. Please try again.");
                 typeTextBox.Focus();
                 return;
             }
@@ -217,6 +157,21 @@ public partial class TemplatesForm : Form
             minWeightTextBox.Text = SanatizeSQLString(minWeightTextBox.Text);
             maxWeightTextBox.Text = SanatizeSQLString(maxWeightTextBox.Text);
             notesTextBox.Text = SanatizeSQLString(notesTextBox.Text);
+
+            if (!ValidNotesRange(notesTextBox.Text))
+            {
+                MessageBox.Show("Notes max length of 255 characters. Please try again.");
+                notesTextBox.Focus();
+                return;
+            }
+
+            // check that type length is <=64
+            if (!ValidTypeRange(typeTextBox.Text))
+            {
+                MessageBox.Show("Type max length of 64 characters. Please try again.");
+                typeTextBox.Focus();
+                return;
+            }
 
             // Check for valid dates
             if (!DateTime.TryParse(createdDateDateTimePicker.Text, out DateTime createdDate))
@@ -233,32 +188,30 @@ public partial class TemplatesForm : Form
                 return;
             }
 
-            // Check for valid date range. After 11/1/2021, less than or equal to now
-            DateTime startDate = new(2021, 11, 1, 0, 0, 0);
-            if (createdDate <= startDate || createdDate >= DateTime.Now)
+            if (!ValidDateRange(createdDate))
             {
                 MessageBox.Show("Invalid date given for Created Date. Please try again.");
                 createdDateDateTimePicker.Focus();
                 return;
             }
-            if (lastUpdatedDate <= startDate || lastUpdatedDate >= DateTime.Now)
+            if (!ValidDateRange(lastUpdatedDate))
             {
-                MessageBox.Show("Invalid date given for Created Date. Please try again.");
+                MessageBox.Show("Invalid date given for Last Updated Date. Please try again.");
                 lastUpdatedDateTimePicker.Focus();
                 return;
             }
 
             // Check minweight is valid double
-            if (!Double.TryParse(minWeightTextBox.Text, out double minWeight))
+            if (!double.TryParse(minWeightTextBox.Text, out double minWeight))
             {
-                MessageBox.Show("Min Weight given outnot a valid number. Please try again.");
+                MessageBox.Show("Min Weight given not a valid number. Please try again.");
                 minWeightTextBox.Focus();
                 return;
             }
             // Check maxweight is valid double
-            if (!Double.TryParse(maxWeightTextBox.Text, out double maxWeight))
+            if (!double.TryParse(maxWeightTextBox.Text, out double maxWeight))
             {
-                MessageBox.Show("Max Weight given outnot a valid number. Please try again.");
+                MessageBox.Show("Max Weight given not a valid number. Please try again.");
                 maxWeightTextBox.Focus();
                 return;
             }
@@ -266,9 +219,9 @@ public partial class TemplatesForm : Form
             // Force lastUpdatedDate to now
             lastUpdatedDateTimePicker.Text = DateTime.Now.ToString();
 
-            this.Validate();
-            this.templatesBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.cSCDTeam6DataSet);
+            Validate();
+            templatesBindingSource.EndEdit();
+            tableAdapterManager.UpdateAll(cSCDTeam6DataSet);
 
         }
         catch (Exception)
@@ -278,68 +231,35 @@ public partial class TemplatesForm : Form
 
     private void MinWeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
-        // Disallows all characters that are not controls digits or period "."
-        if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-        {
-            e.Handled = true;
-        }
-        // Limits to only one period "."
-        if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-        {
-            e.Handled = true;
-        }
+        KeyPressNumeric(sender, e);
     }
 
     private void MaxWeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
-        // Disallows all characters that are not controls digits or period "."
-        if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-        {
-            e.Handled = true;
-        }
-        // Limits to only one period "."
-        if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-        {
-            e.Handled = true;
-        }
+        KeyPressNumeric(sender, e);
     }
 
     private void NotesTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
-        // XSS and SQL-I protection
-        // Disallows >, <, ', ", ;, -
-        if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != ' '))
-        {
-            e.Handled = true;
-        }
+        KeyPressNotes(sender, e);
     }
 
     private void TypeTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
-        // XSS and SQL-I protection
-        // Disallows >, <, ', ", ;, -
-        if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
-        {
-            e.Handled = true;
-        }
+        KeyPressSingleWord(sender, e);
     }
 
     private void ToolStripTextSearchBox_KeyPress(object sender, KeyPressEventArgs e)
     {
-        // XSS and SQL-I protection
-        // Disallows >, <, ', ", ;, -
-        if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != ' '))
-        {
-            e.Handled = true;
-        }
+KeyPressNotes(sender, e);
     }
 
     private void ToolStripButtonSearch_Click(object sender, EventArgs e)
     {
         try
         {
-            String combo = SanatizeSQLString(cmbDropDownList.Text);
-            String search = SanatizeSQLString(toolStripTextSearchBox.Text);
+            string combo = SanatizeSQLString(cmbDropDownList.Text);
+            string search = SanatizeSQLString(toolStripTextSearchBox.Text);
 
 
             // TODO: Doesn't work for non-string fields? Check is sql doesn't use quotes for numbers
@@ -360,11 +280,11 @@ public partial class TemplatesForm : Form
     private void MinWeightTextBox_TextChanged(object sender, EventArgs e)
     {
         // Check weight is valid double
-        if (minWeightTextBox.Text == "")
+        if (string.IsNullOrEmpty(minWeightTextBox.Text))
         {
             return;
         }
-        else if (!Double.TryParse(minWeightTextBox.Text, out double weight))
+        else if (!double.TryParse(minWeightTextBox.Text, out double _))
         {
             MessageBox.Show("Min Weight given not a valid number. Please try again.");
             minWeightTextBox.Focus();
@@ -375,11 +295,11 @@ public partial class TemplatesForm : Form
     private void MaxWeightTextBox_TextChanged(object sender, EventArgs e)
     {
         // Check weight is valid double
-        if (maxWeightTextBox.Text == "")
+        if (string.IsNullOrEmpty(maxWeightTextBox.Text))
         {
             return;
         }
-        else if (!Double.TryParse(maxWeightTextBox.Text, out double weight))
+        else if (!double.TryParse(maxWeightTextBox.Text, out double _))
         {
             MessageBox.Show("Max Weight given not a valid number. Please try again.");
             minWeightTextBox.Focus();
@@ -389,7 +309,7 @@ public partial class TemplatesForm : Form
 
     private void OpenToolStripButton_Click(object sender, EventArgs e)
     {
-        CSVExporter.Export(this.templatesDataGridView);
+        CSVExporter.Export(templatesDataGridView);
     }
 
     private void TemplatesDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -399,7 +319,6 @@ public partial class TemplatesForm : Form
 
     private void TemplatesForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-        //TODO: Figure out how to bring back MainMenu, Ryley!
         if (IsUpdated() == false)
         {
             if (MessageBox.Show("You have some specimens that have not been saved yet to the database. Would you like to save?", "Confirm Save?", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -407,7 +326,7 @@ public partial class TemplatesForm : Form
                 BtnSave_Click(sender, e);
             }
         }
-        WindowSwapper.ValidateWindow(this.Name);
+        ValidateWindow(Name);
     }
 
     private void ToolStripButton1_Click(object sender, EventArgs e)
@@ -417,16 +336,16 @@ public partial class TemplatesForm : Form
 
     private void SpecimensToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        WindowSwapper.GoToSpecimensForm(this);
+        GoToSpecimensForm(this);
     }
 
     private void SummaryToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        WindowSwapper.GoToSpecimensSummaryForm(this);
+        GoToSpecimensSummaryForm(this);
     }
 
     private void GoToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        WindowSwapper.GoToMainMenu(this);
+        GoToMainMenu(this);
     }
 }

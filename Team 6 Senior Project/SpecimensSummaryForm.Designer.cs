@@ -163,7 +163,7 @@ partial class SpecimensSummaryForm
             this.exportStripButton.Name = "exportStripButton";
             this.exportStripButton.Size = new System.Drawing.Size(23, 22);
             this.exportStripButton.Text = "Export to CSV";
-            this.exportStripButton.Click += new System.EventHandler(this.exportStripButton_Click);
+            this.exportStripButton.Click += new System.EventHandler(this.ExportStripButton_Click);
             // 
             // toolStripButton2
             // 

@@ -20,7 +20,7 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers/0.3.261602": {
+      "Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers/0.3.310801": {
         "type": "package",
         "build": {
           "build/Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers.props": {}
@@ -1151,10 +1151,10 @@
         "version.txt"
       ]
     },
-    "Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers/0.3.261602": {
-      "sha512": "ahVFTPpOIqy8Ezadd2y7wW4IHGHF11RHCWP4jLxzTBbopNVuPZeL0s3nR+o+dAXPYm2x3dDZp859sQeCXpWlWA==",
+    "Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers/0.3.310801": {
+      "sha512": "+rBuFxPhhB05/TdNoqEBFMvYPPubRzUBBXzEYT2WvQB4O7v5S0lk8SYVdbc7uOpAKYJPR2vtAVOlAY3KBih0LA==",
       "type": "package",
-      "path": "microsoft.dotnet.upgradeassistant.extensions.default.analyzers/0.3.261602",
+      "path": "microsoft.dotnet.upgradeassistant.extensions.default.analyzers/0.3.310801",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -1169,7 +1169,7 @@
         "build/TypeMaps.props",
         "build/WebTypeReplacements.typemap",
         "icon.png",
-        "microsoft.dotnet.upgradeassistant.extensions.default.analyzers.0.3.261602.nupkg.sha512",
+        "microsoft.dotnet.upgradeassistant.extensions.default.analyzers.0.3.310801.nupkg.sha512",
         "microsoft.dotnet.upgradeassistant.extensions.default.analyzers.nuspec",
         "tools/install.ps1",
         "tools/uninstall.ps1"
@@ -2943,26 +2943,31 @@
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "Microsoft.CSharp >= 4.7.0",
-      "Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers >= 0.3.261602",
+      "Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers >= 0.3.310801",
       "Microsoft.Windows.Compatibility >= 6.0.0",
       "System.Configuration.ConfigurationManager >= 6.0.0",
       "System.Data.DataSetExtensions >= 4.5.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rhort\\.nuget\\packages\\": {}
+    "C:\\Users\\me464\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rhort\\Desktop\\github_senior_project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
+      "projectUniqueName": "C:\\Users\\me464\\OneDrive\\Documents\\School\\EWU\\CSCD488\\SeniorProject\\Git\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
       "projectName": "Team 6 Senior Project",
-      "projectPath": "C:\\Users\\rhort\\Desktop\\github_senior_project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
-      "packagesPath": "C:\\Users\\rhort\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rhort\\Desktop\\github_senior_project\\Team 6 Senior Project\\obj\\",
+      "projectPath": "C:\\Users\\me464\\OneDrive\\Documents\\School\\EWU\\CSCD488\\SeniorProject\\Git\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
+      "packagesPath": "C:\\Users\\me464\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\me464\\OneDrive\\Documents\\School\\EWU\\CSCD488\\SeniorProject\\Git\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\rhort\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\me464\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2995,7 +3000,7 @@
           "Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[0.3.261602, )"
+            "version": "[0.3.310801, )"
           },
           "Microsoft.Windows.Compatibility": {
             "target": "Package",
@@ -3028,7 +3033,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200-preview.22055.15\\RuntimeIdentifierGraph.json"
       }
     }
   }
