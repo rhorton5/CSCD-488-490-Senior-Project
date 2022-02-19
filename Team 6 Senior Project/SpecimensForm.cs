@@ -143,6 +143,7 @@ public partial class SpecimensForm : Form
     {
         try
         {
+            captureWeight.Visible = true;
             specimensBindingSource.AddNew();
             specimensIDTextBox.Text = SetSpecimenID().ToString();
             createdDateDateTimePicker.Text = DateTime.Now.ToString();
@@ -288,6 +289,7 @@ public partial class SpecimensForm : Form
             this.Validate();
             this.specimensBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.cSCDTeam6DataSet);
+            captureWeight.Visible = false;
             MessageBox.Show("Your Database has been saved!");
         }
         catch (Exception)
@@ -604,5 +606,25 @@ public partial class SpecimensForm : Form
     {
         Program.CurrentForm = new MainMenu();
         this.Close();
+    }
+
+    private void captureWeight_Click(object sender, EventArgs e)
+    {
+        Double minWeight = Convert.ToDouble(MinWeight());
+        Double maxWeight = Convert.ToDouble(MaxWeight());
+        Double capturedWeight = -1;
+        Random random = new Random();
+
+        //TO DO: Check if a type is selected and show message if not; round to 4 decimals
+        try
+        {
+            while (capturedWeight < minWeight || capturedWeight > maxWeight)
+            {
+                capturedWeight = random.NextDouble();
+                capturedWeight += random.Next((int)minWeight, (int)maxWeight);
+            }
+            weightTextBox.Text = capturedWeight.ToString();
+        }
+        catch (Exception) { }
     }
 }
