@@ -14,6 +14,8 @@ public partial class SpecimensForm : Form
     string OriginalUpdatedDate;
     string FileLocationName;
 
+    WindowSwapper ws = new WindowSwapper();
+
     public SpecimensForm()
     {
         InitializeComponent();
@@ -303,7 +305,7 @@ public partial class SpecimensForm : Form
             }
         }
 
-        ValidateWindow(Name);
+        ws.ValidateWindow(Name);
     }
 
     private void ToolStripButtonClear_Click(object sender, EventArgs e)
@@ -384,16 +386,16 @@ public partial class SpecimensForm : Form
 
     private void TemplatesToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        GoToTemplatesForm(this);
+        ws.GoToTemplatesForm(this);
     }
 
     private void SummaryToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        GoToSpecimensSummaryForm(this);
+        ws.GoToSpecimensSummaryForm(this);
     }
 
     private void GoToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        GoToMainMenu(this);
+        ws.GoToMainMenu(this);
     }
 }

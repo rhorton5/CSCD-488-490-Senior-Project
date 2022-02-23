@@ -5,6 +5,9 @@
     <Compile Update="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="OpenExistingOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="SpecimensForm.cs">
       <SubType>Form</SubType>
     </Compile>

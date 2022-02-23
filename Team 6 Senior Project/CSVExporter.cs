@@ -1,4 +1,6 @@
-﻿namespace Team_6_Senior_Project;
+﻿using System;
+
+namespace Team_6_Senior_Project;
 
 internal class CSVExporter
 {
@@ -30,10 +32,19 @@ internal class CSVExporter
     {
         try
         {
-            string res = string.Join(",", Enumerable.Range(0, dataGridView.Columns.Count).Select(i => dataGridView.Columns[i].HeaderText).ToArray()) + "\n";
-            foreach (DataGridViewRow row in dataGridView.Rows)
+            string res = "";
+            for(int i = 0; i < dataGridView.Columns.Count - 1; i++)
             {
-                res += string.Join(",", Enumerable.Range(0, row.Cells.Count).Select(i => row.Cells[i].Value).ToArray()) + "\n";
+                res += dataGridView.Columns[i].HeaderText + ",";
+            }
+            res = String.Concat(res.AsSpan(0, res.Length - 2), "\n");
+            for(int i = 0; i < dataGridView.Rows.Count; i++)
+            {
+                foreach(DataGridViewCell cell in dataGridView.Rows[i].Cells)
+                {
+                    res += cell.Value + ",";
+                }
+                res = string.Concat(res.AsSpan(0, res.Length - 2), "\n");
             }
             ExportTOCSV(res);
         }

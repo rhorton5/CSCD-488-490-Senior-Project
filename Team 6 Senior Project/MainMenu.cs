@@ -2,59 +2,39 @@
 
 public partial class MainMenu : Form
 {
+    private WindowSwapper ws = new WindowSwapper();
     public MainMenu()
     {
         InitializeComponent();
     }
-    /*
-    private static string GetFileString()
-    {
-        OpenFileDialog openFileDialog = new();
-        openFileDialog.Filter = "csv files (*.csv)|*.csv";
-        openFileDialog.FilterIndex = 1;
-        openFileDialog.RestoreDirectory = true;
-        if (openFileDialog.ShowDialog() == DialogResult.OK && !String.IsNullOrEmpty(openFileDialog.FileName))
-        {
-            return openFileDialog.FileName;
-        }
-        return null;
-    }
-    */
+
     private void OpenExistingButton_Click(object sender, EventArgs e)
     {
-        MessageBox.Show("Work in progress... sending back to Specimen Format.");
-        /*
-        //string filePath = getFileString();
-        string filePath = "A String";
-        if (filePath != null)
+        OpenExistingOptionsForm optionsMenu = new OpenExistingOptionsForm();
+        if(optionsMenu.ShowDialog() == DialogResult.OK)
         {
-            //Program.filenameViewAll = filePath;
-            BtnSpecimens_Click(sender, e);
+            ws.GoToSpecimensForm(this);
         }
-        else
-        {
-            MessageBox.Show("An invalid file path was chosen, please try again...");
-        }
-        */
+        optionsMenu.Dispose();
     }
 
     private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
     {
-        WindowSwapper.ValidateWindow(Name);
+        ws.ValidateWindow(Name);
     }
 
     private void BtnSpecimens_Click(object sender, EventArgs e)
     {
-        WindowSwapper.GoToSpecimensForm(this);
+        ws.GoToSpecimensForm(this);
     }
 
     private void BtnTemplates_Click(object sender, EventArgs e)
     {
-        WindowSwapper.GoToTemplatesForm(this);
+        ws.GoToTemplatesForm(this);
     }
 
     private void BtnSpecimensSummary_Click(object sender, EventArgs e)
     {
-        WindowSwapper.GoToSpecimensSummaryForm(this);
+        ws.GoToSpecimensSummaryForm(this);
     }
 }

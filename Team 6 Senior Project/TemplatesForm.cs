@@ -1,7 +1,6 @@
 ﻿namespace Team_6_Senior_Project;
 
 using static Team_6_Senior_Project.DataValidation;
-using static Team_6_Senior_Project.WindowSwapper;
 
 public partial class TemplatesForm : Form
 {
@@ -13,6 +12,8 @@ public partial class TemplatesForm : Form
     string OriginalNotes;
     string OriginalCreatedDate;
     string OriginalUpdatedDate;
+
+    WindowSwapper ws = new WindowSwapper();
 
     public TemplatesForm()
     {
@@ -326,7 +327,7 @@ KeyPressNotes(sender, e);
                 BtnSave_Click(sender, e);
             }
         }
-        ValidateWindow(Name);
+        ws.ValidateWindow(Name);
     }
 
     private void ToolStripButton1_Click(object sender, EventArgs e)
@@ -336,16 +337,16 @@ KeyPressNotes(sender, e);
 
     private void SpecimensToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        GoToSpecimensForm(this);
+        ws.GoToSpecimensForm(this);
     }
 
     private void SummaryToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        GoToSpecimensSummaryForm(this);
+        ws.GoToSpecimensSummaryForm(this);
     }
 
     private void GoToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        GoToMainMenu(this);
+        ws.GoToMainMenu(this);
     }
 }

@@ -7,6 +7,7 @@ namespace Team_6_Senior_Project;
 // TODO: Set default start and end dates to specimen created min and max
 public partial class SpecimensSummaryForm : Form
 {
+    WindowSwapper ws = new WindowSwapper();
     public SpecimensSummaryForm()
     {
         InitializeComponent();
@@ -83,21 +84,21 @@ public partial class SpecimensSummaryForm : Form
 
     private void SpecimensSummaryForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-        WindowSwapper.ValidateWindow(Name);
+        ws.ValidateWindow(Name);
     }
 
     private void SpecimenDatabseToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        WindowSwapper.GoToSpecimensForm(this);
+        ws.GoToSpecimensForm(this);
     }
     private void MainMenuDatabseToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        WindowSwapper.GoToMainMenu(this);
+        ws.GoToMainMenu(this);
     }
 
     private void TemplatesToolStripMenuItem1_Click(object sender, EventArgs e)
     {
-        WindowSwapper.GoToTemplatesForm(this);
+        ws.GoToTemplatesForm(this);
     }
 
     private void ExportStripButton_Click(object sender, EventArgs e)
