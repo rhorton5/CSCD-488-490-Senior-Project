@@ -6,38 +6,36 @@ using static Team_6_Senior_Project.WindowSwapper;
 namespace Team_6_Senior_Project;
 public partial class SpecimensForm : Form
 {
-    string OriginalSpecimenID;
-    string OriginalType;
-    string OriginalWeight;
-    string OriginalNotes;
-    string OriginalCreatedDate;
-    string OriginalUpdatedDate;
-    string FileLocationName;
+    bool DVGChanged { 
+        get; 
+        set; 
+    }
 
     public SpecimensForm()
     {
         InitializeComponent();
     }
 
-    public SpecimensForm(string filename)
-    {
-        InitializeComponent();
-        FileLocationName = filename;
-    }
     private void SpecimensForm_Load(object sender, EventArgs e)
     {
         try
         {
-            createdDateDateTimePicker.Enabled = false;
-            lastUpdatedDateTimePicker.Enabled = false;
-            specimensTableAdapter.Fill(cSCDTeam6DataSet.Specimens);
-            ArrayList typesList = GetTemplatesTypes();
-            cmbType.Items.AddRange(typesList.ToArray());
+            LoadTable();
         }
         catch (Exception exception)
         {
             Console.WriteLine(exception.Message);
         }
+    }
+
+    public void LoadTable()
+    {
+        createdDateDateTimePicker.Enabled = false;
+        lastUpdatedDateTimePicker.Enabled = false;
+        specimensTableAdapter.Fill(cSCDTeam6DataSet.Specimens);
+        ArrayList typesList = GetTemplatesTypes();
+        cmbType.Items.AddRange(typesList.ToArray());
+        DVGChanged = false;
     }
 
     private void SpecimensBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -75,6 +73,7 @@ public partial class SpecimensForm : Form
             if (dialogResult == DialogResult.Yes)
             {
                 specimensBindingSource.RemoveCurrent();
+                SaveTable();
             }
             else
             {
@@ -183,18 +182,23 @@ public partial class SpecimensForm : Form
                 return;
             }
 
-            // Force lastUpdatedDate to now
-            lastUpdatedDateTimePicker.Text = DateTime.Now.ToString();
-
-            Validate();
-            specimensBindingSource.EndEdit();
-            tableAdapterManager.UpdateAll(cSCDTeam6DataSet);
-            MessageBox.Show("Your Database has been saved!");
+            SaveTable();
         }
         catch (Exception)
         {
             MessageBox.Show("Save failed, try again. Were all your entries valid?");
         }
+    }
+
+    private void SaveTable()
+    {
+        lastUpdatedDateTimePicker.Text = DateTime.Now.ToString();
+
+        Validate();
+        specimensBindingSource.EndEdit();
+        tableAdapterManager.UpdateAll(cSCDTeam6DataSet);
+        MessageBox.Show("Your Database has been saved!");
+        DVGChanged = false;
     }
 
     private int SetSpecimenID()
@@ -240,16 +244,19 @@ public partial class SpecimensForm : Form
     private void WeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
         KeyPressNumeric(sender, e);
+        DVGChanged = true;
     }
 
     private void NotesTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
         KeyPressNotes(sender, e);
+        DVGChanged = true;
     }
 
     private void CmbType_KeyPress(object sender, KeyPressEventArgs e)
     {
         KeyPressSingleWord(sender, e);
+        DVGChanged = true;
     }
 
     private void ToolStripButtonSearch_Click(object sender, EventArgs e)
@@ -295,7 +302,7 @@ public partial class SpecimensForm : Form
 
     private void SpecimensForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-        if (IsUpdated() == false)
+        if (IsUpdated())
         {
             if (MessageBox.Show("You have some specimens that have not been saved yet to the database.  Would you like to save?", "Confirm Save?", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -312,28 +319,13 @@ public partial class SpecimensForm : Form
         toolStripTextSearchBox.Clear();
     }
 
-    private bool IsUpdated()
+    private bool IsUpdated() // has changed
     {
-        if (OriginalSpecimenID != specimensIDTextBox.Text ||
-        OriginalType != typeTextBox.Text ||
-        OriginalWeight != weightTextBox.Text ||
-        OriginalNotes != notesTextBox.Text ||
-        OriginalCreatedDate != createdDateDateTimePicker.Text ||
-        OriginalUpdatedDate != lastUpdatedDateTimePicker.Text)
+        if (DVGChanged)
         {
             return true;
         }
         return false;
-    }
-
-    private void SpecimensDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
-    {
-        OriginalSpecimenID = specimensIDTextBox.Text;
-        OriginalType = typeTextBox.Text;
-        OriginalWeight = weightTextBox.Text;
-        OriginalNotes = notesTextBox.Text;
-        OriginalCreatedDate = createdDateDateTimePicker.Text;
-        OriginalUpdatedDate = lastUpdatedDateTimePicker.Text;
     }
 
     private void SpecimensDataGridView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
@@ -395,5 +387,29 @@ public partial class SpecimensForm : Form
     private void GoToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
     {
         GoToMainMenu(this);
+    }
+
+    private void SpecimensDataGridView_RowLeave(object sender, DataGridViewCellEventArgs e)
+    {
+
+        if (IsUpdated())
+        {
+            string Message = "You have unsaved data, would you like to save it? No will drop your changes.";
+            string Title = "Save?";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult dialogResult = MessageBox.Show(Message, Title,
+                buttons, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1); // Default to yes
+            if (dialogResult == DialogResult.Yes)
+            {
+                BtnSave_Click(sender, e);
+            }
+            else
+            {
+                //ResetToOldValues();
+                LoadTable();
+            }
+        }
+
     }
 }

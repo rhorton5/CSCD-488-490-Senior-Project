@@ -5,14 +5,11 @@ using static Team_6_Senior_Project.WindowSwapper;
 
 public partial class TemplatesForm : Form
 {
-
-    // TODO: make it so it doesn't saved data when leaving row
-    string OriginalType;
-    string OriginalMaxWeight;
-    string OriginalMinWeight;
-    string OriginalNotes;
-    string OriginalCreatedDate;
-    string OriginalUpdatedDate;
+    bool DVGChanged
+    {
+        get;
+        set;
+    }
 
     public TemplatesForm()
     {
@@ -27,20 +24,16 @@ public partial class TemplatesForm : Form
 
     private void TemplatesForm_Load(object sender, EventArgs e)
     {
+        LoadTable();
+    }
+
+    public void LoadTable()
+    {
         templatesTableAdapter.Fill(this.cSCDTeam6DataSet.Templates);
 
         createdDateDateTimePicker.Enabled = false;
         lastUpdatedDateTimePicker.Enabled = false;
-    }
-
-    private void TemplatesDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
-    {
-        OriginalType = typeTextBox.Text;
-        OriginalMinWeight = minWeightTextBox.Text;
-        OriginalMaxWeight = maxWeightTextBox.Text;
-        OriginalNotes = notesTextBox.Text;
-        OriginalCreatedDate = createdDateDateTimePicker.Text;
-        OriginalUpdatedDate = lastUpdatedDateTimePicker.Text;
+        DVGChanged = false;
     }
 
     private void TemplatesDataGridView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
@@ -78,6 +71,7 @@ public partial class TemplatesForm : Form
             if (dialogResult == DialogResult.Yes)
             {
                 templatesBindingSource.RemoveCurrent();
+                SaveTable();
             }
             else
             {
@@ -114,15 +108,9 @@ public partial class TemplatesForm : Form
         BtnAdd_Click(sender, e);
     }
 
-    private Boolean IsUpdated()
+    private bool IsUpdated()
     {
-        // check if anything changed
-        if (OriginalType != typeTextBox.Text ||
-        OriginalMinWeight != minWeightTextBox.Text ||
-        OriginalMaxWeight != maxWeightTextBox.Text ||
-        OriginalNotes != notesTextBox.Text ||
-        OriginalCreatedDate != createdDateDateTimePicker.Text ||
-        OriginalUpdatedDate != lastUpdatedDateTimePicker.Text)
+        if (DVGChanged)
         {
             return true;
         }
@@ -216,12 +204,7 @@ public partial class TemplatesForm : Form
                 return;
             }
 
-            // Force lastUpdatedDate to now
-            lastUpdatedDateTimePicker.Text = DateTime.Now.ToString();
-
-            Validate();
-            templatesBindingSource.EndEdit();
-            tableAdapterManager.UpdateAll(cSCDTeam6DataSet);
+            SaveTable();
 
         }
         catch (Exception)
@@ -229,29 +212,45 @@ public partial class TemplatesForm : Form
         }
     }
 
+    private void SaveTable()
+    {
+        lastUpdatedDateTimePicker.Text = DateTime.Now.ToString();
+
+        Validate();
+        templatesBindingSource.EndEdit();
+        tableAdapterManager.UpdateAll(cSCDTeam6DataSet);
+
+        DVGChanged = false;
+    }
+
     private void MinWeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
         KeyPressNumeric(sender, e);
+        DVGChanged = true;
     }
 
     private void MaxWeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
         KeyPressNumeric(sender, e);
+        DVGChanged = true;
     }
 
     private void NotesTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
         KeyPressNotes(sender, e);
+        DVGChanged = true;
     }
 
     private void TypeTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
         KeyPressSingleWord(sender, e);
+        DVGChanged = true;
     }
 
     private void ToolStripTextSearchBox_KeyPress(object sender, KeyPressEventArgs e)
     {
-KeyPressNotes(sender, e);
+        KeyPressNotes(sender, e);
+        DVGChanged = true;
     }
 
     private void ToolStripButtonSearch_Click(object sender, EventArgs e)
@@ -319,7 +318,7 @@ KeyPressNotes(sender, e);
 
     private void TemplatesForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-        if (IsUpdated() == false)
+        if (IsUpdated())
         {
             if (MessageBox.Show("You have some specimens that have not been saved yet to the database. Would you like to save?", "Confirm Save?", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -347,5 +346,26 @@ KeyPressNotes(sender, e);
     private void GoToMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
     {
         GoToMainMenu(this);
+    }
+
+    private void TemplatesDataGridView_RowLeave(object sender, DataGridViewCellEventArgs e)
+    {
+        if (IsUpdated())
+        {
+            string Message = "You have unsaved data, would you like to save it? No will drop your changes.";
+            string Title = "Save?";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult dialogResult = MessageBox.Show(Message, Title,
+                buttons, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1); // Default to yes
+            if (dialogResult == DialogResult.Yes)
+            {
+                BtnSave_Click(sender, e);
+            }
+            else
+            {
+                LoadTable();
+            }
+        }
     }
 }
