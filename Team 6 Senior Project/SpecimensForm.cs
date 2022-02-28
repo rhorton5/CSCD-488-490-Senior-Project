@@ -37,10 +37,10 @@ public partial class SpecimensForm : Form
             dataRow.ItemArray = rows[i].Split(",");
             dt.Rows.Add(dataRow);
         }
-        dt = removeInvalidRows(dt);
+        dt = RemoveInvalidRows(dt);
     }
 
-    private System.Data.DataTable removeInvalidRows(System.Data.DataTable dt)
+    private static System.Data.DataTable RemoveInvalidRows(System.Data.DataTable dt)
     {
         System.Data.DataTable res = dt;
         ArrayList typesList = GetTemplatesTypes();  //Called here to avoid multiple calls.
