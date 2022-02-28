@@ -21,11 +21,70 @@ public partial class SpecimensForm : Form
         InitializeComponent();
     }
 
-    public SpecimensForm(string filename)
+    public SpecimensForm(string csvData)
     {
         InitializeComponent();
-        FileLocationName = filename;
+        FileLocationName = csvData;
+        string[] rows = csvData.Split("\n");
+        System.Data.DataTable dt = new System.Data.DataTable("Importing Item");
+        foreach(string str in rows[0].Split(","))
+        {
+            dt.Columns.Add(str);
+        }
+        for(int i = 1; i < rows.Length; i++)
+        {
+            System.Data.DataRow dataRow = dt.NewRow();
+            dataRow.ItemArray = rows[i].Split(",");
+            dt.Rows.Add(dataRow);
+        }
+        dt = removeInvalidRows(dt);
     }
+
+    private System.Data.DataTable removeInvalidRows(System.Data.DataTable dt)
+    {
+        System.Data.DataTable res = dt;
+        ArrayList typesList = GetTemplatesTypes();  //Called here to avoid multiple calls.
+        ArrayList RowsToRemove = new ArrayList();
+        foreach(System.Data.DataRow dr in dt.Rows)
+        {
+            
+            string specimenID = dr.ItemArray[0].ToString();
+            string type = dr.ItemArray[1].ToString();
+            string weight = dr.ItemArray[2].ToString();
+            DateTime createdDate, lastCreatedDate;
+            try
+            {
+                createdDate = DateTime.Parse(dr.ItemArray[4].ToString());
+                lastCreatedDate = DateTime.Parse(dr.ItemArray[5].ToString());
+            }
+            catch (Exception)
+            {
+                System.Diagnostics.Debug.WriteLine("DateTime(s) Created An Error -> Row Deleted!");
+                RowsToRemove.Add(dr);
+                break;
+            }
+            
+            string notes = SanatizeSQLString(dr.ItemArray[3].ToString());
+            
+            if(!typesList.Contains(type) || !WeightIsInTemplateMinMax(type,weight) || !ValidNotesRange(notes) 
+                || !ValidDateRange(lastCreatedDate) || !ValidDateRange(createdDate))
+            {
+                RowsToRemove.Add(dr);
+                System.Diagnostics.Debug.WriteLine("Row Deleted!");
+
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("Row Saved!");
+            }
+        }
+        foreach(System.Data.DataRow dr in RowsToRemove)
+        {
+            res.Rows.Remove(dr);
+        }
+        return res;
+    }
+
     private void SpecimensForm_Load(object sender, EventArgs e)
     {
         try
@@ -287,7 +346,7 @@ public partial class SpecimensForm : Form
 
     private void OpenToolStripExport_Click(object sender, EventArgs e)
     {
-        CSVExporter.Export(specimensDataGridView);
+        CSVFileManager.Export(specimensDataGridView);
     }
 
     private void HomeButton_Click(object sender, EventArgs e)

@@ -11,9 +11,15 @@ public partial class MainMenu : Form
     private void OpenExistingButton_Click(object sender, EventArgs e)
     {
         OpenExistingOptionsForm optionsMenu = new OpenExistingOptionsForm();
-        if(optionsMenu.ShowDialog() == DialogResult.OK)
+        if (optionsMenu.ShowDialog() == DialogResult.OK)
         {
-            ws.GoToSpecimensForm(this);
+            string fileLocation = optionsMenu.GetSaveLocation();
+            if (File.Exists(fileLocation))
+            {
+                string csvData = CSVFileManager.Import(fileLocation);
+                ws.GoToSpecimensForm(this, csvData);
+            }
+            
         }
         optionsMenu.Dispose();
     }

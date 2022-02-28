@@ -27,6 +27,11 @@ internal class WindowSwapper
         ChangeWindow(currentForm, new SpecimensSummaryForm());
     }
 
+    public void GoToSpecimensForm(Form currentForm, string csvData)
+    {
+        ChangeWindow(currentForm, new SpecimensForm(csvData));
+    }
+
     private  void ChangeWindow(Form currentWindow, Form newWindow)
     {
         Program.CurrentForm = newWindow;

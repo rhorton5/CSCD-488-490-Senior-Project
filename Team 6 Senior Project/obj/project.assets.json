@@ -2956,11 +2956,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rhorton5\\Downloads\\WIP Senior Project\\CSCD-488-490-Senior-Project-main\\CSCD-488-490-Senior-Project-main\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
+      "projectUniqueName": "C:\\Users\\rhorton5\\Desktop\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
       "projectName": "Team 6 Senior Project",
-      "projectPath": "C:\\Users\\rhorton5\\Downloads\\WIP Senior Project\\CSCD-488-490-Senior-Project-main\\CSCD-488-490-Senior-Project-main\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
+      "projectPath": "C:\\Users\\rhorton5\\Desktop\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
       "packagesPath": "C:\\Users\\rhorton5\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rhorton5\\Downloads\\WIP Senior Project\\CSCD-488-490-Senior-Project-main\\CSCD-488-490-Senior-Project-main\\Team 6 Senior Project\\obj\\",
+      "outputPath": "C:\\Users\\rhorton5\\Desktop\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

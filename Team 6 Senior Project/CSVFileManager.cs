@@ -2,7 +2,7 @@
 
 namespace Team_6_Senior_Project;
 
-internal class CSVExporter
+internal class CSVFileManager
 {
     private static void ExportTOCSV(string data)
     {
@@ -51,5 +51,18 @@ internal class CSVExporter
         catch (Exception)
         {
         }
+    }
+
+    public static string Import(string FileName)
+    {
+        string str = "";
+        using(StreamReader sr = new StreamReader(FileName))
+        {
+            while (!sr.EndOfStream)
+            {
+                str += sr.ReadLine() + "\n";
+            }
+        }
+        return str;
     }
 }

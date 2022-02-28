@@ -66,7 +66,9 @@ namespace Team_6_Senior_Project
             if (result == DialogResult.Yes)
             {
                 MessageBox.Show("Work in Progress...");
+
                 this.DialogResult = DialogResult.OK; //Needed for Exiting Main Menu.
+
                 this.Close();
             }
             else
@@ -76,6 +78,11 @@ namespace Team_6_Senior_Project
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public string GetSaveLocation()
+        {
+            return folderNameTextBox.Text;
         }
     }
 }

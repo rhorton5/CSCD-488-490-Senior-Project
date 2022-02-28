@@ -310,7 +310,7 @@ KeyPressNotes(sender, e);
 
     private void OpenToolStripButton_Click(object sender, EventArgs e)
     {
-        CSVExporter.Export(templatesDataGridView);
+        CSVFileManager.Export(templatesDataGridView);
     }
 
     private void TemplatesDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
