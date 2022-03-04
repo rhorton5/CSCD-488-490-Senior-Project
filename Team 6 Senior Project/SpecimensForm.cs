@@ -49,7 +49,12 @@ public partial class SpecimensForm : Form
         try
         {
             specimensBindingSource.AddNew();
-            specimensIDTextBox.Text = SetSpecimenID().ToString();
+
+            int id = SetSpecimenID();
+            specimensIDTextBox.Text = id.ToString();
+            int lastIndex = specimensDataGridView.Rows.Count;
+            specimensDataGridView[0, lastIndex-1].Value = id;
+
             createdDateDateTimePicker.Text = DateTime.Now.ToString();
             lastUpdatedDateTimePicker.Text = DateTime.Now.ToString();
 
