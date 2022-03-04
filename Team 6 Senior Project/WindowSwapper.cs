@@ -1,7 +1,8 @@
 ﻿namespace Team_6_Senior_Project;
+using System.Data;
 internal class WindowSwapper
 {   
-    public void ValidateWindow(string windowName)
+    public static void ValidateWindow(string windowName)
     {
         if (windowName.Equals(Program.CurrentForm.Name, StringComparison.Ordinal))
             Program.CurrentForm = null;
@@ -22,17 +23,17 @@ internal class WindowSwapper
         ChangeWindow(currentForm, new TemplatesForm());
     }
 
-    public  void GoToSpecimensSummaryForm(Form currentForm)
+    public void GoToSpecimensSummaryForm(Form currentForm)
     {
         ChangeWindow(currentForm, new SpecimensSummaryForm());
     }
 
-    public void GoToSpecimensForm(Form currentForm, string csvData)
+    public void GoToSpecimensForm(Form currentForm, DataTable csvData)
     {
         ChangeWindow(currentForm, new SpecimensForm(csvData));
     }
 
-    private  void ChangeWindow(Form currentWindow, Form newWindow)
+    private static void ChangeWindow(Form currentWindow, Form newWindow)
     {
         Program.CurrentForm = newWindow;
         currentWindow.Close();

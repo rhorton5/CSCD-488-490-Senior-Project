@@ -20,7 +20,7 @@ namespace Team_6_Senior_Project
         private void backupDatabaseButton_CheckedChanged(object sender, EventArgs e)
         {
             saveFolderTextBox.Enabled = !saveFolderTextBox.Enabled;
-            openSaveLocationButton.Enabled = !openSaveLocationButton.Enabled;
+            browseSaveLocationButton.Enabled = !browseSaveLocationButton.Enabled;
         }
 
         private void openFolderButton_Click(object sender, EventArgs e)
@@ -54,8 +54,8 @@ namespace Team_6_Senior_Project
         {
             if (!saveFolderTextBox.Enabled)
                 saveFolderTextBox.Enabled = true;
-            if(!openSaveLocationButton.Enabled)
-                openSaveLocationButton.Enabled = true;
+            if(!browseSaveLocationButton.Enabled)
+                browseSaveLocationButton.Enabled = true;
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
@@ -80,9 +80,11 @@ namespace Team_6_Senior_Project
             this.Close();
         }
 
-        public string GetSaveLocation()
+        public string GetSaveLocation() => folderNameTextBox.Text;
+
+        private void folderNameTextBox_TextChanged(object sender, EventArgs e)
         {
-            return folderNameTextBox.Text;
+            confirmButton.Enabled = File.Exists(folderNameTextBox.Text);
         }
     }
 }

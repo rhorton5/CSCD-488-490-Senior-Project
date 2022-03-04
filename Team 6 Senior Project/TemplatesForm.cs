@@ -327,7 +327,7 @@ KeyPressNotes(sender, e);
                 BtnSave_Click(sender, e);
             }
         }
-        ws.ValidateWindow(Name);
+        WindowSwapper.ValidateWindow(Name);
     }
 
     private void ToolStripButton1_Click(object sender, EventArgs e)

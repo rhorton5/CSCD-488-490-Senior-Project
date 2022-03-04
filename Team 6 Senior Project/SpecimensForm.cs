@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Data;
 using static Team_6_Senior_Project.SQLStatements;
 using static Team_6_Senior_Project.DataValidation;
 using static Team_6_Senior_Project.WindowSwapper;
@@ -12,7 +13,7 @@ public partial class SpecimensForm : Form
     string OriginalNotes;
     string OriginalCreatedDate;
     string OriginalUpdatedDate;
-    string FileLocationName;
+    DataTable ImportedData;
 
     WindowSwapper ws = new WindowSwapper();
 
@@ -21,68 +22,13 @@ public partial class SpecimensForm : Form
         InitializeComponent();
     }
 
-    public SpecimensForm(string csvData)
+    public SpecimensForm(DataTable csvData)
     {
         InitializeComponent();
-        FileLocationName = csvData;
-        string[] rows = csvData.Split("\n");
-        System.Data.DataTable dt = new System.Data.DataTable("Importing Item");
-        foreach(string str in rows[0].Split(","))
-        {
-            dt.Columns.Add(str);
-        }
-        for(int i = 1; i < rows.Length; i++)
-        {
-            System.Data.DataRow dataRow = dt.NewRow();
-            dataRow.ItemArray = rows[i].Split(",");
-            dt.Rows.Add(dataRow);
-        }
-        dt = RemoveInvalidRows(dt);
-    }
-
-    private static System.Data.DataTable RemoveInvalidRows(System.Data.DataTable dt)
-    {
-        System.Data.DataTable res = dt;
-        ArrayList typesList = GetTemplatesTypes();  //Called here to avoid multiple calls.
-        ArrayList RowsToRemove = new ArrayList();
-        foreach(System.Data.DataRow dr in dt.Rows)
-        {
-            
-            string specimenID = dr.ItemArray[0].ToString();
-            string type = dr.ItemArray[1].ToString();
-            string weight = dr.ItemArray[2].ToString();
-            DateTime createdDate, lastCreatedDate;
-            try
-            {
-                createdDate = DateTime.Parse(dr.ItemArray[4].ToString());
-                lastCreatedDate = DateTime.Parse(dr.ItemArray[5].ToString());
-            }
-            catch (Exception)
-            {
-                System.Diagnostics.Debug.WriteLine("DateTime(s) Created An Error -> Row Deleted!");
-                RowsToRemove.Add(dr);
-                break;
-            }
-            
-            string notes = SanatizeSQLString(dr.ItemArray[3].ToString());
-            
-            if(!typesList.Contains(type) || !WeightIsInTemplateMinMax(type,weight) || !ValidNotesRange(notes) 
-                || !ValidDateRange(lastCreatedDate) || !ValidDateRange(createdDate))
-            {
-                RowsToRemove.Add(dr);
-                System.Diagnostics.Debug.WriteLine("Row Deleted!");
-
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine("Row Saved!");
-            }
-        }
-        foreach(System.Data.DataRow dr in RowsToRemove)
-        {
-            res.Rows.Remove(dr);
-        }
-        return res;
+        this.ImportedData = csvData;
+        //TO DO: Work with Nick to get the actaul data inside of the specimensDataGridView and the Database.
+        
+        
     }
 
     private void SpecimensForm_Load(object sender, EventArgs e)
@@ -364,7 +310,7 @@ public partial class SpecimensForm : Form
             }
         }
 
-        ws.ValidateWindow(Name);
+        ValidateWindow(Name);
     }
 
     private void ToolStripButtonClear_Click(object sender, EventArgs e)

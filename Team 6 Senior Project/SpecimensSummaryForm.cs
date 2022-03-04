@@ -84,7 +84,7 @@ public partial class SpecimensSummaryForm : Form
 
     private void SpecimensSummaryForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-        ws.ValidateWindow(Name);
+        WindowSwapper.ValidateWindow(Name);
     }
 
     private void SpecimenDatabseToolStripMenuItem_Click(object sender, EventArgs e)

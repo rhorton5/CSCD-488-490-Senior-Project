@@ -1,4 +1,5 @@
 ﻿namespace Team_6_Senior_Project;
+using System.Data;
 
 public partial class MainMenu : Form
 {
@@ -16,8 +17,8 @@ public partial class MainMenu : Form
             string fileLocation = optionsMenu.GetSaveLocation();
             if (File.Exists(fileLocation))
             {
-                string csvData = CSVFileManager.Import(fileLocation);
-                ws.GoToSpecimensForm(this, csvData);
+                DataTable csvDataTable = CSVFileManager.Import(fileLocation);
+                ws.GoToSpecimensForm(this, csvDataTable);
             }
             
         }
@@ -26,7 +27,7 @@ public partial class MainMenu : Form
 
     private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
     {
-        ws.ValidateWindow(Name);
+        WindowSwapper.ValidateWindow(Name);
     }
 
     private void BtnSpecimens_Click(object sender, EventArgs e)
