@@ -102,6 +102,6 @@ public partial class SpecimensSummaryForm : Form
 
     private void ExportStripButton_Click(object sender, EventArgs e)
     {
-        CSVExporter.Export(dataGridViewSpecimensSummary);
+        CSVFileManager.Export(dataGridViewSpecimensSummary);
     }
 }

@@ -6,36 +6,25 @@ public partial class MainMenu : Form
     {
         InitializeComponent();
     }
-    /*
-    private static string GetFileString()
-    {
-        OpenFileDialog openFileDialog = new();
-        openFileDialog.Filter = "csv files (*.csv)|*.csv";
-        openFileDialog.FilterIndex = 1;
-        openFileDialog.RestoreDirectory = true;
-        if (openFileDialog.ShowDialog() == DialogResult.OK && !String.IsNullOrEmpty(openFileDialog.FileName))
-        {
-            return openFileDialog.FileName;
-        }
-        return null;
-    }
-    */
     private void OpenExistingButton_Click(object sender, EventArgs e)
     {
-        MessageBox.Show("Work in progress... sending back to Specimen Format.");
-        /*
-        //string filePath = getFileString();
-        string filePath = "A String";
-        if (filePath != null)
+        using(OpenFileDialog dialog = new OpenFileDialog())
         {
-            //Program.filenameViewAll = filePath;
-            BtnSpecimens_Click(sender, e);
+            dialog.Filter = "CSV Files (*.csv) | *.*";
+            dialog.Title = "Open Existing";
+            dialog.FilterIndex = 1;
+            dialog.RestoreDirectory = true;
+            if (dialog.ShowDialog() == DialogResult.OK && dialog.CheckFileExists) 
+            {
+                OpenExistingOptionsMenu openExistingOptionsMenu = new OpenExistingOptionsMenu(dialog.FileName);
+                if(openExistingOptionsMenu.ShowDialog() == DialogResult.OK)
+                {
+                    CSVFileManager.Import(dialog.FileName);
+                    WindowSwapper.GoToSpecimensForm(this);
+                }
+                openExistingOptionsMenu.Close();
+            }
         }
-        else
-        {
-            MessageBox.Show("An invalid file path was chosen, please try again...");
-        }
-        */
     }
 
     private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
