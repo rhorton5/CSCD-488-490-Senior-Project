@@ -2950,24 +2950,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rhorton5\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Owner\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CSCD-488-490-Senior-Project-rhorton_refactoringCSV\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
+      "projectUniqueName": "C:\\Users\\Owner\\OneDrive\\Documents\\Programming\\Github\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
       "projectName": "Team 6 Senior Project",
-      "projectPath": "D:\\CSCD-488-490-Senior-Project-rhorton_refactoringCSV\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
-      "packagesPath": "C:\\Users\\rhorton5\\.nuget\\packages\\",
-      "outputPath": "D:\\CSCD-488-490-Senior-Project-rhorton_refactoringCSV\\Team 6 Senior Project\\obj\\",
+      "projectPath": "C:\\Users\\Owner\\OneDrive\\Documents\\Programming\\Github\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
+      "packagesPath": "C:\\Users\\Owner\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Owner\\OneDrive\\Documents\\Programming\\Github\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\rhorton5\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3033,7 +3028,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

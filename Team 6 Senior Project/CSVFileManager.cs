@@ -58,7 +58,7 @@ internal class CSVFileManager
     public static DataTable Import(string FileName)
     {
         string csvStr = "";
-        using(StreamReader sr = new StreamReader(FileName))
+        using(StreamReader sr = new StreamReader(FileName)) //Throw MessageBox about processing being used.
         {
             while (!sr.EndOfStream)
             {
@@ -77,53 +77,72 @@ internal class CSVFileManager
             dataRow.ItemArray = rows[i].Split(",");
             dt.Rows.Add(dataRow);
         }
-        dt = RemoveInvalidRows(dt);
 
-        return dt;
+        CSCDTeam6DataSet.SpecimensDataTable source = new();
+        source.GetChanges(DataRowState.Added);
+
+        CSCDTeam6DataSetTableAdapters.SpecimensTableAdapter specimenTable = new();
+        specimenTable = RemoveInvalidRows(dt,specimenTable);
+        specimenTable.Update(source);
+        source.AcceptChanges();
+
+        source.Dispose();
+        specimenTable.Dispose();
+
+
+        return null;
     }
 
-    private static DataTable RemoveInvalidRows(DataTable dt)
+    private static CSCDTeam6DataSetTableAdapters.SpecimensTableAdapter RemoveInvalidRows(DataTable dt, CSCDTeam6DataSetTableAdapters.SpecimensTableAdapter adapter)
     {
         System.Data.DataTable res = dt;
         ArrayList typesList = SQLStatements.GetTemplatesTypes();  //Called here to avoid multiple calls.
         ArrayList RowsToRemove = new ArrayList();
         foreach (DataRow dr in dt.Rows)
         {
-
             string specimenID = dr.ItemArray[0].ToString();
-            string type = dr.ItemArray[1].ToString();
-            string weight = dr.ItemArray[2].ToString();
-            DateTime createdDate, lastCreatedDate;
-            try
-            {
-                createdDate = DateTime.Parse(dr.ItemArray[4].ToString());
-                lastCreatedDate = DateTime.Parse(dr.ItemArray[5].ToString());
-            }
-            catch (Exception)
-            {
-                System.Diagnostics.Debug.WriteLine("DateTime(s) Created An Error -> Row Deleted!");
-                RowsToRemove.Add(dr);
-                break;
-            }
-
-            string notes = DataValidation.SanatizeSQLString(dr.ItemArray[3].ToString());
-
-            if (!typesList.Contains(type) || !DataValidation.WeightIsInTemplateMinMax(type, weight) || !DataValidation.ValidNotesRange(notes)
-                || !DataValidation.ValidDateRange(lastCreatedDate) || !DataValidation.ValidDateRange(createdDate))
+            if (!int.TryParse(specimenID, out int id))
             {
                 RowsToRemove.Add(dr);
-                System.Diagnostics.Debug.WriteLine("Row Deleted!"); //Kept for debugging purposes, you may delete at any time.
-
+                System.Diagnostics.Debug.WriteLine("Invalid Specimen ID " + specimenID + "!");
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine("Row Saved!"); //Kept for debugging purposes, you may delete at any time.
+                string type = dr.ItemArray[1].ToString();
+                string weight = dr.ItemArray[2].ToString();
+                DateTime createdDate, lastCreatedDate;
+                try
+                {
+                    createdDate = DateTime.Parse(dr.ItemArray[4].ToString());
+                    lastCreatedDate = DateTime.Parse(dr.ItemArray[5].ToString());
+                }
+                catch (Exception)
+                {
+                    System.Diagnostics.Debug.WriteLine("DateTime(s) Created An Error -> Row Deleted!");
+                    RowsToRemove.Add(dr);
+                    break;
+                }
+
+                string notes = DataValidation.SanatizeSQLString(dr.ItemArray[3].ToString());
+
+                if (!typesList.Contains(type) || !DataValidation.WeightIsInTemplateMinMax(type, weight) || !DataValidation.ValidNotesRange(notes)
+                    || !DataValidation.ValidDateRange(lastCreatedDate) || !DataValidation.ValidDateRange(createdDate))
+                {
+                    RowsToRemove.Add(dr);
+                    System.Diagnostics.Debug.WriteLine("Row Deleted!"); //Kept for debugging purposes, you may delete at any time.
+
+                }
+                else
+                {
+                    adapter.Insert(type, Decimal.Parse(weight), notes, createdDate, lastCreatedDate);
+                    System.Diagnostics.Debug.WriteLine("Row Saved!"); //Kept for debugging purposes, you may delete at any time.
+                }
             }
         }
         foreach (DataRow dr in RowsToRemove)
         {
             res.Rows.Remove(dr);
         }
-        return res;
+        return adapter;
     }
 }

@@ -26,9 +26,7 @@ public partial class SpecimensForm : Form
     {
         InitializeComponent();
         this.ImportedData = csvData;
-        //TO DO: Work with Nick to get the actaul data inside of the specimensDataGridView and the Database.
-        
-        
+        //TO DO: Work with Nick to get the actaul data inside of the specimensDataGridView and the Database.    
     }
 
     private void SpecimensForm_Load(object sender, EventArgs e)
