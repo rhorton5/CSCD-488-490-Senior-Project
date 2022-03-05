@@ -465,7 +465,7 @@ partial class SpecimensForm
             this.specimensDataGridView.ReadOnly = true;
             this.specimensDataGridView.RowHeadersWidth = 51;
             this.specimensDataGridView.RowTemplate.Height = 24;
-            this.specimensDataGridView.Size = new System.Drawing.Size(1062, 338);
+            this.specimensDataGridView.Size = new System.Drawing.Size(1058, 338);
             this.specimensDataGridView.TabIndex = 1;
             this.specimensDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.SpecimensDataGridView_DataError);
             this.specimensDataGridView.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.SpecimensDataGridView_RowLeave);

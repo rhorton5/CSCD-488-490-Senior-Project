@@ -58,10 +58,19 @@ public partial class SpecimensForm : Form
             createdDateDateTimePicker.Text = DateTime.Now.ToString();
             lastUpdatedDateTimePicker.Text = DateTime.Now.ToString();
 
-            typeTextBox.Focus();
+            cmbType.Focus();
         }
         catch (Exception)
         {
+            int id = SetSpecimenID();
+            specimensIDTextBox.Text = id.ToString();
+            int lastIndex = specimensDataGridView.Rows.Count;
+            specimensDataGridView[0, lastIndex-1].Value = id;
+
+            createdDateDateTimePicker.Text = DateTime.Now.ToString();
+            lastUpdatedDateTimePicker.Text = DateTime.Now.ToString();
+
+            cmbType.Focus();
         }
     }
 
