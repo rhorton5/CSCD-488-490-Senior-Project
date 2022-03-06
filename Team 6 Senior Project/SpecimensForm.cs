@@ -16,6 +16,16 @@ public partial class SpecimensForm : Form
         InitializeComponent();
     }
 
+    public void LoadTable()
+    {
+        createdDateDateTimePicker.Enabled = false;
+        lastUpdatedDateTimePicker.Enabled = false;
+        specimensTableAdapter.Fill(cSCDTeam6DataSet.Specimens);
+        ArrayList typesList = GetTemplatesTypes();
+        cmbType.Items.AddRange(typesList.ToArray());
+        DVGChanged = false;
+    }
+
     private void SpecimensForm_Load(object sender, EventArgs e)
     {
         try
@@ -26,16 +36,6 @@ public partial class SpecimensForm : Form
         {
             Console.WriteLine(exception.Message);
         }
-    }
-
-    public void LoadTable()
-    {
-        createdDateDateTimePicker.Enabled = false;
-        lastUpdatedDateTimePicker.Enabled = false;
-        specimensTableAdapter.Fill(cSCDTeam6DataSet.Specimens);
-        ArrayList typesList = GetTemplatesTypes();
-        cmbType.Items.AddRange(typesList.ToArray());
-        DVGChanged = false;
     }
 
     private void SpecimensBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -306,7 +306,7 @@ public partial class SpecimensForm : Form
 
     private void OpenToolStripExport_Click(object sender, EventArgs e)
     {
-        CSVExporter.Export(specimensDataGridView);
+        CSVFileManager.Export(specimensDataGridView);
     }
 
     private void HomeButton_Click(object sender, EventArgs e)
