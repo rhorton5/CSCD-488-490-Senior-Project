@@ -14,6 +14,7 @@ public partial class SpecimensForm : Form
     public SpecimensForm()
     {
         InitializeComponent();
+        captureBtn.Visible = false;
     }
 
     public void LoadTable()
@@ -59,6 +60,7 @@ public partial class SpecimensForm : Form
             lastUpdatedDateTimePicker.Text = DateTime.Now.ToString();
 
             cmbType.Focus();
+            captureBtn.Visible = true;
         }
         catch (Exception)
         {
@@ -195,7 +197,7 @@ public partial class SpecimensForm : Form
                 weightTextBox.Focus();
                 return;
             }
-
+            captureBtn.Visible = false;
             SaveTable();
         }
         catch (Exception)
@@ -425,5 +427,30 @@ public partial class SpecimensForm : Form
             }
         }
 
+    }
+
+    private void captureBtn_Click(object sender, EventArgs e)
+    {
+        if (cmbType.Text == "")
+        {
+            cmbType.Focus();
+        }
+        else
+        {
+            Double minWeight = Convert.ToDouble(MinWeight(cmbType.Text));
+            Double maxWeight = Convert.ToDouble(MaxWeight(cmbType.Text));
+            Double capturedWeight = -1;
+            Random random = new Random();
+            try
+            {
+                while (capturedWeight < minWeight || capturedWeight > maxWeight)
+                {
+                    capturedWeight = random.NextDouble();
+                    capturedWeight += random.Next((int)minWeight, (int)maxWeight);
+                }
+                weightTextBox.Text = capturedWeight.ToString();
+            }
+            catch (Exception) { }
+        }
     }
 }
