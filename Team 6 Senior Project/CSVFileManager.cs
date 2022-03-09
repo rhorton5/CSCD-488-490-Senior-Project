@@ -30,6 +30,29 @@ internal class CSVFileManager
         save.Dispose();
     }
 
+    public static void BackupToCSV(string saveLocation)
+    {
+        DataTable dt = SQLStatements.GetSpecimenData();
+        string str = "";
+        if (!String.IsNullOrEmpty(saveLocation)){
+            foreach(DataRow row in dt.Rows)
+            {
+                str += String.Join(",",row.ItemArray) + "\n";
+            }
+        }
+        try
+        {
+            StreamWriter sw = new StreamWriter(saveLocation);
+            sw.Write(str);
+            sw.Close();
+
+        }catch (Exception ex)
+        {
+            MessageBox.Show("Failed to Save.");
+        }
+        dt.Dispose();
+    }
+
     public static void Export(DataGridView dataGridView)
     {
         try

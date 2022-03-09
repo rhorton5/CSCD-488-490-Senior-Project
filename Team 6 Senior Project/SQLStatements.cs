@@ -113,4 +113,10 @@ internal class SQLStatements
 
         return GetOneValueFromSelectStatement(query);
     }
+
+    public static DataTable GetSpecimenData()
+    {
+        string query = $@"SELECT * From Specimens";
+        return GetDataTableFromSelectStatement(query);
+    }
 }
