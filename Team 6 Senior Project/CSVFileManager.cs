@@ -17,14 +17,6 @@ internal class CSVFileManager
         {
             try
             {
-                CSCDTeam6DataSet.SpecimensDataTable sdt = new();
-                string str = "";
-                foreach (DataColumn column in sdt.Columns)
-                {
-                    str += column.ColumnName + ",";
-                }
-                data = str + data;
-                sdt.Dispose();
                 StreamWriter sw = new(save.FileName);
                 sw.Write(data);
                 sw.Close();
@@ -73,7 +65,7 @@ internal class CSVFileManager
         try
         {
             string res = "";
-            for (int i = 0; i < dataGridView.Columns.Count - 1; i++)
+            for (int i = 0; i < dataGridView.Columns.Count; i++)
             {
                 res += dataGridView.Columns[i].HeaderText + ",";
             }
@@ -154,6 +146,7 @@ internal class CSVFileManager
             catch (Exception)
             {
                 System.Diagnostics.Debug.WriteLine("DateTime(s) Created An Error -> Row Deleted!");
+                removedDataMSG += String.Join(",", dr.ItemArray.ToArray()) + Environment.NewLine;
                 break;
             }
 
@@ -172,7 +165,9 @@ internal class CSVFileManager
         if (String.IsNullOrEmpty(removedDataMSG))
             MessageBox.Show("All of your rows have been imported!!", "Successful Import");
         else
-            MessageBox.Show("The following rows have not been added: " + Environment.NewLine + removedDataMSG, "Some Rows Did Not Get Imported", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("The following rows have not been added: " + Environment.NewLine + removedDataMSG + Environment.NewLine + "Please check those values again and re-enter them into the database seperately.", "Some Rows Did Not Get Imported", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Error);
 
         return adapter;
     }
