@@ -255,6 +255,7 @@ public partial class SpecimensForm : Form
     private void CmbType_SelectedValueChanged(object sender, EventArgs e)
     {
         typeTextBox.Text = cmbType.Text;
+        updateSummary();
     }
 
     private void WeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -452,5 +453,21 @@ public partial class SpecimensForm : Form
             }
             catch (Exception) { }
         }
+    }
+    private void updateSummary()
+    {
+        string selectedType = cmbType.Text;
+        string query = $@"SELECT COUNT(Weight) AS 'Count', SUM(Weight) AS 'Sum Weight', ROUND(AVG(Weight),4) AS 'Avg Weight', MIN(Weight) AS 'Min Weight', MAX(Weight) AS 'Max Weight', ROUND(STDEV(Weight),4) AS 'StDev Weight'
+        FROM Specimens
+        WHERE Type = {selectedType}'";
+        ArrayList selectedTypeSummary = GetArrayListOfValuesFromSelectStatement(query);
+
+        labelTypeName.Text = "Type name: " + selectedType;
+        labelTotalCount.Text = "Total count: " + selectedTypeSummary[0];
+        //labelTotalWeight.Text = ;
+        //labelMaxWeight.Text = ;
+        //labelMinWeight.Text = ;
+        //labelAverageWeight.Text = ;
+        //labelStdDeviation.Text = ;
     }
 }

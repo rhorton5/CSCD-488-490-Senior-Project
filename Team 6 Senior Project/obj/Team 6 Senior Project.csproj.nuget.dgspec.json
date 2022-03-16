@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rhorton5\\Downloads\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj": {}
+    "C:\\Users\\Tom\\Desktop\\Capstone3\\Team 6 Senior Project\\Team 6 Senior Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rhorton5\\Downloads\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj": {
+    "C:\\Users\\Tom\\Desktop\\Capstone3\\Team 6 Senior Project\\Team 6 Senior Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rhorton5\\Downloads\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
+        "projectUniqueName": "C:\\Users\\Tom\\Desktop\\Capstone3\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
         "projectName": "Team 6 Senior Project",
-        "projectPath": "C:\\Users\\rhorton5\\Downloads\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
-        "packagesPath": "C:\\Users\\rhorton5\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rhorton5\\Downloads\\CSCD-488-490-Senior-Project\\Team 6 Senior Project\\obj\\",
+        "projectPath": "C:\\Users\\Tom\\Desktop\\Capstone3\\Team 6 Senior Project\\Team 6 Senior Project.csproj",
+        "packagesPath": "C:\\Users\\Tom\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tom\\Desktop\\Capstone3\\Team 6 Senior Project\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rhorton5\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Tom\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
