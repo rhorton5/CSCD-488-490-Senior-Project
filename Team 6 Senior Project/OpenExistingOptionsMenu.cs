@@ -12,6 +12,7 @@ namespace Team_6_Senior_Project
 {
     public partial class OpenExistingOptionsMenu : Form
     {
+        private string fileFilter = "csv files (*.csv) | *.csv | All files (*.*)|*.*";
         public OpenExistingOptionsMenu(string FileName)
         {
             InitializeComponent();
@@ -20,7 +21,12 @@ namespace Team_6_Senior_Project
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
+            if (!String.IsNullOrEmpty(backupFileTextBox.Text))
+            {
+                CSVFileManager.BackupToCSV(backupFileTextBox.Text);
+            }
             DialogResult = DialogResult.OK;
+            CSVFileManager.Import(existingFileTextBox.Text);
         }
 
         private void browseExistingButton_Click(object sender, EventArgs e)
@@ -29,6 +35,8 @@ namespace Team_6_Senior_Project
             {
                 dialog.FilterIndex = 1;
                 dialog.RestoreDirectory = true;
+                dialog.Title = "Browse Existing CSV Files";
+                dialog.Filter = fileFilter;
                 if (dialog.ShowDialog() == DialogResult.OK && !String.IsNullOrEmpty(dialog.FileName))
                 {
                     existingFileTextBox.Text = dialog.FileName;
@@ -43,6 +51,8 @@ namespace Team_6_Senior_Project
             {
                 dialog.FilterIndex = 1;
                 dialog.RestoreDirectory = true;
+                dialog.Title = "Browse Backup Save";
+                dialog.Filter = fileFilter;
                 if (dialog.ShowDialog() == DialogResult.OK && !String.IsNullOrEmpty(dialog.FileName))
                 {
                     backupFileTextBox.Text = dialog.FileName;
