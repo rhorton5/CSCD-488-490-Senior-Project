@@ -26,6 +26,7 @@ namespace Team_6_Senior_Project
                 CSVFileManager.BackupToCSV(backupFileTextBox.Text);
             }
             DialogResult = DialogResult.OK;
+            CSVFileManager.Import(existingFileTextBox.Text);
         }
 
         private void browseExistingButton_Click(object sender, EventArgs e)

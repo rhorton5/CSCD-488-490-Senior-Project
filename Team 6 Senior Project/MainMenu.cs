@@ -18,10 +18,7 @@ public partial class MainMenu : Form
             {
                 OpenExistingOptionsMenu openExistingOptionsMenu = new OpenExistingOptionsMenu(dialog.FileName);
                 if(openExistingOptionsMenu.ShowDialog() == DialogResult.OK)
-                {
-                    CSVFileManager.Import(dialog.FileName);
                     WindowSwapper.GoToSpecimensForm(this);
-                }
                 openExistingOptionsMenu.Close();
             }
         }

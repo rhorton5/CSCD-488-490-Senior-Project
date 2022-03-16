@@ -17,6 +17,14 @@ internal class CSVFileManager
         {
             try
             {
+                CSCDTeam6DataSet.SpecimensDataTable sdt = new();
+                string str = "";
+                foreach (DataColumn column in sdt.Columns)
+                {
+                    str += column.ColumnName + ",";
+                }
+                data = str + data;
+                sdt.Dispose();
                 StreamWriter sw = new(save.FileName);
                 sw.Write(data);
                 sw.Close();
@@ -32,8 +40,15 @@ internal class CSVFileManager
 
     public static void BackupToCSV(string saveLocation)
     {
-        DataTable dt = SQLStatements.GetSpecimenData();
+        CSCDTeam6DataSet.SpecimensDataTable sdt = new();
         string str = "";
+        foreach(DataColumn column in sdt.Columns)
+        {
+            str += column.ColumnName + ",";
+        }
+        sdt.Dispose();
+        str = string.Concat(str.AsSpan(0, str.Length - 1), "\n");
+        DataTable dt = SQLStatements.GetSpecimenData();
         if (!String.IsNullOrEmpty(saveLocation)){
             foreach(DataRow row in dt.Rows)
             {
@@ -81,42 +96,51 @@ internal class CSVFileManager
     public static void Import(string FileName)
     {
         string csvStr = "";
-        using (StreamReader sr = new StreamReader(FileName)) //Throw MessageBox about processing being used.
+        try
         {
-            while (!sr.EndOfStream)
+            using (StreamReader sr = new StreamReader(FileName)) //Throw MessageBox about processing being used.
             {
-                csvStr += sr.ReadLine() + "\n";
+                while (!sr.EndOfStream)
+                {
+                    csvStr += sr.ReadLine() + "\n";
+                }
             }
-        }
-        string[] rows = csvStr.Split("\n");
-        DataTable dt = new("Importing Item");
-        foreach (string str in rows[0].Split(","))
+            string[] rows = csvStr.Split("\n");
+            DataTable dt = new("Importing Item");
+            foreach (string str in rows[0].Split(","))
+            {
+                dt.Columns.Add(str);
+            }
+            for (int i = 1; i < rows.Length; i++)
+            {
+                System.Data.DataRow dataRow = dt.NewRow();
+                dataRow.ItemArray = rows[i].Split(",");
+                dt.Rows.Add(dataRow);
+            }
+
+            CSCDTeam6DataSet.SpecimensDataTable source = new();
+            source.GetChanges(DataRowState.Added);
+
+            CSCDTeam6DataSetTableAdapters.SpecimensTableAdapter specimenTable = new();
+            specimenTable = RemoveInvalidRows(dt, specimenTable);
+            specimenTable.Update(source);
+            source.AcceptChanges();
+
+            dt.Dispose();
+            source.Dispose();
+            specimenTable.Dispose();
+        }catch(IOException ex)
         {
-            dt.Columns.Add(str);
+            MessageBox.Show("Please close out of the program running your csv files and try again","Unable to Run CSV File",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            Console.WriteLine(ex.ToString());
         }
-        for (int i = 1; i < rows.Length; i++)
-        {
-            System.Data.DataRow dataRow = dt.NewRow();
-            dataRow.ItemArray = rows[i].Split(",");
-            dt.Rows.Add(dataRow);
-        }
-
-        CSCDTeam6DataSet.SpecimensDataTable source = new();
-        source.GetChanges(DataRowState.Added);
-
-        CSCDTeam6DataSetTableAdapters.SpecimensTableAdapter specimenTable = new();
-        specimenTable = RemoveInvalidRows(dt, specimenTable);
-        specimenTable.Update(source);
-        source.AcceptChanges();
-
-        dt.Dispose();
-        source.Dispose();
-        specimenTable.Dispose();
+        
     }
 
     private static CSCDTeam6DataSetTableAdapters.SpecimensTableAdapter RemoveInvalidRows(DataTable dt, CSCDTeam6DataSetTableAdapters.SpecimensTableAdapter adapter)
     {
         ArrayList typesList = SQLStatements.GetTemplatesTypes();  //Called here to avoid multiple calls.
+        String removedDataMSG = "";
         foreach (DataRow dr in dt.Rows)
         {
             string type = dr.ItemArray[1].ToString();
@@ -138,14 +162,18 @@ internal class CSVFileManager
             if (!typesList.Contains(type) || !DataValidation.WeightIsInTemplateMinMax(type, weight) || !DataValidation.ValidNotesRange(notes)
                 || !DataValidation.ValidDateRange(lastCreatedDate) || !DataValidation.ValidDateRange(createdDate))
             {
-                System.Diagnostics.Debug.WriteLine("Row Deleted!"); //Kept for debugging purposes, you may delete at any time.
+                removedDataMSG += String.Join(",",dr.ItemArray.ToArray()) + Environment.NewLine;
             }
             else
             {
                 adapter.Insert(type, Decimal.Parse(weight), notes, createdDate, lastCreatedDate);
-                System.Diagnostics.Debug.WriteLine("Row Saved!"); //Kept for debugging purposes, you may delete at any time.
             }
         }
+        if (String.IsNullOrEmpty(removedDataMSG))
+            MessageBox.Show("All of your rows have been imported!!", "Successful Import");
+        else
+            MessageBox.Show("The following rows have not been added: " + Environment.NewLine + removedDataMSG, "Some Rows Did Not Get Imported", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         return adapter;
     }
 }
