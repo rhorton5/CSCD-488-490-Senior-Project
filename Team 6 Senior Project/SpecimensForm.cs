@@ -459,15 +459,15 @@ public partial class SpecimensForm : Form
         string selectedType = cmbType.Text;
         string query = $@"SELECT COUNT(Weight) AS 'Count', SUM(Weight) AS 'Sum Weight', ROUND(AVG(Weight),4) AS 'Avg Weight', MIN(Weight) AS 'Min Weight', MAX(Weight) AS 'Max Weight', ROUND(STDEV(Weight),4) AS 'StDev Weight'
         FROM Specimens
-        WHERE Type = {selectedType}'";
-        ArrayList selectedTypeSummary = GetArrayListOfValuesFromSelectStatement(query);
+        WHERE Type = '{selectedType}'";
+        ArrayList selectedTypeSummary = GetArrayListWihSixColumns(query);
 
         labelTypeName.Text = "Type name: " + selectedType;
         labelTotalCount.Text = "Total count: " + selectedTypeSummary[0];
-        //labelTotalWeight.Text = ;
-        //labelMaxWeight.Text = ;
-        //labelMinWeight.Text = ;
-        //labelAverageWeight.Text = ;
-        //labelStdDeviation.Text = ;
+        labelTotalWeight.Text = "Total weight: " + selectedTypeSummary[1];
+        labelMaxWeight.Text = "Max weight: " + selectedTypeSummary[4];
+        labelMinWeight.Text = "Min weight: " + selectedTypeSummary[3];
+        labelAverageWeight.Text = "Average weight: " + selectedTypeSummary[2];
+        labelStdDeviation.Text = "Std Deviation: " + selectedTypeSummary[5];;
     }
 }

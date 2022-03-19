@@ -119,4 +119,39 @@ internal class SQLStatements
         string query = $@"SELECT * From Specimens";
         return GetDataTableFromSelectStatement(query);
     }
+
+    public static ArrayList GetArrayListWihSixColumns(string query)
+    {
+        ArrayList valuesList = new();
+
+        try
+        {
+            string connString = ConfigurationManager.ConnectionStrings["Team_6_Senior_Project.Properties.Settings.CSCDTeam6ConnectionString"].ConnectionString;
+            SqlConnection connection = new(connString);
+            connection.Open();
+            SqlCommand command = new(query, connection);
+
+            SqlDataReader dataReader = command.ExecuteReader();
+            while (dataReader.Read())
+            {
+                valuesList.Add(dataReader[0].ToString());
+                valuesList.Add(dataReader[1].ToString());
+                valuesList.Add(dataReader[2].ToString());
+                valuesList.Add(dataReader[3].ToString());
+                valuesList.Add(dataReader[4].ToString());
+                valuesList.Add(dataReader[5].ToString());
+            }
+            command.Dispose();
+            connection.Close();
+            connection.Dispose();
+
+        }
+        catch (Exception)
+        {
+            //TODO: handle exceptions better
+            return valuesList;
+        }
+
+        return valuesList;
+    }
 }
