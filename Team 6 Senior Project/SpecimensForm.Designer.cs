@@ -96,6 +96,7 @@ partial class SpecimensForm
             this.labelMinWeight = new System.Windows.Forms.Label();
             this.labelMaxWeight = new System.Windows.Forms.Label();
             this.labelStdDeviation = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             specimensIDLabel = new System.Windows.Forms.Label();
             typeLabel = new System.Windows.Forms.Label();
             weightLabel = new System.Windows.Forms.Label();
@@ -108,6 +109,7 @@ partial class SpecimensForm
             ((System.ComponentModel.ISupportInitialize)(this.cSCDTeam6DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.specimensDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.templatesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // specimensIDLabel
@@ -766,12 +768,23 @@ partial class SpecimensForm
             this.labelStdDeviation.TabIndex = 21;
             this.labelStdDeviation.Text = "Std deviation (g):";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1514, 966);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(336, 169);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            // 
             // SpecimensForm
             // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1850, 1130);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelStdDeviation);
             this.Controls.Add(this.labelMaxWeight);
             this.Controls.Add(this.labelMinWeight);
@@ -812,6 +825,7 @@ partial class SpecimensForm
             ((System.ComponentModel.ISupportInitialize)(this.cSCDTeam6DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.specimensDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.templatesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -879,4 +893,5 @@ partial class SpecimensForm
     private Label labelMinWeight;
     private Label labelMaxWeight;
     private Label labelStdDeviation;
+    private PictureBox pictureBox1;
 }
