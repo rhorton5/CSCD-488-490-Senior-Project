@@ -464,10 +464,10 @@ public partial class SpecimensForm : Form
 
         labelTypeName.Text = "Type name: " + selectedType;
         labelTotalCount.Text = "Total count: " + selectedTypeSummary[0];
-        labelTotalWeight.Text = "Total weight: " + selectedTypeSummary[1];
-        labelMaxWeight.Text = "Max weight: " + selectedTypeSummary[4];
-        labelMinWeight.Text = "Min weight: " + selectedTypeSummary[3];
-        labelAverageWeight.Text = "Average weight: " + selectedTypeSummary[2];
-        labelStdDeviation.Text = "Std Deviation: " + selectedTypeSummary[5];;
+        labelTotalWeight.Text = "Total weight (g): " + selectedTypeSummary[1];
+        labelMaxWeight.Text = "Max weight (g): " + selectedTypeSummary[4];
+        labelMinWeight.Text = "Min weight (g): " + selectedTypeSummary[3];
+        labelAverageWeight.Text = "Average weight (g): " + selectedTypeSummary[2];
+        labelStdDeviation.Text = "Std deviation (g): " + selectedTypeSummary[5];;
     }
 }

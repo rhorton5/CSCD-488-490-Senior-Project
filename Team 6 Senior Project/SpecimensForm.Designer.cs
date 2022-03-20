@@ -136,9 +136,9 @@ partial class SpecimensForm
             weightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             weightLabel.Location = new System.Drawing.Point(22, 730);
             weightLabel.Name = "weightLabel";
-            weightLabel.Size = new System.Drawing.Size(111, 32);
+            weightLabel.Size = new System.Drawing.Size(152, 32);
             weightLabel.TabIndex = 6;
-            weightLabel.Text = "Weight:";
+            weightLabel.Text = "Weight (g):";
             // 
             // notesLabel
             // 
@@ -706,7 +706,7 @@ partial class SpecimensForm
             // labelTypeName
             // 
             this.labelTypeName.AutoSize = true;
-            this.labelTypeName.Location = new System.Drawing.Point(1280, 711);
+            this.labelTypeName.Location = new System.Drawing.Point(1306, 710);
             this.labelTypeName.Name = "labelTypeName";
             this.labelTypeName.Size = new System.Drawing.Size(119, 30);
             this.labelTypeName.TabIndex = 15;
@@ -715,7 +715,7 @@ partial class SpecimensForm
             // labelTotalCount
             // 
             this.labelTotalCount.AutoSize = true;
-            this.labelTotalCount.Location = new System.Drawing.Point(1278, 748);
+            this.labelTotalCount.Location = new System.Drawing.Point(1306, 750);
             this.labelTotalCount.Name = "labelTotalCount";
             this.labelTotalCount.Size = new System.Drawing.Size(121, 30);
             this.labelTotalCount.TabIndex = 16;
@@ -726,45 +726,45 @@ partial class SpecimensForm
             this.labelTotalWeight.AutoSize = true;
             this.labelTotalWeight.Location = new System.Drawing.Point(1269, 790);
             this.labelTotalWeight.Name = "labelTotalWeight";
-            this.labelTotalWeight.Size = new System.Drawing.Size(130, 30);
+            this.labelTotalWeight.Size = new System.Drawing.Size(160, 30);
             this.labelTotalWeight.TabIndex = 17;
-            this.labelTotalWeight.Text = "Total weight:";
+            this.labelTotalWeight.Text = "Total weight (g):";
             // 
             // labelAverageWeight
             // 
             this.labelAverageWeight.AutoSize = true;
             this.labelAverageWeight.Location = new System.Drawing.Point(1237, 914);
             this.labelAverageWeight.Name = "labelAverageWeight";
-            this.labelAverageWeight.Size = new System.Drawing.Size(162, 30);
+            this.labelAverageWeight.Size = new System.Drawing.Size(192, 30);
             this.labelAverageWeight.TabIndex = 18;
-            this.labelAverageWeight.Text = "Average weight:";
+            this.labelAverageWeight.Text = "Average weight (g):";
             // 
             // labelMinWeight
             // 
             this.labelMinWeight.AutoSize = true;
             this.labelMinWeight.Location = new System.Drawing.Point(1277, 872);
             this.labelMinWeight.Name = "labelMinWeight";
-            this.labelMinWeight.Size = new System.Drawing.Size(122, 30);
+            this.labelMinWeight.Size = new System.Drawing.Size(152, 30);
             this.labelMinWeight.TabIndex = 19;
-            this.labelMinWeight.Text = "Min weight:";
+            this.labelMinWeight.Text = "Min weight (g):";
             // 
             // labelMaxWeight
             // 
             this.labelMaxWeight.AutoSize = true;
             this.labelMaxWeight.Location = new System.Drawing.Point(1273, 830);
             this.labelMaxWeight.Name = "labelMaxWeight";
-            this.labelMaxWeight.Size = new System.Drawing.Size(126, 30);
+            this.labelMaxWeight.Size = new System.Drawing.Size(156, 30);
             this.labelMaxWeight.TabIndex = 20;
-            this.labelMaxWeight.Text = "Max weight:";
+            this.labelMaxWeight.Text = "Max weight (g):";
             // 
             // labelStdDeviation
             // 
             this.labelStdDeviation.AutoSize = true;
             this.labelStdDeviation.Location = new System.Drawing.Point(1261, 953);
             this.labelStdDeviation.Name = "labelStdDeviation";
-            this.labelStdDeviation.Size = new System.Drawing.Size(138, 30);
+            this.labelStdDeviation.Size = new System.Drawing.Size(168, 30);
             this.labelStdDeviation.TabIndex = 21;
-            this.labelStdDeviation.Text = "Std deviation:";
+            this.labelStdDeviation.Text = "Std deviation (g):";
             // 
             // SpecimensForm
             // 
